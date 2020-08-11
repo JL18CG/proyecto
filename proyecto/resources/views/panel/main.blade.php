@@ -58,7 +58,7 @@
                             <div class="card-header">Header</div>
                             <div class="card-body text-info ">
                               <h5 class="card-title">Success card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card´s content.</p>
                             </div>
                           </div>
                     </div>
@@ -68,7 +68,7 @@
                             <div class="card-header">Header</div>
                             <div class="card-body text-info ">
                               <h5 class="card-title">Success card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card´s content.</p>
                             </div>
                           </div>
                     </div>
@@ -78,7 +78,7 @@
                             <div class="card-header">Header</div>
                             <div class="card-body text-info ">
                               <h5 class="card-title">Success card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card´s content.</p>
                             </div>
                           </div>
                     </div>
@@ -94,7 +94,7 @@
 
 
 
-
+w
 
     <script src="https://kit.fontawesome.com/c0c6128a40.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
