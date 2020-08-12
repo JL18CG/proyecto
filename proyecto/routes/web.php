@@ -17,3 +17,24 @@ Route::get('/panel', function () {
     return view('panel.main');
 });
 Route::resource('/user','UserController');
+
+
+/*Noticias*/
+Route::resource('/panel/noticias', 'panel\NoticiaController');
+
+/*Categorias*/
+Route::post('/panel/noticias/categorias', 'panel\NoticiaController@categoria')->name('categoria.post');
+Route::delete('/panel/noticias/categorias/{id}', 'panel\NoticiaController@categoria_delete')->name('categoria.delete');
+Route::put('/panel/noticias/categorias/actualizar/{id}', 'panel\NoticiaController@categoria_update')->name('categoria.update');
+
+
+
+/*
+Route::get('/', function () {
+  
+    App::setLocale('es');
+    $locale = App::getLocale();
+    echo $locale;
+
+});
+*/
