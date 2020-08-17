@@ -1,4 +1,4 @@
-@extends('Panel.master')
+@extends('panel.main')
 @section('content')
 <h1>  Usuarios  </h1>
 <a class="btn btn-success mt-3 mb-3" href="{{route('user.create')}}"> +Crear</a>

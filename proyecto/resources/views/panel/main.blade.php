@@ -23,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a href="#" class="nav-link"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
+                            <a  href="{{ route("user.index") }}"  class="nav-link"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route("noticias.index") }}" class="nav-link"> <i class="mr-1 fa fa-newspaper"></i>Noticias</a>
@@ -71,7 +71,7 @@
    
     
 
-w
+
 
     <script src="https://kit.fontawesome.com/c0c6128a40.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

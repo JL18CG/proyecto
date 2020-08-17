@@ -1,7 +1,7 @@
-@extends('Panel.master')
+@extends('panel.main')
 @section('content')
 
 <form action="{{route("user.store")}}" method="POST">
-@include('Panel.user._form')
+@include('panel.user._form')
 </form>
 @endsection

@@ -18,7 +18,6 @@ Route::get('/panel', function () {
 });
 Route::resource('/user','UserController');
 
-
 /*Noticias*/
 Route::resource('/panel/noticias', 'panel\NoticiaController');
 

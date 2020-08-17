@@ -1,4 +1,4 @@
-@extends('Panel.master')
+@extends('panel.main')
 @section('content')
 <form action="{{route("user.update",$users->id)}}" method="POST">
     @method('PUT')
