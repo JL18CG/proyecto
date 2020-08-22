@@ -12,9 +12,7 @@
     @yield('css')
 </head>
 <body>
-
-
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
      
                 <a class="navbar-brand" href="#!">Panel Administrativo</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +52,6 @@
         
         </nav>
 
-       
     <div class="container">
             
         @include('panel.partials._mensajes_estado')
