@@ -24,7 +24,9 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
         $noticias = Noticia::orderBy('created_at', 'desc')->paginate(10);
         $categorias = Categoria::pluck('id','nombre'); 
-        return view('panel.noticias.index', ['noticias' => $noticias, 'categorias'=>$categorias]);
+
+        $link_noticia ="active";
+        return view('panel.noticias.index', ['noticias' => $noticias, 'categorias'=>$categorias,'link_noticia'=> $link_noticia]);
     }
 
     /**
@@ -38,8 +40,9 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
 
         $categorias = Categoria::pluck('id','nombre');
-        App::setLocale('es');
-        return view('panel.noticias.create', ['noticia' => new Noticia(), 'categorias'=>$categorias]);
+        $link_noticia ="active";
+        $noticia = new Noticia();
+        return view('panel.noticias.create', compact('noticia','categorias','link_noticia'));
     }
 
     /**
@@ -79,7 +82,6 @@ class NoticiaController extends Controller
         $red->save($destino.'/thumbs/'. $filename);
 
         $noticia->categorias()->sync($request->categorías);
-
         return back()->with('status', 'Noticia creada con exito');
     }
 
@@ -106,7 +108,8 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
 
         $categorias = Categoria::pluck('id','nombre');
-        return view('panel.noticias.edit', ['noticia' => $noticia, 'categorias'=>$categorias]);
+        $link_noticia ="active";
+        return view('panel.noticias.edit', ['noticia' => $noticia, 'categorias'=>$categorias, 'link_noticia'=> $link_noticia]);
     }
 
     /**

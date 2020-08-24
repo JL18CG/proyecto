@@ -4,56 +4,58 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Panel | @yield('titulo')</title>
+    <link rel="icon" type="image/png" href="{{ asset("img/iconos/icon.png") }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     {{-- Personalizados --}}
      <link rel="stylesheet" href="{{ asset("css/estilos.css") }}">
     @yield('css')
 </head>
 <body>
-        <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
-     
-                <a class="navbar-brand" href="#!">Panel Administrativo</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a  href="{{ route("user.index") }}"  class="nav-link"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route("noticias.index") }}" class="nav-link"> <i class="mr-1 fa fa-newspaper"></i>Noticias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"> <i class="mr-1 fa fa-address-book"></i>Directorios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"> <i class="mr-1 fa fa-envelope"></i>Quejas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"> <i class="mr-1 fa fa-info-circle"></i>Información</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"> <i class="mr-1 fa fa-camera"></i>Galerías</a>
-                        </li>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-cog"></i> Cuenta 
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Salir  <i class="fa fa-sign-out-alt float-right mt-1"></i></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
         
-        </nav>
+            <a class="navbar-brand" href="#!"><img src="{{ asset("img/logos/nav.png") }}" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a  href="{{ route("user.index") }}"  class="nav-link {{ $active ?? '' }}"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("noticias.index") }}" class="nav-link {{ $link_noticia ?? '' }}"> <i class="mr-1 fa fa-newspaper"></i>Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("directorios.index") }}" class="nav-link {{ $link_directorio ?? '' }}"> <i class="mr-1 fa fa-address-book"></i>Directorios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> <i class="mr-1 fa fa-envelope"></i>Quejas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> <i class="mr-1 fa fa-info-circle"></i>Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> <i class="mr-1 fa fa-camera"></i>Galerías</a>
+                    </li>
 
-    <div class="container">
-            
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog"></i> Cuenta 
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Salir  <i class="fa fa-sign-out-alt float-right mt-1"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container container-2">
+    
         @include('panel.partials._mensajes_estado')
 
         @yield('content')
@@ -61,9 +63,18 @@
         @yield('modals')
     </div>
 
+
+
             
   
-
+    <footer class="footer navbar-light bg-light">
+        <div class="container pt-2 pb-2">
+            <div class="text-center">
+                   <a class="navbar-brand" href="#!"><img src="{{ asset("img/logos/nav-001.png") }}" alt=""></a>
+                   <p>Gobierno Municipal de Casas Grandes <br> 2020 &copy; Todos los Derechos Reservados</p> 
+            </div>
+        </div>
+    </footer>
 
    
     

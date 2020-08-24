@@ -26,6 +26,11 @@ Route::post('/panel/noticias/categorias', 'panel\NoticiaController@categoria')->
 Route::delete('/panel/noticias/categorias/{id}', 'panel\NoticiaController@categoria_delete')->name('categoria.delete');
 Route::put('/panel/noticias/categorias/actualizar/{id}', 'panel\NoticiaController@categoria_update')->name('categoria.update');
 
+/*Directorios*/
+Route::resource('/panel/directorios', 'panel\DirectorioController');
+
+
+
 
 
 /*

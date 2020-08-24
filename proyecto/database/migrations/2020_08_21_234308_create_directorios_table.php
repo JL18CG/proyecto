@@ -15,12 +15,13 @@ class CreateDirectoriosTable extends Migration
     {
         Schema::create('directorios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombres');
-            $table->string('apellidos');
+            $table->string('nombre_completo');
             $table->string('cargo');
-            $table->string('formacion');
+            $table->string('prioridad')->nullable();
             $table->string('tel_contacto');
+            $table->string('ext');
             $table->string('correo_contacto');
+            $table->string('img');
             $table->timestamps();
         });
     }

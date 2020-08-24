@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;900&display=swap');
 
-
+body,html{
+    height:100% !important;
+}
 
 .tabla-w{
     width: 150px !important;
@@ -38,3 +40,7 @@
     color: #ffff !important;
 }
 
+.container-2{
+    min-height:100% !important;
+    margin-top: 66px !important;
+}

@@ -17,7 +17,8 @@ class UserController extends Controller
     public function index()
     {
         $user = User::orderby('created_at','desc')->paginate(10);
-        return view('Panel.user.index',['users' => $user]);
+        $active ="active";
+        return view('Panel.user.index',['users' => $user, 'active'=> $active]);
     }
 
     /**
@@ -27,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('Panel.user.create', ['users'=> new User()]);
+        $active ="active";
+        return view('Panel.user.create', ['users'=> new User(),'active'=> $active]);
     }
 
     /**
@@ -39,7 +41,6 @@ class UserController extends Controller
     public function store(StoreUserPost $request)
     {
         User::create($request->validated());
-
         return back()-> with('status', 'Usuario Creado');
     }
 
@@ -51,7 +52,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('Panel.user.show', ["users" => $user]);
+        $active ="active";
+        return view('Panel.user.show', ["users" => $user, 'active'=> $active]);
     }
 
     /**

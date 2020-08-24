@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Directorio extends Model
 {
     protected $fillable = [
-        'nombres','apellidos','cargo','formacion','tel_contacto','correo_contacto',
+        'nombre_completo','cargo','prioridad','tel_contacto','ext','correo_contacto','img',
     ];
 }

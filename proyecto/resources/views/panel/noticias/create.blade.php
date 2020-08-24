@@ -1,5 +1,5 @@
 @extends('panel.main')
-
+@section('titulo') Noticias @endsection
 @section('content')
 <div>
     <a href="{{ route("noticias.index") }}" type="button" class="btn btn-danger mt-5"><i class="fa fa-arrow-left"></i> Regresar  </a>

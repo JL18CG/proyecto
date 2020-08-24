@@ -1,5 +1,5 @@
 @extends('panel.main')
-
+@section('titulo') Noticias @endsection
 @section('content')
 
 
@@ -36,6 +36,7 @@
                                 <td class="pt-3">{{$noticia->titulo}}</td>
                                 <td class="text-center pt-3">{{   date('d-m-Y H:i:s', strtotime($noticia->created_at)) }}</td>
                                 <td class="text-center"> 
+                                    
                                     <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('noticias.edit',$noticia->id)}}"><i class="fa fa-pen"></i></a>
                                     <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalNoticia" data-nombre="{{ $noticia->titulo }}" data-id="{{ $noticia->id }}"><i class="fa fa-trash"></i></button>
                                 </td>
