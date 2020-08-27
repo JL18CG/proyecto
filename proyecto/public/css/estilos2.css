@@ -1,0 +1,14 @@
+
+html,body{
+    height: 100% !important;
+    width: 100% !important;
+}
+
+
+.logo{
+    background-image: url('../img/logos/nav-02.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 210px;
+}
+

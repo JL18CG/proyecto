@@ -57,10 +57,10 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
 
         $request->validate([
-            'título' =>'required|min:3|max:110',
+            'titulo' =>'required|min:3|max:110',
             'autor' =>'required|min:3|max:50',
             'contenido' =>'required|min:3|max:30000',
-            'categorías'=>'required',
+            'categorias'=>'required',
             'imagen'=>'required|mimes:jpg,jpeg,png|max:1024',
         ]);
         
@@ -69,7 +69,7 @@ class NoticiaController extends Controller
         $path = $request->imagen->move($destino, $filename);
 
         $noticia = Noticia::create([
-            'titulo' =>  $request->título,
+            'titulo' =>  $request->titulo,
             'autor' =>  $request->autor,
             'descripcion' =>  $request->contenido,
             'imagen' =>  $filename
@@ -81,7 +81,7 @@ class NoticiaController extends Controller
         });
         $red->save($destino.'/thumbs/'. $filename);
 
-        $noticia->categorias()->sync($request->categorías);
+        $noticia->categorias()->sync($request->categorias);
         return back()->with('status', 'Noticia creada con exito');
     }
 

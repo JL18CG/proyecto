@@ -1,14 +1,14 @@
 @extends('panel.main')
 @section('titulo') Noticias @endsection
 @section('content')
-<div>
+<div class="pb-5">
     <a href="{{ route("noticias.index") }}" type="button" class="btn btn-danger mt-5"><i class="fa fa-arrow-left"></i> Regresar  </a>
             
-    <form  class="mt-3 mb-5" action="{{ route("noticias.store") }}" method="POST" enctype='multipart/form-data'>
+    <form  class="mt-3 mb-5 pb-2" action="{{ route("noticias.store") }}" method="POST" enctype='multipart/form-data'>
         @csrf
         @include('panel.noticias._form')
     
-        <input type="submit" value="Guardar Datos" class="btn btn-success">
+        <input type="submit" value="Guardar Datos" class="btn btn-success mt-3 float-right">
     </form>
     
 </div>

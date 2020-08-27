@@ -12,7 +12,17 @@
     @yield('css')
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="alert-preloader" id="preloader-page">
+        <div class="d-flex justify-content-center cargar">
+
+            <div class="loader loader-g">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
 
         
@@ -23,39 +33,36 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a  href="{{ route("user.index") }}"  class="nav-link {{ $active ?? '' }}"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
+                        <a  href="{{ route("user.index") }}"  class="nav-link pl-3 pr-3 {{ $active ?? '' }}"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route("noticias.index") }}" class="nav-link {{ $link_noticia ?? '' }}"> <i class="mr-1 fa fa-newspaper"></i>Noticias</a>
+                        <a href="{{ route("noticias.index") }}" class="nav-link pl-3 pr-3 {{ $link_noticia ?? '' }}"> <i class="mr-1 fa fa-newspaper"></i>Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route("directorios.index") }}" class="nav-link {{ $link_directorio ?? '' }}"> <i class="mr-1 fa fa-address-book"></i>Directorios</a>
+                        <a href="{{ route("directorios.index") }}" class="nav-link pl-3 pr-3 {{ $link_directorio ?? '' }}"> <i class="mr-1 fa fa-address-book"></i>Directorios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="mr-1 fa fa-envelope"></i>Quejas</a>
+                        <a href="#" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-bus"></i>Turismo</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="mr-1 fa fa-info-circle"></i>Información</a>
+                        <a href="#" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-file-pdf"></i>Reportes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="mr-1 fa fa-camera"></i>Galerías</a>
+                        <a href="#" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-envelope"></i>Consultas</a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-cog"></i> Cuenta 
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Salir  <i class="fa fa-sign-out-alt float-right mt-1"></i></a>
-                        </div>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link pl-3 pr-3 rounded"> <i class="mr-1 fa fa-sign-out-alt"></i>Salir</a>
                     </li>
+
+                    
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container container-2">
-    
+
         @include('panel.partials._mensajes_estado')
 
         @yield('content')
@@ -64,14 +71,13 @@
     </div>
 
 
-
             
   
-    <footer class="footer navbar-light bg-light">
-        <div class="container pt-2 pb-2">
+    <footer class="footer navbar-light bg-light shadow-sm">
+        <div class="container pt-5 pb-2">
             <div class="text-center">
-                   <a class="navbar-brand" href="#!"><img src="{{ asset("img/logos/nav-001.png") }}" alt=""></a>
-                   <p>Gobierno Municipal de Casas Grandes <br> 2020 &copy; Todos los Derechos Reservados</p> 
+                   <a class=" " href="#!"><img src="{{ asset("img/logos/nav-001.png") }}" alt=""></a>
+                   <p class="mt-5">Gobierno Municipal de Casas Grandes 2020&copy; Todos los Derechos Reservados</p> 
             </div>
         </div>
     </footer>

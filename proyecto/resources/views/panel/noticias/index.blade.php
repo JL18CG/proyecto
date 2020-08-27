@@ -2,9 +2,12 @@
 @section('titulo') Noticias @endsection
 @section('content')
 
+<div class="pt-1 pb-5">
+    <h3 class="h2 d-block pt-2">Panel de Noticias</h3>
+    <hr>
+    <p>Agrega las noticias para que se publique en la página principal.</p>
 
-
-    <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+    <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
         <li class="nav-item ">
         <a class="nav-link {{ (session('active')) ? '' : 'active' }}" id="home-tab" data-toggle="tab" href="#p-noticia" role="tab" aria-controls="p-noticia" aria-selected="true">Registro de Noticias</a>
         </li>
@@ -25,7 +28,7 @@
                         <thead>
                         <tr class="fondo">
                             <th scope="col">Título de la Noticia</th>
-                            <th scope="col" class="text-center">Fecha de Publicación</th>
+                            <th scope="col" class="text-center">Publicación</th>
                             <th scope="col"><div class="text-center tabla-w"><span>Acciones</span></div></th>
                         </tr>
                         </thead>
@@ -33,8 +36,8 @@
             
                         @foreach ($noticias as $noticia)
                         <tr>
-                                <td class="pt-3">{{$noticia->titulo}}</td>
-                                <td class="text-center pt-3">{{   date('d-m-Y H:i:s', strtotime($noticia->created_at)) }}</td>
+                                <td class="pt-3 text-size">{{ Str::limit($noticia->titulo, 100) }}   </td>
+                                <td class="text-center pt-3 text-size">{{   date('d-m-Y H:i:s', strtotime($noticia->created_at)) }}</td>
                                 <td class="text-center"> 
                                     
                                     <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('noticias.edit',$noticia->id)}}"><i class="fa fa-pen"></i></a>
@@ -94,7 +97,7 @@
 
     </div>
 
-
+</div>
 @endsection
 
 

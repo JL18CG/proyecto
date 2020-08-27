@@ -27,3 +27,8 @@ $(document).on("click",function(e) {
 setTimeout(function(){ 
     $( ".alerta" ).fadeOut( "slow",function() { });
 }, 15000);
+
+setTimeout(function(){ 
+    $( "#preloader-page" ).fadeOut( "slow",function() { });
+}, 1200);
+
