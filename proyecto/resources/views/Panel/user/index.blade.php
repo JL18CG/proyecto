@@ -100,19 +100,19 @@
             <div class="mt-3">
                 <div class=" table-responsive ">
                     <table class="table table-hover">
-                        <caption>Lista de Roles Registrados</caption>
+                        <caption>Lista de Auditorías</caption>
                         <thead>
                             <tr class="fondo">
-                                <th scope="col">Usuario</th>
-                                <th scope="col">Descripcion de Actividad</th>
+                                <th scope="col" style="width: 280px">Usuario</th>
+                                <th scope="col" class="text-justify">Descripcion de Actividad</th>
                             </tr>
                         </thead>
                         <tbody>
             
-                        @foreach ($usuarios as $usuario)
+                        @foreach ($auditorias as $auditoria)
                         <tr>
-                                <td class="pt-3 text-size">{{ $usuario->name }}   </td>
-                                <td class="pt-3 text-size text-center">{{ $usuario->rol_id }}   </td>
+                                <td class="pt-3 text-size">{{ $auditoria->user->name}}   </td>
+                                <td class="pt-3 text-size text-justify">{{ $auditoria->descripcion}}   </td>
                         </tr>
                         @endforeach
             

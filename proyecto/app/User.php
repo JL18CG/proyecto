@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Role;
+use App\Auditoria;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -43,7 +44,10 @@ class User extends Authenticatable
         $this->attributes["password"] = Hash::make($value);
     }
 
-
+    public function auditorias()
+    {
+        return $this->hasMany(Auditoria::class);
+    }
     
     public function roles()
     {

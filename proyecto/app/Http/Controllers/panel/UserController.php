@@ -4,6 +4,7 @@ namespace App\Http\Controllers\panel;
 
 use App\Role;
 use App\User;
+use App\Auditoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -23,12 +24,16 @@ class UserController extends Controller
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
 
-        $usuarios = User::orderby('created_at','desc')->paginate(10);
-        $list = Role::orderby('created_at','desc')->paginate(10);
+        $usuarios = User::orderby('created_at','desc')->paginate(15);
+        $list = Role::orderby('created_at','desc')->paginate(15);
         $active ="active";
+        $auditorias = Auditoria::orderby('created_at', 'desc')->paginate(10);
 
 
-        return view('panel.user.index', compact('usuarios','active','list'));
+
+
+
+        return view('panel.user.index', compact('usuarios','active','list','auditorias'));
     }
 
     /**

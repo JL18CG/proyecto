@@ -9,8 +9,6 @@
     <a href="{{ route("directorios.create") }}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
     <div class="row">
 
-        {{-- $directorios --}}
-
         @foreach ($directorios as $directorio)
         <div class="col-md-3 col-sm-6 d-flex justify-content-center mt-2 mb-2">
             <div class="card" style="width: 18rem;">
