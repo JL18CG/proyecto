@@ -24,11 +24,12 @@ class StoreUserPost extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:30', 
-            'level' => 'required|min:3|max:30',
-            'email' => 'required|min:3|max:30',
-            'lastname' => 'required|min:3|max:30',
-            'surname' => 'required|min:3|max:30'
+            'name' => 'required|min:3|max:40', 
+            'apellidos' => 'required|min:3|max:50',
+            'password' => 'required|min:8|max:30',
+            'email' =>'required|email|unique:users',
+            'telefono'=>'required|numeric|digits_between:7,10',
+            'roles'=>'required'
         ];
     }
 }

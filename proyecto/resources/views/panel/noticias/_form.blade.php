@@ -1,7 +1,7 @@
 <div class="row m-reset">
     <div class="form-group col-12 m-table">
             <label for="titulo">Título de la Noticia*</label>
-            <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" id="titulo" value="{{ old('título',$noticia->titulo) }}">
+            <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" id="titulo" value="{{ old('titulo',$noticia->titulo) }}">
             @error('titulo')  <div class="invalid-feedback">Introduce un Título Válido.</div>  @enderror
     </div>
 
@@ -25,7 +25,7 @@
     <label for="img">Cargar Imagen*</label>
     <button type="button" class="ml-3 btn btn-info " id="btn-img"><i class="fa fa-upload mr-1"></i> Seleccionar Archivo</button>
     <input class="form-control  @error('imagen') is-invalid @enderror d-none" type="file" accept="image/*" name="imagen" id="img">
-    @error('imagen')  <div class="invalid-feedback">La Imagen debe ser formato JPG, JGEP o PNG y pesar menos de 1MB.</div>  @enderror
+    @error('imagen')  <div class="invalid-feedback">La Imagen debe ser formato JPG, JPEG o PNG y pesar menos de 1MB.</div>  @enderror
     <div  class="col-12 mt-2">
         <img id="blah"  class="mx-auto d-block img-fluid" src="{{ $noticia->imagen ? asset('web/img/noticias/'.$noticia->imagen) : '' }}" alt="" />
     </div>

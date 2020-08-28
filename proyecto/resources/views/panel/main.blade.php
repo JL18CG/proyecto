@@ -12,7 +12,7 @@
     @yield('css')
 </head>
 <body>
-    <div class="alert-preloader" id="preloader-page">
+    <div class="alert-preloader d-none" id="preloader-page">
         <div class="d-flex justify-content-center cargar">
 
             <div class="loader loader-g">
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a  href="{{ route("user.index") }}"  class="nav-link pl-3 pr-3 {{ $active ?? '' }}"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
+                        <a  href="{{ route("usuarios.index") }}"  class="nav-link pl-3 pr-3 {{ $active ?? '' }}"> <i class="mr-1 fa fa-users-cog"></i>Usuarios</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route("noticias.index") }}" class="nav-link pl-3 pr-3 {{ $link_noticia ?? '' }}"> <i class="mr-1 fa fa-newspaper"></i>Noticias</a>

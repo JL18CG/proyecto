@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/panel', function () {
     return view('panel.main');
 });
-Route::resource('/user','UserController');
+
+/*Usuarios*/
+Route::resource('/panel/usuarios', 'panel\UserController');
+/*Roles*/
+Route::post('/panel/usuarios/roles', 'panel\UserController@role')->name('role.post');
+Route::delete('/panel/usuarios/roles/{id}', 'panel\UserController@role_delete')->name('role.delete');
+Route::put('/panel/usuarios/roles/actualizar/{id}', 'panel\UserController@role_update')->name('role.update');
+
 
 /*Noticias*/
 Route::resource('/panel/noticias', 'panel\NoticiaController');

@@ -12,7 +12,7 @@
         <a class="nav-link {{ (session('active')) ? '' : 'active' }}" id="home-tab" data-toggle="tab" href="#p-noticia" role="tab" aria-controls="p-noticia" aria-selected="true">Registro de Noticias</a>
         </li>
         <li class="nav-item ">
-        <a class="nav-link {{ (session('active')) ? 'active' : '' }}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Registro de Categorías</a>
+        <a class="nav-link {{ (session('active')) ? 'active' : '' }}" id="profile-tab" data-toggle="tab" href="#p-categorias" role="tab" aria-controls="p-categorias" aria-selected="false">Registro de Categorías</a>
         </li>
     </ul>
 
@@ -27,7 +27,7 @@
                         <caption>Lista de Noticias Publicadas</caption>
                         <thead>
                         <tr class="fondo">
-                            <th scope="col">Título de la Noticia</th>
+                            <th scope="col " style="min-width:550px !important;">Título de la Noticia</th>
                             <th scope="col" class="text-center">Publicación</th>
                             <th scope="col"><div class="text-center tabla-w"><span>Acciones</span></div></th>
                         </tr>
@@ -36,7 +36,7 @@
             
                         @foreach ($noticias as $noticia)
                         <tr>
-                                <td class="pt-3 text-size">{{ Str::limit($noticia->titulo, 100) }}   </td>
+                                <td class="pt-3 text-size" >{{ Str::limit($noticia->titulo, 100) }}   </td>
                                 <td class="text-center pt-3 text-size">{{   date('d-m-Y H:i:s', strtotime($noticia->created_at)) }}</td>
                                 <td class="text-center"> 
                                     
@@ -55,7 +55,7 @@
 
         </div>
 
-        <div class="tab-pane fade {{ (session('active')) ? 'active show ' : '' }} " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade {{ (session('active')) ? 'active show ' : '' }} " id="p-categorias" role="tabpanel" aria-labelledby="profile-tab">
 
             <div class="mt-3 mb-3">
                 <button type="button" data-toggle="modal" data-target="#agregarModalCategoria" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </button>
