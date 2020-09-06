@@ -18,7 +18,6 @@
     <input type="text"  class="form-control is-invalid" hidden>
     @error('contenido')  <div class="invalid-feedback mt-2">Introduce un Contenido Válido.</div>  @enderror
     <textarea class="form-control  @error('contenido') form-invalid @enderror" type="text" name="contenido" id="contenido"> {{ old('contenido', $noticia->descripcion) }} </textarea>
-
 </div>
 <hr>
 <div class="form-group col-12 m-table">

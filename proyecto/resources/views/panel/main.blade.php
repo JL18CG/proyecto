@@ -42,7 +42,7 @@
                         <a href="{{ route("directorios.index") }}" class="nav-link pl-3 pr-3 {{ $link_directorio ?? '' }}"> <i class="mr-1 fa fa-address-book"></i>Directorios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-bus"></i>Turismo</a>
+                        <a href="{{ route("turismo.index") }}" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-bus"></i>Turismo</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-file-pdf"></i>Reportes</a>

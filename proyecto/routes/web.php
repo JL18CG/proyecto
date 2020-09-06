@@ -36,9 +36,9 @@ Route::put('/panel/noticias/categorias/actualizar/{id}', 'panel\NoticiaControlle
 /*Directorios*/
 Route::resource('/panel/directorios', 'panel\DirectorioController');
 
-
-
-
+/* Turismo */
+Route::resource('/panel/turismo/sitios', 'panel\SitioController');
+Route::resource('/panel/turismo', 'panel\TurismoController');
 
 /*
 Route::get('/', function () {

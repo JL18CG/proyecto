@@ -20,7 +20,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        App::setLocale('es');
+        App::setLocale('es');   
         date_default_timezone_set('America/Chihuahua');
         $noticias = Noticia::orderBy('created_at', 'desc')->paginate(10);
         $categorias = Categoria::pluck('id','nombre'); 
