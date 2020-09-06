@@ -36,14 +36,9 @@ Route::put('/panel/noticias/categorias/actualizar/{id}', 'panel\NoticiaControlle
 /*Directorios*/
 Route::resource('/panel/directorios', 'panel\DirectorioController');
 
-Route::get('/login', function () {
-    return view('login');
-});
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
+/* Turismo */
+Route::resource('/panel/turismo/sitios', 'panel\SitioController');
+Route::resource('/panel/turismo', 'panel\TurismoController');
 
 /************Página Pública ***********/
 /*Inicio*/
