@@ -36,24 +36,27 @@ Route::put('/panel/noticias/categorias/actualizar/{id}', 'panel\NoticiaControlle
 /*Directorios*/
 Route::resource('/panel/directorios', 'panel\DirectorioController');
 
-
-
-
-
-/*
-Route::get('/', function () {
-  
-    App::setLocale('es');
-    $locale = App::getLocale();
-    echo $locale;
-
-});
-*/
-
-
 Route::get('/login', function () {
     return view('login');
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+/************Página Pública ***********/
+/*Inicio*/
+Route::get('/', 'ppublic\InicioController@index')->name('index.inicio');
+
+
+/*Directorio*/
+Route::get('/directorio', 'ppublic\DirectorioController@index')->name('index.directorio');
+
+
+/*Noticia*/
+Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia');
+
+
+/* */
+Auth::routes();
