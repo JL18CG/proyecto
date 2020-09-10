@@ -211,7 +211,7 @@ class UserController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        $request->validate([ 'nombre' =>'required|unique:roles|min:3|max:110', 'descripcion' => 'required|max:110' ]);
+        $request->validate([ 'nombre' =>'required|unique:roles,token|min:3|max:110', 'descripcion' => 'required|max:110' ]);
         Role::create(['nombre' =>  $request->descripcion, 'token' => $request->nombre]);
         Auditoria::create([
             'user_id' => auth()->user()->id,

@@ -75,7 +75,7 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
 
         $request->validate([
-            'titulo' =>'required|min:3|max:110|unique:directorios,correo_contacto',
+            'titulo' =>'required|min:3|max:110|unique:noticias,titulo',
             'autor' =>'required|min:3|max:50',
             'contenido' =>'required|min:3|max:30000',
             'categorias'=>'required',
@@ -148,8 +148,8 @@ class NoticiaController extends Controller
     public function update(Request $request, Noticia $noticia)
     {
  
-   
-  
+        $url_limpia = CustomUrl::urlTitle(CustomUrl::convertAccentedCharacters($request->titulo), "-", true);
+        dd($url_limpia);
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
         $original_name= $noticia->imagen;
@@ -162,10 +162,12 @@ class NoticiaController extends Controller
             'imagen'=>'mimes:jpg,jpeg,png|max:1024',
         ]);
 
+        
         $res = $request->imagen;
         if($res == null){
             $noticia->update([
                 'titulo' =>  $request->titulo,
+                'url' => $url_limpia,
                 'autor' =>  $request->autor,
                 'descripcion' =>  $request->contenido
             ]);
@@ -180,6 +182,7 @@ class NoticiaController extends Controller
 
             $noticia->update([
                 'titulo' =>  $request->título,
+                'url' => $url_limpia,
                 'autor' =>  $request->autor,
                 'descripcion' =>  $request->contenido,
                 'imagen' =>   $filename

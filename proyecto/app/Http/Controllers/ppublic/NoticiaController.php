@@ -19,4 +19,13 @@ class NoticiaController extends Controller
 
         return view('pagina.noticias.index', compact('noticias'));
     }
+
+
+
+    public function show($url)
+    {
+        dd($url);
+
+
+    }
 }

@@ -52,7 +52,7 @@ Route::get('/directorio', 'ppublic\DirectorioController@index')->name('index.dir
 
 /*Noticia*/
 Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia');
-
+Route::get('/noticias/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
 
 /* */
 
