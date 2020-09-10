@@ -37,8 +37,9 @@ Route::put('/panel/noticias/categorias/actualizar/{id}', 'panel\NoticiaControlle
 Route::resource('/panel/directorios', 'panel\DirectorioController');
 
 /* Turismo */
+Route::get('/panel/turismo', 'panel\SitioController@turismo')->name('turismo.inicio');
 Route::resource('/panel/turismo/sitios', 'panel\SitioController');
-Route::resource('/panel/turismo', 'panel\TurismoController');
+Route::resource('/panel/turismo/eventos', 'panel\EventoController');
 
 /************Página Pública ***********/
 /*Inicio*/
@@ -54,4 +55,7 @@ Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia'
 
 
 /* */
-Auth::routes();
+
+Auth::routes(["register" => false, "reset" => false, ]);
+
+Route::get('/home', 'HomeController@index')->name('home');

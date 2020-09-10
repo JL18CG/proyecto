@@ -9,13 +9,10 @@
 
     <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
         <li class="nav-item ">
-        <a class="nav-link {{ (session('active-rol')) ? '' : 'active' }} " id="home-tab" data-toggle="tab" href="#p-usuarios" role="tab" aria-controls="p-noticia" aria-selected="true">Usuarios</a>
+        <a class="nav-link {{ (session('active-rol')) ? '' : 'active' }} " id="home-tab" data-toggle="tab" href="#p-usuarios" role="tab" aria-controls="p-noticia" aria-selected="true">Usuarios y Auditorías</a>
         </li>
         <li class="nav-item ">
         <a class="nav-link {{ (session('active-rol')) ? 'active' : '  ' }} " id="profile-tab" data-toggle="tab" href="#p-roles" role="tab" aria-controls="profile" aria-selected="false">Registro de Roles</a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link  " id="profile-tab" data-toggle="tab" href="#p-auditoria" role="tab" aria-controls="profile" aria-selected="false">Registro de Auditoría</a>
         </li>
     </ul>
 
@@ -24,7 +21,17 @@
 
         <div class="tab-pane fade {{ (session('active-rol')) ? '' : 'active show' }}" id="p-usuarios" role="tabpanel" aria-labelledby="home-tab">
             <div class="mt-3">
-                <a href="{{ route("usuarios.create") }}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
+                <h3>Registro de Usuarios</h3>
+                <a href="{{ route("usuarios.create") }}" type="button" class="btn btn-success mt-2 mb-2 col-12-xs">Agregar <i class="fa fa-plus"></i> </a>
+                <form action="{{ route('usuarios.index') }}" class="form-inline float-right mt-2">
+                    <select name="created_at" class="form-control mr-3">
+                            <option value="DESC">Descenente</option>
+                            <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
+                    </select>
+                    <input type="text" value="{{request('busqueda')}}" name="busqueda" placeholder="Buscar" class="form-control mr-3">
+
+                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                </form>
                     <div class=" table-responsive ">
                         <table class="table table-hover">
                             <caption>Lista de Usuarios Registrados</caption>
@@ -41,18 +48,24 @@
                 
                             @foreach ($usuarios as $usuario)
                             <tr>
-                                    <td class="pt-3 text-size">{{ $usuario->name }}   </td>
-                                    <td class="pt-3 text-size text-justify">Usuario con Accesos a 
-                                         @foreach ($usuario->roles->pluck('token') as $item)
-                                            {{$item}}
-                                        @endforeach 
-                                        </td>
-                                    <td class="pt-3 text-size text-center">{{ $usuario->email }}   </td>
-                                    <td class="pt-3 text-size text-center ">{{ $usuario->telefono }}   </td>
-                                    <td class="pt-3 text-size">
-                                        <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('usuarios.edit',$usuario->id)}}"><i class="fa fa-pen"></i></a>
-                                        <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalUsuario" data-nombre="{{ $usuario->name }}" data-id="{{ $usuario->id }}"><i class="fa fa-trash"></i></button>
+                                    
+                                @if (auth()->user()->id == $usuario->id)
+                                    
+                                @else
+                                <td class="pt-3 text-size">{{ $usuario->name }}   </td>
+                                <td class="pt-3 text-size text-justify">Usuario con Accesos a 
+                                     @foreach ($usuario->roles->pluck('token') as $item)
+                                        {{$item}}
+                                    @endforeach 
                                     </td>
+                                <td class="pt-3 text-size text-center">{{ $usuario->email }}   </td>
+                                <td class="pt-3 text-size text-center ">{{ $usuario->telefono }}   </td>
+                                <td class="pt-3 text-size">
+                                    <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('usuarios.edit',$usuario->id)}}"><i class="fa fa-pen"></i></a>
+                                    <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalUsuario" data-nombre="{{ $usuario->name }}" data-id="{{ $usuario->id }}"><i class="fa fa-trash"></i></button>
+                                </td>
+                                @endif
+                                   
                                     
                             
                             </tr>
@@ -60,8 +73,61 @@
                 
                             </tbody>
                         </table>
+                        {{ $usuarios->appends(
+                            [
+                                'orden'=> request('created_at'),
+                                'busqueda'=> request('busqueda')
+                            ]
+                            )->links() }}
                     </div>
             </div>
+            <hr>
+            <div class="mt-5">
+                <h3>Registro de Auditorías</h3>
+                <form action="{{ route('usuarios.index') }}" class="form-inline float-right mt-2 mb-2">
+                    <select name="created_at" class="form-control mr-3">
+                            <option value="DESC">Descenente</option>
+                            <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
+                    </select>
+                    <select name="auditoria_usuario" class="form-control mr-3">
+                        <option value="all">-- Seleccionar Usuario --</option>
+                        @foreach ($users as $item)
+                            <option value="{{$item->id}}" id=""  {{request('auditoria_usuario') == $item->id ? "selected": "" }} >{{$item->name}}</option>
+                        @endforeach
+                    </select>
+
+                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                </form>
+
+                <div class=" table-responsive ">
+                    <table class="table table-hover">
+                        <caption>Lista de Auditorías</caption>
+                        <thead>
+                            <tr class="fondo">
+                                <th scope="col" style="width: 280px">Usuario</th>
+                                <th scope="col" class="text-justify">Descripcion de Actividad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                        @foreach ($auditorias as $auditoria)
+                        <tr>
+                                <td class="pt-3 text-size">{{ $auditoria->user->name}}   </td>
+                                <td class="pt-3 text-size text-justify">{{ $auditoria->descripcion}}   </td>
+                        </tr>
+                        @endforeach
+            
+                        </tbody>
+                    </table>
+                    {{ $auditorias->appends(
+                        [
+                            'created_at'=> request('created_at'),
+                            'auditoria_usuario'=> request('auditoria_usuario')
+                        ]
+                        )->links() }}
+                </div>
+            </div>
+
         </div>
 
         <div class="tab-pane fade {{ (session('active-rol')) ? 'active show' : ' ' }}" id="p-roles" role="tabpanel" aria-labelledby="home-tab">
@@ -95,34 +161,6 @@
                     </div>
             </div>
         </div>
-
-        <div class="tab-pane fade" id="p-auditoria" role="tabpanel" aria-labelledby="home-tab">
-            <div class="mt-3">
-                <div class=" table-responsive ">
-                    <table class="table table-hover">
-                        <caption>Lista de Auditorías</caption>
-                        <thead>
-                            <tr class="fondo">
-                                <th scope="col" style="width: 280px">Usuario</th>
-                                <th scope="col" class="text-justify">Descripcion de Actividad</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-            
-                        @foreach ($auditorias as $auditoria)
-                        <tr>
-                                <td class="pt-3 text-size">{{ $auditoria->user->name}}   </td>
-                                <td class="pt-3 text-size text-justify">{{ $auditoria->descripcion}}   </td>
-                        </tr>
-                        @endforeach
-            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
 
     </div>
     

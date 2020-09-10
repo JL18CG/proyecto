@@ -2,7 +2,6 @@
  * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
-CKEDITOR.config.extraPlugins = 'justify';
 
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
@@ -49,6 +48,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.extraPlugins = 'font';
 	
+	config.extraPlugins = 'justify';
 
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.

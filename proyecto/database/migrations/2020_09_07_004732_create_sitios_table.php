@@ -14,14 +14,15 @@ class CreateSitiosTable extends Migration
     public function up()
     {
         Schema::create('sitios', function (Blueprint $table) {
-                $table->id();
-                $table->string('nombre_lugar');
-                $table->string('tipo_lugar');
-                $table->string('ubicacion');
-                $table->string('direccion');
-                $table->string('descripcion');
-                $table->timestamps();
-            });
+            $table->id();
+            $table->string('nombre_lugar');
+            $table->string('tipo_lugar');
+            $table->string('ubicacion');
+            $table->string('direccion');
+            $table->string('descripcion');
+            $table->string('img');
+            $table->timestamps();
+    });
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\panel;
 
 use Image;
+use App\Auditoria;
 use App\Directorio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,13 @@ use App\Http\Controllers\Controller;
 
 class DirectorioController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -94,6 +102,10 @@ class DirectorioController extends Controller
             'img' => $filename 
         ]);
 
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Creó el Directorio "'.$request->cargo.'"'
+        ]);
 
         return back()->with('status', 'Directorio agregado con exito');
     }
@@ -188,6 +200,11 @@ class DirectorioController extends Controller
 
         }
 
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Actualizó el Directorio "'.$request->cargo.'"'
+        ]);
+
         return back()->with('status', 'Directorio actualizado con exito');
     }
 
@@ -205,9 +222,13 @@ class DirectorioController extends Controller
 
         if(file_exists($archivo)){unlink($archivo);}
       
-      
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Eliminó el Directorio "'.$directorio->cargo.'"'
+        ]);
 
         $directorio->delete();
+
 
         return back()->with('status', 'Directorio Eliminado Correctamente');
     }

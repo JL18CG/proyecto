@@ -5,6 +5,7 @@ namespace App\Http\Controllers\panel;
 use App\Role;
 use App\User;
 use App\Auditoria;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -13,27 +14,54 @@ use App\Http\Requests\StoreUserPost;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
 
-        $usuarios = User::orderby('created_at','desc')->paginate(15);
+        $usuarios = User::orderby('created_at', request('created_at','DESC'));
+
+        if($request->has('busqueda')){
+            $usuarios = $usuarios->where('name', 'like', '%'.request('busqueda').'%');  
+        }
+                          
+        $usuarios = $usuarios->paginate(5);
+
+
+        $users = DB::table('users')->select('id', 'name')->get();
         $list = Role::orderby('created_at','desc')->paginate(15);
         $active ="active";
-        $auditorias = Auditoria::orderby('created_at', 'desc')->paginate(10);
+
+        $auditorias = Auditoria::orderby('created_at', request('created_at','DESC'));
+        if($request->has('auditoria_usuario')){
+            if($request->auditoria_usuario == 'all'){
+                
+            }else{
+                $auditorias = $auditorias->where('user_id', '=', request('auditoria_usuario'));  
+            }
+            
+        }
+                          
+        $auditorias = $auditorias->paginate(5);
+       
+
+  
+        
 
 
 
-
-
-        return view('panel.user.index', compact('usuarios','active','list','auditorias'));
+        return view('panel.user.index', compact('usuarios','active','list','auditorias','users'));
     }
 
     /**
@@ -64,9 +92,15 @@ class UserController extends Controller
      */
     public function store(StoreUserPost $request)
     {
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
         $usuario = User::create($request->validated());
         $usuario->roles()->sync($request->roles);
 
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Creó el Usuario "'.$request->name.' '.$request->apellidos.'"'
+        ]);
         return back()-> with('status', 'Usuario Creado');
     }
 
@@ -142,7 +176,10 @@ class UserController extends Controller
         
 
         $usuario->roles()->sync($request->roles);
-
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Actualizó el Usuario "'.$request->name.' '.$request->apellidos.'"'
+        ]);
        return back()-> with('status', 'Usuario Actualizado');
     }
 
@@ -154,8 +191,17 @@ class UserController extends Controller
      */
     public function destroy(User $usuario)
     {
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
         $usuario->roles()->detach();
         $usuario->delete();
+
+        DB::table('auditorias')->where('user_id', '=', $usuario->id)->delete();
+
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Eliminó el Usuario "'.$usuario->name.' '.$usuario->apellidos.'"'
+        ]);
         return back()-> with('status', 'Usuario Eliminado');
     }
 
@@ -167,7 +213,10 @@ class UserController extends Controller
         date_default_timezone_set('America/Chihuahua');
         $request->validate([ 'nombre' =>'required|unique:roles|min:3|max:110', 'descripcion' => 'required|max:110' ]);
         Role::create(['nombre' =>  $request->descripcion, 'token' => $request->nombre]);
-
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Creó el Rol de Usuario "'.$request->nombre.'"'
+        ]);
         return back()->with('status', 'Rol Creado Correctamente')->with('active-rol','list');
     }
     
@@ -177,14 +226,29 @@ class UserController extends Controller
         $categoria = Role::findOrFail($id);
         $request->validate([ 'nombre' =>'required|unique:roles|min:3|max:110', 'descripcion' => 'required|max:110' ]);
         $categoria->update(['nombre' =>  $request->descripcion, 'token' => $request->nombre]);
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Actualizó el Rol de Usuario "'.$categoria->nombre.'"'
+        ]);
         return back()->with('status', 'Rol Actualizado')->with('active-rol','list');
     }
 
 
     public function role_delete($id)
     {
-        $categoria = Role::findOrFail($id)->delete();
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
+        $rol = Role::findOrFail($id);
+        $rol->users()->detach();
+        $rol->delete();
+
         DB::table('role_user')->where('role_id', '=', $id)->delete();
+
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Eliminó el Rol de Usuario "'.$rol->token.'"'
+        ]);
+
         return back()->with('status', 'Rol Eliminado')->with('active-rol','list');
     }
 

@@ -7,4 +7,11 @@ $( document ).ready(function() {
         $( "#preloader-page" ).fadeOut( "slow");
     }, 1200);
     $("#div2").fadeOut("slow");
+
+
+    $("#log-out").click(function (event){
+        event.preventDefault();
+
+        $('#logout-form').submit();
+    });
 });

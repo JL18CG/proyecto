@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers\panel;
 use App\Sitio;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+use App\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
+use Image;
 
 class SitioController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +25,14 @@ class SitioController extends Controller
     {
        // 
     }
-
+    
+    public function turismo(){
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
+        $eventos = Evento::orderBy('created_at', 'desc')->paginate(10);
+        $sitios = Sitio::orderBy('created_at', 'desc')->paginate(10);
+        return view('panel.turismo.index',compact('eventos','sitios'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -40,23 +54,45 @@ class SitioController extends Controller
      */
     public function store(Request $request)
     {
-      
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
+
         $request -> validate([
-            "nombre_lugar" => "required|min:3|max:110",
-            "tipo_lugar" => "required|min:2",
-            "ubicacion" => "required|min:3|max:110",
-            "direccion" => "required|min:3|max:110",
-            "descripcion" => "required|min:3|max:110",          
+            'nombre_lugar' => "required|min:3|max:110",
+            'tipo_lugar' => "required",
+            'ubicacion' => "required|min:3|max:110",
+            'direccion' => "required|min:3|max:110",
+            'descripcion' => "required|min:3|max:110", 
+            'imagen'=>'required|mimes:jpg,jpeg,png|max:1024'        
         ]);
+
+        $filename = time() . "." . $request->imagen->extension();
+        $destino = public_path('web/img/sitios');
+        $path = $request->imagen->move($destino, $filename);
+
         $sitio = Sitio::create([
             'nombre_lugar' =>  $request->nombre_lugar,
             'tipo_lugar' =>  $request->tipo_lugar,
             'ubicacion' =>  $request->ubicacion,
             'direccion' =>  $request->direccion,
-            'descripcion' => $request->descripcion
+            'descripcion' => $request->descripcion,
+            'img'=> $filename       
         ]);
 
-    return back()-> with('status', 'Sitio Creado');
+
+        $red = Image::make( $destino.'/'.$filename);
+        $destino_d = public_path('web/img/sitios');
+        $red->resize(300,null, function($constraint){
+            $constraint->aspectRatio();
+        });
+        $red->save($destino_d.'/thumbs/'. $filename);
+
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Creó el Sitio Turistico "'.$request->nombre_lugar.'"'
+        ]);
+
+        return back()-> with('status', 'Sitio Creado');
     }
 
     /**
@@ -90,9 +126,66 @@ class SitioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sitio $sitio)
     {
-        //
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
+        $original_name= $sitio->img;
+        $request -> validate([
+            'nombre_lugar' => "required|min:3|max:110",
+            'tipo_lugar' => "required",
+            'ubicacion' => "required|min:3|max:110",
+            'direccion' => "required|min:3|max:110",
+            'descripcion' => "required|min:3|max:110", 
+            'imagen'=>'mimes:jpg,jpeg,png|max:1024'        
+        ]);
+
+
+        $res = $request->imagen;
+        if($res == null){
+            $sitio->update([
+                'nombre_lugar' =>  $request->nombre_lugar,
+                'tipo_lugar' =>  $request->tipo_lugar,
+                'ubicacion' =>  $request->ubicacion,
+                'direccion' =>  $request->direccion,
+                'descripcion' => $request->descripcion,
+ 
+            ]);
+        }else{
+            $filename = time() . "." . $request->imagen->extension();
+            $destino = public_path('web/img/sitios');
+            $destino_thumbs = public_path('web/img/sitios');
+            $request->imagen->move($destino, $filename);
+            $red = Image::make( $destino_thumbs.'/'.$filename);
+            $red->resize(300,null, function($constraint){$constraint->aspectRatio();});
+            $red->save($destino.'/thumbs/'. $filename);
+
+            $sitio->update([
+                'nombre_lugar' =>  $request->nombre_lugar,
+                'tipo_lugar' =>  $request->tipo_lugar,
+                'ubicacion' =>  $request->ubicacion,
+                'direccion' =>  $request->direccion,
+                'descripcion' => $request->descripcion,
+                'img'=> $filename   
+            ]);
+
+            $archivo = public_path('web/img/sitios/'.$original_name);
+            $archivo_thumbs = public_path('web/img/sitios/thumbs/'.$original_name);
+            if(file_exists($archivo)) unlink($archivo);
+            if(file_exists($archivo_thumbs))unlink($archivo_thumbs);
+
+
+
+
+
+        }
+
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Actualizó el Sitio Turistico "'.$request->nombre_lugar.'"'
+        ]);
+
+        return back()-> with('status', 'Evento editado');
     }
 
     /**
@@ -105,6 +198,12 @@ class SitioController extends Controller
     {
         $sitio = Sitio::findOrFail($id);
         DB::table('sitios')->where('id', '=', $id)->delete();
+
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Actualizó el Sitio Turistico "'.$sitio->nombre_lugar.'"'
+        ]);
+
         return back()->with('status', 'Sitio Eliminado Correctamente');
     }
 }

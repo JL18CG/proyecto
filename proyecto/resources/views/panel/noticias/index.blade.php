@@ -21,7 +21,18 @@
 
             <div class="mt-3">
                 <a href="{{ route("noticias.create") }}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
-                
+                <form action="{{ route('noticias.index') }}" class="form-inline float-right mt-2">
+           
+                        <select name="created_at" class="form-control mr-3">
+                            <option value="DESC">Descenente</option>
+                            <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
+                    </select>
+                    <input type="text" value="{{request('busqueda')}}" name="busqueda" placeholder="Buscar" class="form-control mr-3" style="min-width: 500px">
+
+                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+             
+                    
+                </form>
                 <div class=" table-responsive ">
                     <table class="table table-hover">
                         <caption>Lista de Noticias Publicadas</caption>
@@ -49,6 +60,13 @@
             
                         </tbody>
                     </table>
+
+                    {{ $noticias->appends(
+                        [
+                            'created_at'=> request('created_at'),
+                            'busqueda'=> request('busqueda')
+                        ]
+                        )->links() }}
                 </div>
             </div>
             

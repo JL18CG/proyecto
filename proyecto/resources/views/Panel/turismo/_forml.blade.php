@@ -13,14 +13,14 @@
                 <option value="v3">Valor 3</option>
                 <option value="v4">Valor 4</option>
               </select>
-            @error('tipo_lugar')  <div class="invalid-feedback">Introduce un Tipo de Lugar Válido.</div>  @enderror
+            @error('tipo_lugar')  <div class="invalid-feedback">Selecciona un Tipo de Lugar Válido.</div>  @enderror
     </div>
     <hr>
     <div class="form-group col-8">
         <label for="ubicacion">Ubicacion</label>
         <input type="text"  class="form-control is-invalid" hidden>
-        <input class="form-control  @error('ubicacion') form-invalid @enderror" type="text" name="ubicacion" id="ubicacion"> {{ old('ubicacion', $sitio->ubicacion) }} 
-        @error('ubicacion')  <div class="invalid-feedback mt-2">Introduce un Contenido Válido.</div>  @enderror
+        <input class="form-control  @error('ubicacion') form-invalid @enderror" type="text" name="ubicacion" id="ubicacion" value="{{ old('ubicacion', $sitio->ubicacion) }} "> 
+        @error('ubicacion')  <div class="invalid-feedback mt-2">Introduce una Ubicación Válida.</div>  @enderror
     </div>
     <hr>
 <div class="form-group col-4">
@@ -31,7 +31,20 @@
 
 <div class="form-group col-12">
 <label for="descripcion">Descripcion*</label>
-<textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion" value="{{ old('descripcion',$sitio->descripcion) }}"></textarea>
-@error('descripcion')  <div class="invalid-feedback">Introduce un Lugar Válido.</div>  @enderror
+<textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion"> {{ old('descripcion',$sitio->descripcion) }} </textarea>
+@error('descripcion')  <div class="invalid-feedback">Introduce un Descipción Válida.</div>  @enderror
 </div>
+</div>
+
+
+<hr>
+
+<div class="form-group col-12 m-table">
+    <label for="img">Cargar Imagen*</label>
+    <button type="button" class="ml-3 btn btn-info " id="btn-img-s"><i class="fa fa-upload mr-1"></i> Seleccionar Archivo</button>
+    <input class="form-control  @error('imagen') is-invalid @enderror d-none" type="file" accept="image/*" name="imagen" id="img-s">
+    @error('imagen')  <div class="invalid-feedback">La Imagen debe ser formato JPG, JPEG o PNG y pesar menos de 1MB.</div>  @enderror
+    <div  class="col-12 mt-2">
+        <img id="prev-sitio"  class="mx-auto d-block img-fluid" src="{{ $sitio->img ? asset('web/img/sitios/'.$sitio->img) : '' }}" alt="" />
+    </div>
 </div>

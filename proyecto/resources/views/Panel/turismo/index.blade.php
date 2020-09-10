@@ -20,29 +20,29 @@
         <div class="tab-pane fade {{ (session('active')) ? '' : 'active show ' }} " id="p-noticia" role="tabpanel" aria-labelledby="home-tab">
 
             <div class="mt-3">
-                <a href="{{route('turismo.create')}}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
+                <a href="{{route('eventos.create')}}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
                 
                 <div class=" table-responsive ">
                     <table class="table table-hover">
                         <caption>Listas de Eventos y Sitios Publicados</caption>
                         <thead>
                         <tr class="fondo">
-                            <th scope="col " style="min-width:550px !important;">título del Evento</th>
-                            <th scope="col " class="text-center">Publicación</th>
-                            <th scope="col " class="text-center">Fecha</th>
+                            <th scope="col " style="min-width:550px !important;">Título del Evento</th>
+                            <th scope="col " class="text-center">Fecha y Hora</th>
+                            <th scope="col " class="text-center">Publicado</th>
                             <th scope="col "><div class="text-center tabla-w"><span>Acciones</span></div></th>
                         </tr>
                         </thead>
                         <tbody>
                             
-                            @foreach ($turismos as $turismo)
+                            @foreach ($eventos as $evento)
                             <tr>
-                                    <td class="pt-3 text-size">{{ $turismo->titulo }}   </td>
-                                    <td class="pt-3 text-size text-center">{{ $turismo->created_at }}   </td>
-                                    <td class="pt-3 text-size text-center ">{{ $turismo->fecha }}   </td>
+                                    <td class="pt-3 text-size">{{ $evento->titulo }}   </td>
+                                    <td class="pt-3 text-size text-center">{{ $evento->created_at }}  </td>
+                                    <td class="pt-3 text-size text-center ">{{ $evento->fecha }}   </td>
                                     <td class="pt-3 text-size">
-                                        <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('turismo.edit',$turismo->id)}}"><i class="fa fa-pen"></i></a>
-                                        <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalTurismo" data-nombre="{{ $turismo->titulo }}" data-id="{{ $turismo->id }}"><i class="fa fa-trash"></i></button>
+                                        <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('eventos.edit',$evento->id)}}"><i class="fa fa-pen"></i></a>
+                                        <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteEvento" data-nombre="{{ $evento->titulo }}" data-id="{{ $evento->id }}"><i class="fa fa-trash"></i></button>
                                     </td>
                                     
                             
@@ -61,9 +61,9 @@
 
         <div class="tab-pane fade {{ (session('active')) ? 'active show ' : '' }} " id="p-lugares" role="tabpanel" aria-labelledby="profile-tab">
 
-            <div class="">
+            <div class="mt-3">
                 <a href="{{route('sitios.create')}}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
-                <div class="col-xs-12 col-md-6 col-lg-6 m-table">
+                <div class="col-12 m-table">
                     <div class="table-responsive">
                         <table class="table table-hover ">
                             <caption>Lista de Categorías Registradas</caption>
@@ -71,7 +71,6 @@
                             <tr class="fondo">
                                 <th scope="col style="min-width:550px !important;"">Nombre del Lugar</th>
                                 <th scope="col">Tipo del lugar</th>
-                                <th scope="col">Creacion</th>
                                 <th scope="col"><div class="text-center tabla-w"><span>Acciones</span></div></th>
                             </tr>
                             </thead>
@@ -80,7 +79,6 @@
                                 <tr>
                                         <td class="pt-3 text-size">{{ $sitio->nombre_lugar }}   </td>
                                         <td class="pt-3 text-size text-center ">{{ $sitio->tipo_lugar }}   </td>
-                                        <td class="pt-3 text-size text-center">{{ $sitio->created_at }}   </td>
                                         <td class="pt-3 text-size">
                                             <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('sitios.edit',$sitio->id)}}"><i class="fa fa-pen"></i></a>
                                             <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalLugar" data-nombre="{{ $sitio->nombre_lugar }}" data-id="{{ $sitio->id }}"><i class="fa fa-trash"></i></button>
@@ -140,7 +138,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade mt-5"  id="deleteModalTurismo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade mt-5"  id="deleteEvento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-5 "  role="document">
         <div class="modal-content  mt-5" >
             <div class="modal-header" >
@@ -157,8 +155,8 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
-                <form id="formDelete" method="POST" action="{{route('turismo.destroy',0)}}"
-                    data-action="{{route('turismo.destroy',0)}}">
+                <form id="formDelete-evt" method="POST" action="{{route('eventos.destroy',0)}}"
+                    data-action="{{route('eventos.destroy',0)}}">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-outline-danger">Borrar</button>
@@ -178,14 +176,14 @@
 <script>
 window.onload = function (){
 
-        $('#deleteModalTurismo').on('show.bs.modal', function (event) {
+        $('#deleteEvento').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var nombre = button.data('nombre') 
         var id = button.data('id') 
-        action = $('#formDelete').attr('data-action').slice(0,-1);
+        action = $('#formDelete-evt').attr('data-action').slice(0,-1);
         action += id
         console.log(action)
-        $('#formDelete').attr('action',action);
+        $('#formDelete-evt').attr('action',action);
 
         var modal = $(this);
         modal.find('.modal-body >p> small >strong').text("( "+nombre+" )");
