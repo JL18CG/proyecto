@@ -31,7 +31,8 @@ class SitioController extends Controller
         date_default_timezone_set('America/Chihuahua');
         $eventos = Evento::orderBy('created_at', 'desc')->paginate(10);
         $sitios = Sitio::orderBy('created_at', 'desc')->paginate(10);
-        return view('panel.turismo.index',compact('eventos','sitios'));
+        $link_turismo='active';
+        return view('panel.turismo.index',compact('eventos','sitios','link_turismo'));
     }
     /**
      * Show the form for creating a new resource.

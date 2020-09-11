@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Reporte extends Model
 {
     protected $fillable = [
-        'tipo','titulo','archivo',
+        'tipo','titulo','archivo','clas_reporte'
     ];
 }

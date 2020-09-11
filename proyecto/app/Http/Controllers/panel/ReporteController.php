@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\panel;
 
-use App\Http\Controllers\Controller;
+use App\Reporte;
+use App\Auditoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ReporteController extends Controller
 {
@@ -17,11 +22,17 @@ class ReporteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua'); 
-        return view('panel.reporte.index');
+
+        $reportes = DB::table('reportes')->select('id','tipo','titulo','archivo','created_at')
+        ->orderBy('created_at','ASC')->paginate(12);
+
+
+        $link_reportes= "active";
+        return view('panel.reportes.index', compact('link_reportes','reportes'));
     }
 
     /**
@@ -33,6 +44,8 @@ class ReporteController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
+        $reporte = new Reporte();
+        return view('panel.reportes.create',compact('reporte'));
     }
 
     /**
@@ -43,7 +56,45 @@ class ReporteController extends Controller
      */
     public function store(Request $request)
     {
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
+
+  
+        $request->validate([
+            'reporte' =>'required',
+            'clasificacion' =>'required',
+            'nombre' =>'required|min:3|max:70',
+            'pdf'=>'required',
+        ]);
+
+  
+
       
+        $ext = $request->pdf->getClientOriginalExtension();
+        $ldate = "reporte".date('Y_m_d_H_i_s').'.'.$ext;
+        $path = $request->file('pdf')->storeAs(
+            'public/reportes', $ldate
+        );
+
+
+
+       $reporte= Reporte::create([
+            'tipo' =>  $request->reporte,
+            'clas_reporte' =>  $request->clasificacion,
+            'titulo' => $request->nombre,
+            'archivo' =>  $ldate
+        ]);
+
+     
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Añadió en Reportes el Archivo "'.$request->nombre.'"'
+        ]);
+
+
+
+
+        return back()->with('status', 'Reporte Registrado Correctamente');
     }
 
     /**
@@ -91,5 +142,15 @@ class ReporteController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
+
+
+        $archivo = storage_path('app/public/reportes/reporte2020_09_10_16_51_52.pdf');
+
+
+        if(file_exists($archivo)){
+            unlink($archivo);      
+        }
+
+        
     }
 }
