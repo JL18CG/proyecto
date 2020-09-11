@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\Storage;
+
 
 class ReporteController extends Controller
 {
@@ -27,7 +29,7 @@ class ReporteController extends Controller
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua'); 
 
-        $reportes = DB::table('reportes')->select('id','tipo','titulo','archivo','created_at')
+        $reportes = DB::table('reportes')->select('id','tipo','titulo','archivo','clas_reporte','created_at')
         ->orderBy('created_at','ASC')->paginate(12);
 
 
@@ -71,7 +73,7 @@ class ReporteController extends Controller
 
       
         $ext = $request->pdf->getClientOriginalExtension();
-        $ldate = "reporte".date('Y_m_d_H_i_s').'.'.$ext;
+        $ldate = "reporte_".date('Y_m_d_H_i_s').'.'.$ext;
         $path = $request->file('pdf')->storeAs(
             'public/reportes', $ldate
         );
@@ -114,9 +116,12 @@ class ReporteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Reporte $reporte)
     {
-        
+        App::setLocale('es');
+        date_default_timezone_set('America/Chihuahua');
+
+        return view('panel.reportes.edit', compact('reporte'));
     }
 
     /**
@@ -126,10 +131,52 @@ class ReporteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reporte $reporte)
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
+
+
+
+        $request->validate([
+            'reporte' =>'required',
+            'clasificacion' =>'required',
+            'nombre' =>'required|min:3|max:70',
+        ]);
+
+
+        if($request->pdf == null){
+            $reporte->update([
+                'tipo' =>  $request->reporte,
+                'clas_reporte' =>  $request->clasificacion,
+                'titulo' => $request->nombre
+            ]);
+        }else{
+
+            $archivo = storage_path('app/public/reportes/'.$reporte->archivo);
+            if(file_exists($archivo)){
+                unlink($archivo);      
+            }
+
+
+            $ext = $request->pdf->getClientOriginalExtension();
+            $ldate = "reporte_".date('Y_m_d_H_i_s').'.'.$ext;
+            $path = $request->file('pdf')->storeAs(
+            'public/reportes', $ldate
+            );
+
+
+            $reporte->update([
+                'tipo' =>  $request->reporte,
+                'clas_reporte' =>  $request->clasificacion,
+                'titulo' => $request->nombre,
+                'archivo' =>  $ldate
+            ]);
+        }
+
+
+
+        return back()->with('status', 'Reporte Actualizado Correctamente');
     }
 
     /**
@@ -138,19 +185,26 @@ class ReporteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reporte $reporte)
     {
+        
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
 
-
-        $archivo = storage_path('app/public/reportes/reporte2020_09_10_16_51_52.pdf');
+        $archivo = storage_path('app/public/reportes/'.$reporte->archivo);
 
 
         if(file_exists($archivo)){
             unlink($archivo);      
         }
 
+        $reporte->delete();
+        return back()->with('status', 'Reporte Eliminado Correctamente');
         
+    }
+
+    public function pdfDowload($archivo){
+        return Storage::download('public/reportes/'.$archivo);
+
     }
 }

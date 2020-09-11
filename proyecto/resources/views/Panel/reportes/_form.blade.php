@@ -2,17 +2,17 @@
     <div class="form-group col-4">
             <label for="tipo-rep">Selecciona el Tipo de Reporte*</label>
             <select class="form-control" id="tipo-rep" name="reporte">
-                <option value="general" >Reporte General</option>
-                <option value="sevac">Reporte SEVAC</option>
+                <option {{ $reporte->tipo == "general" ? 'selected' :'' }} value="general" >Reporte General</option>
+                <option {{ $reporte->tipo == "sevac" ? 'selected' :'' }}  value="sevac">Reporte SEVAC</option>
             </select>
     </div>
 
     <div class="form-group col-4">
             <label for="tipo-rep">Selecciona la Categoría del Reporte*</label>
             <select class="form-control" id="cat-rep" name="clasificacion">
-                <option value="mensual" >Reporte Mensual</option>
-                <option value="trimestral">Reporte Trimestral</option>
-                <option value="anual" >Reporte Anual</option>
+                <option {{ $reporte->clas_reporte == "mensual" ? 'selected' :'' }}  value="mensual" >Reporte Mensual</option>
+                <option {{ $reporte->clas_reporte == "trimestral" ? 'selected' :'' }}  value="trimestral">Reporte Trimestral</option>
+                <option {{ $reporte->clas_reporte == "anual" ? 'selected' :'' }}  value="anual" >Reporte Anual</option>
             </select>
     </div>
 
@@ -30,8 +30,8 @@
         <button type="button" class="ml-3 btn btn-info " id="btn-pdf"><i class="fa fa-upload mr-1"></i> Seleccionar Archivo</button>
         <input class="form-control  @error('pdf') is-invalid @enderror d-none" type="file" accept="application/pdf" name="pdf" id="pdf">
         @error('pdf')  <div class="invalid-feedback">Formato PDF y Peso Menor de 5mb Obligatorio.</div>  @enderror
-         <div  class="col-12 mt-2 pdf-v-p {{ $reporte->imagen ? : 'd-none'}}">
-            <iframe  id="pdf-view" src ="{{  $reporte->imagen ? asset('web/docs/reps/carta.pdf') : '' }}" class="col-12" height="500px"></iframe>
+         <div  class="col-12 mt-2 pdf-v-p {{ $reporte->archivo ? : 'd-none'}}">
+            <iframe  id="pdf-view" src ="{{  $reporte->archivo ? asset('storage/reportes/'.$reporte->archivo) : '' }}" class="col-12" height="500px"></iframe>
         </div>
     </div>
 </div>

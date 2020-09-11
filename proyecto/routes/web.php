@@ -44,7 +44,7 @@ Route::resource('/panel/turismo/eventos', 'panel\EventoController')->except(['in
 
 /** Reportes  */
 Route::resource('/panel/reportes', 'panel\ReporteController')->except(['show']);
-
+Route::get('/panel/reportes/{archivo}', 'panel\ReporteController@pdfDowload')->name('pdf.dowload');
 
 
 

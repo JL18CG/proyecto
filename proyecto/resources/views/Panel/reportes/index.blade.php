@@ -27,6 +27,7 @@
                 <tr class="fondo">
                     <th scope="col " style="min-width:550px !important;">Nombre del Archivo</th>
                     <th scope="col" class="text-center">Tipo</th>
+                    <th scope="col" class="text-center">Clasificación</th>
                     <th scope="col" class="text-center">Publicación</th>
                     <th scope="col"><div class="text-center tabla-w"><span>Acciones</span></div></th>
                 </tr>
@@ -35,12 +36,15 @@
     
                 @foreach ($reportes as $reporte)
                 <tr>
-                        <td class="pt-3 text-size" >{{ Str::limit($reporte->titulo, 100) }}   </td>
+                        <td class="pt-3 text-size" >{{ $reporte->titulo }}</td>
+                        <td class="pt-3 text-size" >{{ $reporte->tipo }}</td>
+                        <td class="pt-3 text-size" >{{ $reporte->clas_reporte }}</td>
                         <td class="text-center pt-3 text-size">{{   date('d-m-Y H:i:s', strtotime($reporte->created_at)) }}</td>
                         <td class="text-center"> 
                             
-                            <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('noticias.edit',$reporte->id)}}"><i class="fa fa-pen"></i></a>
-                            <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalNoticia" data-nombre="{{ $reporte->titulo }}" data-id="{{ $reporte->id }}"><i class="fa fa-trash"></i></button>
+                            <a class="btn btn-outline-success ml-2 mr-2 " href="{{route('pdf.dowload',$reporte->archivo)}}"><i class="fa fa-download"></i></a>
+                            <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('reportes.edit',$reporte->id)}}"><i class="fa fa-pen"></i></a>
+                            <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalReporte" data-nombre="{{ $reporte->titulo }}" data-id="{{ $reporte->id }}"><i class="fa fa-trash"></i></button>
                         </td>
                 
                 </tr>
@@ -60,4 +64,66 @@
 
 </div>
    
+@endsection
+
+
+
+@section('modals')
+<div class="modal fade mt-5"  id="deleteModalReporte" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog mt-5 "  role="document">
+        <div class="modal-content  mt-5" >
+            <div class="modal-header" >
+                <h5 class="modal-title " id="modalLabel"><i class="fa fa-exclamation-triangle text-danger mr-2"></i> Advertencia</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body  mt-3">
+                <p class="w-100 text-justify">Esta acción borrará el registro y todos los archivos relacionados con el mismo, de forma permanente
+                <br>
+                <small><strong></strong></small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
+                <form id="formDeleteReporte" method="POST" action="{{ route('reportes.destroy',0) }}"
+                    data-action="{{ route('reportes.destroy',0) }}">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@endsection
+
+
+
+@section('scripts')
+<script>
+window.onload = function (){
+
+        $('#deleteModalReporte').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var nombre = button.data('nombre') 
+        var id = button.data('id') 
+        action = $('#formDeleteReporte').attr('data-action').slice(0,-1);
+        action += id
+        console.log(action)
+        $('#formDeleteReporte').attr('action',action);
+
+        var modal = $(this);
+        modal.find('.modal-body >p> small >strong').text("( "+nombre+" )");
+        });
+
+        
+    }
+</script>
+
 @endsection
