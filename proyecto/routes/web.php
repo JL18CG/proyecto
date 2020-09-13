@@ -69,12 +69,18 @@ Route::get('/directorio', 'ppublic\DirectorioController@index')->name('index.dir
 /*Noticia*/
 Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia');
 Route::get('/noticias/categorias/{url}', 'ppublic\NoticiaController@categoria_busqueda')->name('index.categoria_busqueda');
-
-
-
 Route::get('/noticias/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
 
-/* */
+
+/*Transparencia*/
+Route::get('/transparencia', function () {
+    return view('pagina.transparencia.index');
+})->name('transparencia.index');
+
+
+
+
+
 
 Auth::routes(["register" => false, "reset" => false, ]);
 

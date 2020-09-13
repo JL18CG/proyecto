@@ -12,14 +12,14 @@
                     Ayuntamiento
                   </a>
                     <div class="dropdown-menu dropdown-menu-right animate slideIn mt-4" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Direcotrios</a>
+                      <a class="dropdown-item" href="{{route('index.directorio')}}">Direcotrios</a>
                       <a class="dropdown-item" href="#">Tesorería</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Reportes Ciudadanos</a>
                     </div>
                   </li>
 
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Transparencia</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger @yield('link_t')"" href="{{route('transparencia.index')}}">Transparencia</a></li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
