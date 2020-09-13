@@ -8,6 +8,9 @@
         <title>Pagina</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
@@ -17,12 +20,12 @@
         <link rel="stylesheet" href="{{ asset("css/normalize.css") }}">
         <link rel="stylesheet" href="{{ asset("css/estilos-main-01.css") }}">
         <link rel="stylesheet" href="{{ asset("css/custom.css") }}">
+        <link rel="stylesheet" href="{{ asset("css/custom-sec.css") }}">
     </head>
     <body id="page-top">
         <!-- Navigation-->
         @include('pagina.partials.nav')
-        <!-- Masthead-->
-        @include('pagina.partials.header')
+
        
         <div class="container container-main">
             @yield('content')
@@ -39,6 +42,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{{ asset("js/js-main-01.js") }}"> </script>
+        <script src="{{ asset("js/js-main-02.js") }}"> </script>
     </body>
 </html>

@@ -1,0 +1,19 @@
+a div label:hover{
+    color:blue !important;
+}
+
+
+.container-main{
+    min-height: 100vh !important;
+    margin-top: 96px !important;
+}
+
+a.categoria{
+    color: black !important;
+}
+
+
+a.categoria:hover{
+    color: gray !important;
+    text-decoration: none;
+}

@@ -18,7 +18,7 @@
             <img class="card-img-top" src="{{asset('web/img/noticias/thumbs/'.$noticia->imagen)}}" alt="Card image cap">
               <div class="card-body">
                 <h2 class="card-title">{{$noticia->titulo}}</h2>
-                  <p class="card-text">{!!Str::limit($noticia->descripcion, 150)!!}</p>
+                <p class="card-text"> {!! Str::limit($noticia->descripcion,150) !!} </p>
                 <a href="{{route('show.noticia', $noticia->url)}}" class="btn btn-primary">Leer Nota Completa <i class="fa fa-arrow-right ml-2"></i></a>
               </div>
               <div class="card-footer text-muted">
@@ -78,7 +78,7 @@
               <ul class="list-unstyled mb-0 row text-center">
                 @foreach ($categorias as $categoria)
                 <li class="col-6">
-                  <a href="{{ route('index.categoria_busqueda', $categoria->url) }}" class="categoria">{{$categoria->nombre}}</a>
+                  <a href="{{ route('index.categoria_busqueda', $categoria->url) }}">{{$categoria->nombre}}</a>
                 </li>
                 @endforeach
               </ul>

@@ -97,7 +97,7 @@ class NoticiaController extends Controller
 
 
         $red = Image::make( $destino.'/'.$filename);
-        $red->resize(300,null, function($constraint){
+        $red->resize(500,null, function($constraint){
             $constraint->aspectRatio();
         });
         $red->save($destino.'/thumbs/'. $filename);
@@ -149,7 +149,7 @@ class NoticiaController extends Controller
     {
  
         $url_limpia = CustomUrl::urlTitle(CustomUrl::convertAccentedCharacters($request->titulo), "-", true);
-        dd($url_limpia);
+
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
         $original_name= $noticia->imagen;
@@ -177,7 +177,7 @@ class NoticiaController extends Controller
             $destino_thumbs = public_path('web/img/noticias');
             $request->imagen->move($destino, $filename);
             $red = Image::make( $destino_thumbs.'/'.$filename);
-            $red->resize(300,null, function($constraint){$constraint->aspectRatio();});
+            $red->resize(500,null, function($constraint){$constraint->aspectRatio();});
             $red->save($destino.'/thumbs/'. $filename);
 
             $noticia->update([

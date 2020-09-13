@@ -174,6 +174,10 @@ class ReporteController extends Controller
             ]);
         }
 
+        Auditoria::create([
+            'user_id' => auth()->user()->id,
+            'descripcion' => 'Actualizó en Reportes el Archivo "'.$request->nombre.'"'
+        ]);
 
 
         return back()->with('status', 'Reporte Actualizado Correctamente');

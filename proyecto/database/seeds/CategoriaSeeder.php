@@ -16,7 +16,8 @@ class CategoriaSeeder extends Seeder
    
             for($i = 1; $i<=10; $i++){
                 Categoria::create([
-                    'nombre' => "Categoría".$i
+                    'nombre' => "Categoría".$i,
+                    'url' => "categoria_".$i
                 ]);
             }
     }
