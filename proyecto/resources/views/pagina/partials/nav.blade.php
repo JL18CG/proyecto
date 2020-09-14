@@ -13,7 +13,7 @@
                   </a>
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item " href="{{route('index.directorio')}}">Direcotrio</a>
-                      <a class="dropdown-item" href="#">Tesorería</a>
+                      <a class="dropdown-item" href="{{route('tesoreria.index')}}">Tesorería</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Reportes Ciudadanos</a>
                     </div>

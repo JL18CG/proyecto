@@ -72,6 +72,14 @@ Route::get('/noticias/categorias/{url}', 'ppublic\NoticiaController@categoria_bu
 Route::get('/noticias/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
 
 
+/* Tesorería */
+/*Route::get('/tesoreria', 'ppublic\TesoreriaController@index')->name('tesoreria.index');*/
+
+Route::get('/tesoreria', function () {
+    return view('pagina.tesoreria.index');
+})->name('tesoreria.index');
+
+
 /*Transparencia*/
 Route::get('/transparencia', function () {
     return view('pagina.transparencia.index');

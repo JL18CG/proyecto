@@ -1,7 +1,7 @@
 <footer class="bg-light pt-5">
     <div class="container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-4 text-center">
                         <img class="" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-original.png") }}" height="90px" alt="">
@@ -14,7 +14,7 @@
                     </div>    
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <p class="text-center">Información de Contacto</p>
                 <div class="row">
                     <div class="col-6">

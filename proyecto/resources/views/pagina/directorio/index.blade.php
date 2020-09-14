@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="col">
+<div class="row">
     <div class="col-12 mb-5">
         <h3 class="my-4">Directorio</h3>
         <hr>
@@ -24,21 +24,22 @@
         <hr>
         @endif
     </div>
-    <div class="row mb-5">
-        @foreach ($directorios as $directorio)
-        <div class="card bg-light mx-auto mb-5 mt-5 card-directorios">
-            <img class="card-img-top" src="{{ asset('web/img/directorio/'.$directorio->img)}}" alt="Card image cap">
-            <div class="card-header text-center card-pres ">{{$directorio->cargo}}</div>
-            <div class="card-body">
-              <h5 class="card-title text-center dir-nombre">{{$directorio->nombre_completo}}</h5>
-              {{-- <p class="card-text text-center">{{$directorio->tel_contacto}} @if ($directorio->ext != null) ext {{$directorio->ext}}  @endif</p> --}}
-            </div>
-        </div>
-        @endforeach
-    </div>
+   
 </div>
 
-
+<div class="row mb-5">
+    @foreach ($directorios as $directorio)
+    <div class="card bg-light mx-auto mb-5 mt-5 card-directorios">
+        <img class="card-img-top" src="{{ asset('web/img/directorio/'.$directorio->img)}}" alt="Card image cap">
+        <div class="card-header text-center card-pres ">{{$directorio->cargo}}</div>
+        <div class="card-body">
+          <h5 class="card-title text-center dir-nombre">{{$directorio->nombre_completo}}</h5>
+          {{-- <p class="card-text text-center">{{$directorio->tel_contacto}} @if ($directorio->ext != null) ext {{$directorio->ext}}  @endif</p> --}}
+        </div>
+    </div>
+    @endforeach
+    
+</div>
     
 
    
