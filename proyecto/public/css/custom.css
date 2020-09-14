@@ -66,3 +66,12 @@ div.admon hr{
   }
 
 
+.footer-text{
+  font-size: .8rem;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer{
+  overflow: hidden;
+}

@@ -1,11 +1,12 @@
 @extends('pagina.main-sec')
 
 @section('link_a','active')
-    
+@section('link_a_a','activo-l')
+@section('link_directorios','active')
 
 @section('content')
 
-<div class="row">
+<div class="col">
     <div class="col-12 mb-5">
         <h3 class="my-4">Directorio</h3>
         <hr>

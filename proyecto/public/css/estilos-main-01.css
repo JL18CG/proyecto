@@ -2023,7 +2023,7 @@ pre code {
   background-color: #fff;
   border-color: #fbc2b3;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
+  box-shadow: 0 0 0 0.2rem rgb(255, 215, 36);
 }
 .form-control::-webkit-input-placeholder {
   color: #6c757d;
@@ -2471,19 +2471,19 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #f4623a;
-  border-color: #f4623a;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #f24516;
-  border-color: #ee3e0d;
+  background-color: #016fe4;
+  border-color: #016fe4;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
   background-color: #f24516;
   border-color: #ee3e0d;
-  box-shadow: 0 0 0 0.2rem rgba(246, 122, 88, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(194, 139, 123, 0.5);
 }
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
@@ -2911,11 +2911,11 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #f4623a;
+  color: #007bff;
   text-decoration: none;
 }
 .btn-link:hover {
-  color: #d6370c;
+  color: #007bff;
   text-decoration: underline;
 }
 .btn-link:focus, .btn-link.focus {
@@ -4599,16 +4599,16 @@ input[type=button].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #f4623a;
+  color: #007bff;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
 .page-link:hover {
   z-index: 2;
-  color: #d6370c;
+  color: #fff;
   text-decoration: none;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 .page-link:focus {
   z-index: 3;

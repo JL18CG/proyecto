@@ -1,7 +1,7 @@
 @extends('pagina.main-sec')
 
 @section('link_n','active')
-
+@section('link_n_a','activo-l')
 
 @section('content')
 

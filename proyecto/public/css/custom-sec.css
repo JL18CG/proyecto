@@ -1,5 +1,14 @@
-a div label:hover{
-    color:blue !important;
+
+
+a div:hover{
+    color:rgb(251, 176, 23,.9) !important;
+}
+
+a.nav-items:hover{
+    color:rgb(251, 176, 23,.9) !important;
+}
+a.nav-items{
+    color:black !important;
 }
 
 
@@ -19,7 +28,7 @@ a.categoria:hover{
 }
 
 .card-directorios{
-    max-width: 250px !important;
+    max-width: 280px !important;
 }
 
 .card-pres{
@@ -30,4 +39,19 @@ a.categoria:hover{
 
 .dir-nombre{
     font-size: .8rem;
+}
+
+
+
+.activo-l{
+    box-shadow: 0 4px 1px -1px #FBB017;
+}
+
+li.custom-nav:hover{
+    transition: .3s;
+    box-shadow: 0 4px 1px -1px #FBB017 !important;
+}
+
+li.custom-nav:hover>a{
+    color :black !important;
 }
