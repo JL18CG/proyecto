@@ -7,12 +7,12 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('index.inicio')}}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger  @yield('link_n')" href="{{route('index.noticia')}}">Noticias</a></li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown @yield('link_a')"">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ayuntamiento
                   </a>
                     <div class="dropdown-menu dropdown-menu-right animate slideIn mt-4" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{route('index.directorio')}}">Direcotrios</a>
+                      <a class="dropdown-item" href="{{route('index.directorio')}}">Direcotrio</a>
                       <a class="dropdown-item" href="#">Tesorería</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Reportes Ciudadanos</a>

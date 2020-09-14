@@ -17,3 +17,17 @@ a.categoria:hover{
     color: gray !important;
     text-decoration: none;
 }
+
+.card-directorios{
+    max-width: 250px !important;
+}
+
+.card-pres{
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+
+.dir-nombre{
+    font-size: .8rem;
+}
