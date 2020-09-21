@@ -1,6 +1,6 @@
 
 <footer class="bg-light">
-    <div class="sp pt-2 pb-1"></div>
+    <div class="sp pt-1 pb-1"></div>
     <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -34,11 +34,11 @@
                         <p class="footer-info">
                             <strong>Números de Emergencia:</strong><br>
                             Bomberos <br>
-                            <i class="fas fa-phone ml-2 mr-1 mb-3"></i>22 2 22 22 <br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>22 2 22 22 <br>
                             Protección Civil <br>
-                            <i class="fas fa-phone ml-2 mr-1 mb-3"></i>22 2 22 22 <br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>22 2 22 22 <br>
                             Vialidad y Tránsito <br>
-                            <i class="fas fa-phone ml-2 mr-1 mb-3"></i>22 2 22 22 <br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>22 2 22 22 <br>
                          </p>
                     </div>
                 </div>
@@ -46,6 +46,6 @@
         </div>
     </div>
     <div class="sp">
-        <p class="text-center text-white pt-1 pb-1">Gobierno Municipal de Casas Grandes &copy; 2020</p>
+        <p class="text-center text-white pt-1 pb-1"><strong>Gobierno Municipal de Casas Grandes &copy; 2020</strong></p>
     </div>
 </footer>

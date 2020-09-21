@@ -4,11 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Municipio de Casas Grandes, Chihuahua" />
-        <meta name="author" content="" />
-        <title>Pagina</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
+        <meta name="author" content="José Luis V" />
+        <title>Municipio de Casas Grandes | Pueblo Mágico</title>
+        <!-- icono-->
+        <link rel="icon" type="image/png" href="{{ asset("img/iconos/logo.png") }}">
         
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
