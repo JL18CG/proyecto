@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/panel', function () {
     return view('panel.main');
-});
+})->middleware('auth');
 
 /*Usuarios*/
 Route::resource('/panel/usuarios', 'panel\UserController')->except(['show']);
@@ -73,11 +73,16 @@ Route::get('/noticias/{url}', 'ppublic\NoticiaController@show')->name('show.noti
 
 
 /* Tesorería */
-/*Route::get('/tesoreria', 'ppublic\TesoreriaController@index')->name('tesoreria.index');*/
+
 
 Route::get('/tesoreria', function () {
     return view('pagina.tesoreria.index');
 })->name('tesoreria.index');
+Route::get('/tesoreria/descargar/{archivo}', 'ppublic\TesoreriaController@Dowload')->name('reporte.dowload');
+Route::get('/tesoreria/sevac', 'ppublic\TesoreriaController@sevac')->name('sevac.index');
+Route::get('/tesoreria/mensual', 'ppublic\TesoreriaController@mensual')->name('mensual.index');
+Route::get('/tesoreria/trimestral', 'ppublic\TesoreriaController@trimestral')->name('trimestral.index');
+Route::get('/tesoreria/anual', 'ppublic\TesoreriaController@anual')->name('anual.index');
 
 
 /*Transparencia*/

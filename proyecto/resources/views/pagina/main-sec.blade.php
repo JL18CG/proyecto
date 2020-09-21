@@ -21,8 +21,20 @@
         <link rel="stylesheet" href="{{ asset("css/estilos-main-01.css") }}">
         <link rel="stylesheet" href="{{ asset("css/custom.css") }}">
         <link rel="stylesheet" href="{{ asset("css/custom-sec.css") }}">
+        <link rel="stylesheet" href="{{ asset("css/anim-page.css") }}">
     </head>
     <body id="page-top">
+        <div class="alert-preloader" id="preloader-page">
+            <div class="d-flex justify-content-center cargar">
+                <div class="loader loader-g">
+                    <div class="loader-outter"></div>
+                    <div class="loader-inner"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        
         <!-- Navigation-->
         @include('pagina.partials.nav')
 

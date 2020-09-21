@@ -60,32 +60,37 @@
         <div class="card-body">
           <div class="input-group">
             <form action="{{ route('index.noticia') }}" class="form-inline">
-              <input type="text" name="busqueda" class="form-control" value="{{request('busqueda')}}" placeholder="Buscar...">
-              <span class="input-group-append">
-             <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
-              </span>
+              <div class="input-group col-12">
+                <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="Buscar...">
+                <span class="input-group-append">
+                <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
             </form>
           </div>
         </div>
       </div>
 
-      <!-- Categories Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Categorías</h5>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <ul class="list-unstyled mb-0 row text-center">
-                @foreach ($categorias as $categoria)
-                <li class="col-6">
-                  <a href="{{ route('index.categoria_busqueda', $categoria->url) }}">{{$categoria->nombre}}</a>
-                </li>
-                @endforeach
-              </ul>
-            </div>
+
+    
+
+    <!-- Categories Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Categorías</h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <ul class="list-unstyled mb-0 row text-center">
+              @foreach ($categorias as $categoria)
+              <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <a href="{{ route('index.categoria_busqueda', $categoria->url) }}" class="categoria">{{$categoria->nombre}}</a>
+              </li>
+              @endforeach
+            </ul>
           </div>
         </div>
       </div>
+    </div>
 
       <!-- Side Widget -->
       <div class="card my-4">
