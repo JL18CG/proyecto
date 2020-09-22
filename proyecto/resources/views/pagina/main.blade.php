@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Municipio de Casas Grandes, Chihuahua" />
         <meta name="author" content="José Luis V" />
+        <meta name="keywords" content="Casas Grandes Chihuahua, Paquimé, Casas Grandes Pueblo Mágico, Ayuntamiento">
         <title>Municipio de Casas Grandes | Pueblo Mágico</title>
         <!-- icono-->
         <link rel="icon" type="image/png" href="{{ asset("img/iconos/logo.png") }}">

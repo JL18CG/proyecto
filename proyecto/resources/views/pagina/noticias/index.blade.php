@@ -11,7 +11,7 @@
     <div class="col-md-8">
 
       <h3 class="my-4">Sección de Noticias</h3>
-      <hr>
+      <hr class="divider-sm">
       @foreach ($noticias as $noticia)
                 <!-- Blog Post -->
           <div class="card mb-4">
@@ -56,14 +56,14 @@
 
       <!-- Search Widget -->
       <div class="card my-4">
-        <h5 class="card-header">Buscador de Noticias</h5>
+        <h5 class="card-header-noticia text-center">Buscador de Noticias</h5>
         <div class="card-body">
 
             <form action="{{ route('index.noticia') }}" class="form-inline">
               <div class="input-group col-12">
                 <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="Buscar...">
                 <span class="input-group-append">
-                <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
+                <button class="btn btn-warning text-white" type="submit"><i class="fa fa-search"></i></button>
                 </span>
               </div>
             </form>
@@ -73,7 +73,7 @@
 
       <!-- Categories Widget -->
       <div class="card my-4">
-        <h5 class="card-header">Categorías</h5>
+        <h5 class="card-header-noticia text-center">Categorías</h5>
         <div class="card-body">
           <div class="row">
             <div class="col">

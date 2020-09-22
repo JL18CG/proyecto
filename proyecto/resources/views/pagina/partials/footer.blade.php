@@ -27,7 +27,7 @@
                            <br>
                            <br>
                            <strong>Sistema</strong><br>
-                           <a href="{{ route('login') }}" class="login-link"><i class="fas fa-sign-in-alt"></i></a>
+                           <a href="{{ route('login') }}" target="_blank" class="login-link"><i class="fas fa-sign-in-alt"></i></a>
                         </p>
                     </div>
                     <div class="col-4">

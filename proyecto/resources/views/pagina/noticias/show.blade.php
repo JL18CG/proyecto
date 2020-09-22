@@ -12,7 +12,7 @@
     <div class="col-12">
 
       <!-- Title -->
-     <h1 class="mt-4">{{$noticia[0]->titulo}}</h1>
+     <h2 class="mt-4">{{$noticia[0]->titulo}}</h2>
 
       <!-- Author -->
       <p class="lead">
