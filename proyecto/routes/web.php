@@ -46,8 +46,11 @@ Route::resource('/panel/turismo/eventos', 'panel\EventoController')->except(['in
 Route::resource('/panel/reportes', 'panel\ReporteController')->except(['show']);
 Route::get('/panel/reportes/{archivo}', 'panel\ReporteController@pdfDowload')->name('pdf.dowload');
 
-
-
+/*  Consultas  */
+Route::get('/panel/consultas', 'panel\ConsultasController@index')->name('consultas.index');
+Route::get('/panel/consultas/P/', 'panel\ConsultasController@P')->name('consultas.P');
+Route::get('/panel/consultas/C/', 'panel\ConsultasController@C')->name('consultas.C');
+Route::get('/panel/consultas/consulta/', 'panel\ConsultasController@show')->name('consultas.show');
 
 
 
@@ -90,8 +93,10 @@ Route::get('/transparencia', function () {
     return view('pagina.transparencia.index');
 })->name('transparencia.index');
 
-
-
+/*Reportes Ciudadanos*/
+Route::get('/reportes', function () {
+    return view('pagina.reportes-p.index');
+})->name('reporte.index');
 
 
 

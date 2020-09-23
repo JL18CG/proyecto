@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuditoriasTable extends Migration
+class CreateCategoriaConsultaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAuditoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('auditorias', function (Blueprint $table) {
+        Schema::create('categoria_consulta', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->string('descripcion', 110);
+            $table->string('categoria');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateAuditoriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auditorias');
+        Schema::dropIfExists('categoria_consulta');
     }
 }

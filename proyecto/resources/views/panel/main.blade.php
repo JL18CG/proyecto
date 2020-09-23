@@ -50,7 +50,7 @@
                         <a href="{{ route("reportes.index") }}" data-toggle="tooltip" title="Reportes" class="nav-link pl-3 pr-3 {{ $link_reportes ?? '' }}"> <i class="mr-1 fa fa-file-pdf"></i>Reportes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" data-toggle="tooltip" title="Consultas" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-envelope"></i>Consultas</a>
+                        <a href="{{ route("consultas.index") }}" data-toggle="tooltip" title="Consultas" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-envelope"></i>Consultas</a>
                     </li>
 
                     <li class="nav-item">
