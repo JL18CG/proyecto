@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-12 mb-5">
         <h3 class="my-4">Directorio</h3>
-        <hr>
+        <hr class="divider-sm">
         @if (!$presidente->isEmpty())
         <div class="col-12">
             <div class="card bg-light mx-auto mb-5 mt-5 card-directorios" >
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="divider-sm">
         @endif
     </div>
    

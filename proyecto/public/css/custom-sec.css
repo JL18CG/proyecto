@@ -1,3 +1,10 @@
+body{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%), url("../img/publics/d-ipp/inicio-min.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+}
 
 
 a div:hover{
@@ -14,7 +21,10 @@ a.nav-items{
 
 .container-main{
     min-height: 100vh !important;
-    margin-top: 96px !important;
+    margin-top: 116px !important;
+    background-color: white;
+    margin-bottom: 90px;
+    border-radius: 5px;
 }
 
 a.categoria{
@@ -34,6 +44,8 @@ a.categoria:hover{
 .card-pres{
     font-size: .8rem;
     font-weight: bold;
+    text-transform: uppercase;
+    padding: .4rem;
 }
 
 
@@ -55,3 +67,34 @@ li.custom-nav:hover{
 li.custom-nav:hover>a{
     color :black !important;
 }
+
+hr.divider-sm {
+    border-width: 0.3rem;
+    border-color: #FBB017;
+}
+
+
+
+.card-body{
+    padding: .70rem !important;
+}
+
+h5.card-header-noticia {
+    display: block;
+    padding: .40rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgb(251, 175, 23);
+    font-size: 1.1rem;
+}
+
+
+@media (max-width: 575.98px) { 
+    .container-main{
+        min-height: 100vh !important;
+        margin-top: 86px !important;
+        background-color: white;
+        margin-bottom: 0px;
+        border-radius: 5px;
+    }
+
+ }

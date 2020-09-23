@@ -3,17 +3,17 @@
 
 @section('link_a_a','activo-l')
 
-@section('link', 'btn-outline-warning')
-@section('link_m', 'btn-outline-warning')
-@section('link_t', 'btn-outline-warning')
-@section('link_a', 'btn-outline-warning')
+@section('link', 'btn-outline-info')
+@section('link_m', 'btn-outline-info')
+@section('link_t', 'btn-outline-info')
+@section('link_a', 'btn-outline-info')
 
 @section('content')
 
 <div class="row">
     <div class="col-12">
         <h3 class="my-4">Tesorería</h3>
-        <hr>
+        <hr class="divider-sm">
     </div>
 
     <div class="col-xs-12 col-sm-6  col-md-6 col-lg-3 text-center">
@@ -30,6 +30,11 @@
     </div>
 
     @yield('contenedor')
+    
+    <div class="col-12 mt-1 mb-1 text-center">
+        <p class="d-block">Busca <i class="fa fa-search text-info"></i> y descarga los archivos en formato PDF <i class="fa fa-file-pdf text-info"></i></p>    
+    </div>
+
  
 </div>
    

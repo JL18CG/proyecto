@@ -1,6 +1,6 @@
 @extends('pagina.tesoreria.index')
 
-@section('link_a', 'btn-warning')
+@section('link_a', 'btn-info')
 
 @section('contenedor')
    <div class="col-12">

@@ -11,7 +11,7 @@
     <div class="col-md-8">
 
       <h3 class="my-4">Sección de Noticias</h3>
-      <hr>
+      <hr class="divider-noticias">
       @foreach ($noticias as $noticia)
                 <!-- Blog Post -->
           <div class="card mb-4">

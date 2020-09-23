@@ -1,5 +1,5 @@
 @extends('pagina.tesoreria.index')
-@section('link_t', 'btn-warning')
+@section('link_t', 'btn-info')
 
 
 @section('contenedor')
