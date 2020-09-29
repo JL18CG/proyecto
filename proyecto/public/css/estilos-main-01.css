@@ -1,15 +1,8 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - Creative v6.0.3 (https://startbootstrap.com/themes/creative)
-* Copyright 2013-2020 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap v4.5.0 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -10201,4 +10194,40 @@ header.masthead h1 {
   cursor: pointer;
   color: #fbaf17;
   padding: 3px;
+}
+
+
+
+hr.divider-sm {
+    border-width: 0.3rem;
+    border-color: #FBB017;
+}
+
+
+.carousel-item {
+  max-height: 500px;
+}
+
+.fondo-img {
+  opacity: .80 ;
+  transition: .3s;
+}
+
+
+.fondo-img:hover {
+  opacity: 1 ;
+  transition: .3s;
+}
+
+.fondo-c {
+  background-color: #fbaf17 !important;
+
+}
+
+
+.link-inicio{
+  color: #000000ea;
+  font-weight: bold;
+  font-size: 2.2rem;
+  cursor: pointer;
 }

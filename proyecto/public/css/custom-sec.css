@@ -28,13 +28,26 @@ a.nav-items{
 }
 
 a.categoria{
-    color: black !important;
+    color: black;
+    font-size: .8rem;
+    font-weight: bold;
 }
 
+.activo-noticia{
+    background-color: #FBB017 !important;
+    border-radius: 5px;
+}
 
 a.categoria:hover{
-    color: gray !important;
+    color: #FBB017 !important;
+    transition: .3s;
     text-decoration: none;
+}
+
+a.activo-noticia:hover{
+    color: black !important;
+    background-color: #fbaf17bd !important;
+    transition: .3s;
 }
 
 .card-directorios{
@@ -73,7 +86,9 @@ hr.divider-sm {
     border-color: #FBB017;
 }
 
-
+.show-n{
+    border-color: #FBB017;
+}
 
 .card-body{
     padding: .70rem !important;
@@ -84,8 +99,33 @@ h5.card-header-noticia {
     padding: .40rem;
     margin-bottom: 0;
     border-bottom: 1px solid rgb(251, 175, 23);
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.text-noticia-show{
+    font-size: 1.5rem;
+}
+
+.card-title-h2{
     font-size: 1.1rem;
 }
+
+.lead-autor{
+    font-size: .8rem;
+    font-weight: bold ;
+}
+
+.card-title-h2 a{
+    color: black;
+}
+
+.card-title-h2 a:hover{
+    color: #FBB017;
+    transition: .3s;
+    text-decoration: none;
+}
+
 
 
 @media (max-width: 575.98px) { 
@@ -98,3 +138,28 @@ h5.card-header-noticia {
     }
 
  }
+
+
+ @media (min-width: 576px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 3;
+    }
+}

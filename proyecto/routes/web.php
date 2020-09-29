@@ -70,6 +70,7 @@ Route::get('/directorio', 'ppublic\DirectorioController@index')->name('index.dir
 
 
 /*Noticia*/
+    /**Muestra todas las noticias */
 Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia');
 Route::get('/noticias/{url}', 'ppublic\NoticiaController@categoria_busqueda')->name('index.categoria_busqueda');
 Route::get('/noticia/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
@@ -94,12 +95,16 @@ Route::get('/transparencia', function () {
 })->name('transparencia.index');
 
 /*Reportes Ciudadanos*/
-Route::get('/reportes', function () {
+/*Route::get('/reportes', function () {
     return view('pagina.reportes-p.index');
-})->name('reporte.index');
+})->name('reporte.index');*/
 
 
 
 Auth::routes(["register" => false, "reset" => false, ]);
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
+
+
+
+/*Redireccion*/

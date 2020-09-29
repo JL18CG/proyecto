@@ -2,6 +2,7 @@
     <div class="form-group col-4">
             <label for="titulo">Nombre(s)*</label>
             <input class="form-control pl-3 pr-3 mr-5  @error('name') is-invalid @enderror" type="text" name="name" id="titulo" value="{{ old('name',$usuario->name) }}">
+            <input class="form-control pl-3 pr-3 mr-5 " type="hidden" name="admin" value="no">
             @error('name')  <div class="invalid-feedback">Introduce un Nombre Válido.</div>  @enderror
     </div>
 
