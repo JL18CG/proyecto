@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\ppublic;
 
-use App\Http\Controllers\Controller;
+use App\Noticia;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class InicioController extends Controller
 {
     public function index()
     {
-        return view('pagina.main');
+
+
+        $noticias = Noticia::orderby('id','DESC')->select('titulo', 'imagen','url')->take(3)->get();
+
+        return view('pagina.main', compact('noticias'));
     }
 }

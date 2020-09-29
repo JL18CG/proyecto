@@ -71,8 +71,8 @@ Route::get('/directorio', 'ppublic\DirectorioController@index')->name('index.dir
 
 /*Noticia*/
 Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia');
-Route::get('/noticias/categorias/{url}', 'ppublic\NoticiaController@categoria_busqueda')->name('index.categoria_busqueda');
-Route::get('/noticias/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
+Route::get('/noticias/{url}', 'ppublic\NoticiaController@categoria_busqueda')->name('index.categoria_busqueda');
+Route::get('/noticia/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
 
 
 /* Tesorería */
