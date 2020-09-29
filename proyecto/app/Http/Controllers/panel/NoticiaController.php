@@ -6,10 +6,8 @@ use Image;
 use App\Noticia;
 use App\Auditoria;
 use App\Categoria;
-use Carbon\Carbon;
 use App\Helpers\CustomUrl;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -21,7 +19,7 @@ class NoticiaController extends Controller
     
     public function __construct()
     {
-        $this->middleware(['auth','noticia']);
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -75,9 +73,9 @@ class NoticiaController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        
+
         $request->validate([
-            'titulo' =>'required|min:3|max:1000|unique:noticias,titulo',
+            'titulo' =>'required|min:3|max:110|unique:noticias,titulo',
             'autor' =>'required|min:3|max:50',
             'contenido' =>'required|min:3|max:30000',
             'categorias'=>'required',
@@ -88,10 +86,7 @@ class NoticiaController extends Controller
         $destino = public_path('web/img/noticias');
         $path = $request->imagen->move($destino, $filename);
 
-        $url_limpia = Str::slug($request->titulo);
-    
-        
-        
+        $url_limpia = CustomUrl::urlTitle(CustomUrl::convertAccentedCharacters($request->titulo), "-", true);
         $noticia = Noticia::create([
             'titulo' =>  $request->titulo,
             'autor' =>  $request->autor,
@@ -257,7 +252,7 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
 
         $request->validate(['nombre' =>'required|unique:categorias|min:3|max:110']);
-        Categoria::create(['nombre' =>  $request->nombre, 'url'=>Str::slug($request->nombre) ]);
+        Categoria::create(['nombre' =>  $request->nombre]);
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Creó la Categoría de Noticia "'.$request->nombre.'"'
@@ -268,18 +263,13 @@ class NoticiaController extends Controller
 
 
     
-    public function categoria_update(Request $request, $id, Categoria $cate){
+    public function categoria_update(Request $request, $id){
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
         $categoria = Categoria::findOrFail($id);
+        $request->validate(['nombre' =>'required|unique:categorias|min:3|max:110']);
+        $categoria->update(['nombre' =>  $request->nombre]);
 
-
-        $request->validate(
-            [
-                'nombre' =>'required|unique:categorias,nombre,'.$id
-            ]);
-        $categoria->update(['nombre' =>  $request->nombre, 'url'=>Str::slug($request->nombre)]);
- 
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Actualizó la Categoría de Noticia "'.$categoria->nombre.'"'

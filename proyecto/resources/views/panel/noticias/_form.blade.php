@@ -2,12 +2,12 @@
     <div class="form-group col-12 m-table">
             <label for="titulo">Título de la Noticia*</label>
             <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" id="titulo" value="{{ old('titulo',$noticia->titulo) }}">
-            @error('titulo')  <div class="invalid-feedback">Introduce un Título Válido. (Es posible que ese Título ya se encuentre registrado)</div>  @enderror
+            @error('titulo')  <div class="invalid-feedback">Introduce un Título Válido.</div>  @enderror
     </div>
 
     <div class="form-group col-12 m-table">
             <label for="autor">Autor de la Noticia*</label>
-            <input class="form-control  @error('autor') is-invalid @enderror" type="text" name="autor" id="autor" value="Comunicacíon">
+            <input class="form-control  @error('imagen') is-invalid @enderror" type="text" name="autor" id="autor" value="{{ old('autor',$noticia->autor) }}">
             @error('autor')  <div class="invalid-feedback">Introduce un Autor Válido.</div>  @enderror
     </div>
 
@@ -35,7 +35,7 @@
     <br>
     <small class="mb-1 ml-2">(Para Seleccionar Multiples Categorías Presione "ctrl + click")</small>
     <input type="text"  class="form-control is-invalid" hidden>
-    <select  multiple class="form-control col-6 mt-1  @error('categorias') form-invalid @enderror" name="categorias[]" id="cats">
+    <select  multiple class="form-control col-6 mt-1  @error('categorias') form-invalid @enderror pr-5" name="categorias[]" id="cats">
         @foreach ($categorias as $nombre => $id)
             <option {{ in_array($id, old('categorias') ?: $noticia->categorias->pluck("id")->toArray() ) ? "selected": "" }} class="mt-1 d-flex p-3 align-middle" value="{{$id}}">{{$nombre}}</option>
         @endforeach

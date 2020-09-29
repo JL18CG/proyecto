@@ -3,25 +3,15 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Página Oficial del Municipio de Casas Grandes, Chihuahua, Administración 2018 - 2021" />
+        <meta name="description" content="Municipio de Casas Grandes, Chihuahua" />
         <meta name="author" content="José Luis V" />
         <meta name="keywords" content="Casas Grandes Chihuahua, Paquimé, Casas Grandes Pueblo Mágico, Ayuntamiento">
         <title>Municipio de Casas Grandes | Pueblo Mágico</title>
-        
-        <meta name="twitter:description"  content="Casas Grandes Chihuahua, Paquimé, Casas Grandes Pueblo Mágico, Ayuntamiento">
-    	  <meta name="twitter:image"  content="{{ asset("img/publics/d-ipp/d-imp-log/logo-original.png") }}"/>
-    	
-    	
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image" content="{{ asset("img/publics/d-ipp/d-imp-log/logo-original.png") }}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image:width" content="250" />
-        <meta property="og:url" content="http://www.joseluisvillalobos.net/" />
-    	  <meta property="og:description" content="Página Oficial del Municipio de Casas Grandes, Chihuahua, Administración 2018 - 2021" />
-        
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
         <!-- icono-->
         <link rel="icon" type="image/png" href="{{ asset("img/iconos/logo.png") }}">
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
         <!-- Third party plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -49,51 +39,47 @@
         @include('pagina.partials.header')
        
         <div class="container container-main pt-5 pb-5">
-
             <div class="col-12">
-              <h2 class="d-block text-center">Noticias y Eventos Recientes</h2>
-              <hr class="divider-sm">
+
 
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-
-                      <div class="carousel-item active ">
-                        <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[0]->imagen)}}" alt="First slide">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{asset("/img/publics/home-pres/pres-01.jpg")}}" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio">{{$noticias[0]->titulo}}</h5>
+                          <h5>Texto de Presentacíon</h5>
+                          <p>Breve descripción sobre la infografía o nota.</p>
+                          <button class="btn btn-primary">Ver mas</button>
                         </div>
                       </div>
-
                       <div class="carousel-item">
-                        <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[1]->imagen)}}" alt="First slide">
+                        <img class="d-block w-100" src="{{asset("/img/publics/home-pres/pres-02.jpg")}}" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio">{{$noticias[1]->titulo}}</h5>
+                          <h5>Texto de Presentacíon</h5>
+                          <p>Breve descripción sobre la infografía o nota.</p>
+                          <button class="btn btn-primary">Ver mas</button>
                         </div>
                       </div>
-
-                      <div class="carousel-item">
-                        <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[2]->imagen)}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio">{{$noticias[2]->titulo}}</h5>
-                        </div>
-                      </div>
-
+                    </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Anterior</span>
+                      <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Sigueinte</span>
+                      <span class="sr-only">Next</span>
                     </a>
                   </div>
-                </div>
+
             </div>
-            <div class="col-12 mt-5 mb-5">
-              <h2 class="d-block text-center">Casas Grandes Pueblo Mágico</h2>
-              <hr class="divider-sm">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.131222029475!2d-107.95139488538051!3d30.375631509807057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86dcaca8efbea17b%3A0xdaa7040dd5df6f27!2sPresidencia%20Municipal%20De%20Casas%20Grandes!5e0!3m2!1ses-419!2smx!4v1601338733019!5m2!1ses-419!2smx" 
-                          width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <div class="col-12 mb-5">
+            
+            </div>
+
+            <div class="col-12">
+                <hr>
+                <p class="d-block text-center mt-2 mb-3">Casas Grandes Pueblo Mágico</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d40863.14679730461!2d-107.9717579141836!3d30.37687692417775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCasas%20Grandes%20Pueblo%20magico!5e0!3m2!1ses-419!2smx!4v1600154472561!5m2!1ses-419!2smx" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
         </div>
         
@@ -108,6 +94,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
         <script src="{{ asset("js/js-main-01.js") }}"> </script>
     </body>
 </html>

@@ -7,19 +7,26 @@
 
 
 <div class="row">
+
     <!-- Post Content Column -->
     <div class="col-12">
+
       <!-- Title -->
-     <h3 class="mt-4 text-justify pl-2 pr-2 text-noticia-show">{{$noticia[0]->titulo}}</h3>
-     <hr class="divider-sm">
-      <!-- Preview Image -->
-      <img class="img-fluid rounded mx-auto d-block" src="{{asset('web/img/noticias/'.$noticia[0]->imagen)}}" alt="">
+     <h2 class="mt-4">{{$noticia[0]->titulo}}</h2>
+
       <!-- Author -->
-      <p class="lead-autor d-block mt-3  pr-2 text-right">Noticia publicada por {{$noticia[0]->autor}}</p>
-      <hr class="show-n">
-      <p class="text-justify">  {!! $noticia[0]->descripcion !!} </p>
-      <hr class="show-n">
-      <p class="d-block"><small class="float-right"> <i class="fa fa-clock"></i> Publicado {{ $date->diffForHumans() }} </small> <br> </p>
+      <p class="lead">
+       <small> Publicado por {{$noticia[0]->autor}}</small>
+      </p>
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src="{{asset('web/img/noticias/'.$noticia[0]->imagen)}}" alt="">
+      <hr>
+      <!-- Date/Time -->
+        <p class="d-block"><small class="float-right">{{ $publicacion}} </small> <br>
+      <hr>
+      <hr>
+      <p class="text-justify mb-5">  {!! $noticia[0]->descripcion !!} </p>
+      <hr>
 
     </div>
 

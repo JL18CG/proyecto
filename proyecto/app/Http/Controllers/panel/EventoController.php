@@ -12,7 +12,7 @@ class EventoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','turismo']);
+        $this->middleware('auth');
     }
     
     /**

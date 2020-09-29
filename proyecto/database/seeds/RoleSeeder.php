@@ -14,5 +14,11 @@ class RoleSeeder extends Seeder
     {
         Role::truncate();
         
+        for($i = 1; $i<=20; $i++){
+            Role::create([
+                'token' => "Rol $i ",
+                'nombre' => "Este rol Puede hacer el número -$i"
+            ]);
+        }
     }
 }

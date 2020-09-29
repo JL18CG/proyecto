@@ -16,7 +16,7 @@ class DirectorioController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth','directorio']);
+        $this->middleware('auth');
     }
     
     /**

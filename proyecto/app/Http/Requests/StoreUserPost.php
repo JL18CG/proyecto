@@ -29,7 +29,6 @@ class StoreUserPost extends FormRequest
             'password' => 'required|min:8|max:30',
             'email' =>'required|email|unique:users',
             'telefono'=>'required|numeric|digits_between:7,10',
-            'admin'=>'required',
             'roles'=>'required'
         ];
     }

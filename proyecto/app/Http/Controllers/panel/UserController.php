@@ -6,7 +6,6 @@ use App\Role;
 use App\User;
 use App\Auditoria;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -17,8 +16,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-
-        $this->middleware(['auth', 'admin']);
+        $this->middleware('auth');
     }
 
     /**
@@ -28,7 +26,6 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-
 
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
@@ -215,13 +212,10 @@ class UserController extends Controller
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
         $request->validate([ 'nombre' =>'required|unique:roles,token|min:3|max:110', 'descripcion' => 'required|max:110' ]);
-        $slug = Str::slug($request->nombre,'_');
-        $nombre_valid = Str::studly($slug);
-
-        Role::create(['token' => $nombre_valid,'nombre' =>  $request->descripcion]);
+        Role::create(['nombre' =>  $request->descripcion, 'token' => $request->nombre]);
         Auditoria::create([
             'user_id' => auth()->user()->id,
-            'descripcion' => 'Creó el Rol de Usuario "'.$nombre_valid.'"'
+            'descripcion' => 'Creó el Rol de Usuario "'.$request->nombre.'"'
         ]);
         return back()->with('status', 'Rol Creado Correctamente')->with('active-rol','list');
     }

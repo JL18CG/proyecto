@@ -13,5 +13,12 @@ class CategoriaSeeder extends Seeder
     public function run()
     {
         Categoria::truncate();
+   
+            for($i = 1; $i<=10; $i++){
+                Categoria::create([
+                    'nombre' => "Categoría".$i,
+                    'url' => "categoria_".$i
+                ]);
+            }
     }
 }

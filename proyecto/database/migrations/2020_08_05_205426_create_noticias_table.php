@@ -20,7 +20,6 @@ class CreateNoticiasTable extends Migration
             $table->string('url');
             $table->text('descripcion')->nullable();
             $table->string('imagen');
-            $table->string('publicacion');
             $table->timestamps();
         });
     }

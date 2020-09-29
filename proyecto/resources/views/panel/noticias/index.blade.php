@@ -166,7 +166,6 @@
                     @csrf  
                     <div class="form-group">
                         <input class="form-control" type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nombre de la Nueva Categoría">
-                        
                     </div>
 
                     <input type="submit" id="btn-cat">

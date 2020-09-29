@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     protected $fillable = [
-        'nombre','url'
+        'nombre',
     ];
 
     public function noticias()
