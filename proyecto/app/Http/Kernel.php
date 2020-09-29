@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\CheckAdmin;
 
 class Kernel extends HttpKernel
 {
@@ -54,6 +55,12 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'admin'=> \App\Http\Middleware\CheckAdmin::class,
+        'noticia' =>\App\Http\Middleware\CheckRoleNoticia::class,
+        'reporte' =>\App\Http\Middleware\CheckRoleReporte::class,
+        'directorio' =>\App\Http\Middleware\CheckRoleDirectorio::class,
+        'turismo' =>\App\Http\Middleware\CheckRoleTurismo::class,
+        'consulta' =>\App\Http\Middleware\CheckRoleConsulta::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

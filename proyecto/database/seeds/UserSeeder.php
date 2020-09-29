@@ -17,15 +17,15 @@ class UserSeeder extends Seeder
     {
         User::truncate();
 
-        for($i = 1; $i<=30; $i++){
-            User::create([
-            'name'=> 'Usuario '.$i, 
-            'apellidos'=> 'Apellido del Usuario '.$i,  
-            'password'=> '147852369', 
-            'email'=> 'usuario'.$i.'@gmail.com',
-            'telefono'=> '636100000'
-            ]);
-        }
+        User::create([
+        'name'=> 'José Luis ', 
+        'apellidos'=> 'Villalobos Ramírez',  
+        'password'=> '789654123', 
+        'email'=> 'micorreo@gmail.com',
+        'telefono'=> '636100000',
+        'admin'=>'si'
+        ]);
+
 
     }
 }
