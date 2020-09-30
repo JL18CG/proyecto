@@ -48,56 +48,103 @@
         @include('pagina.partials.nav')
         <!-- Masthead-->
         @include('pagina.partials.header')
-       
+        <div class="sp-divider pt-1 pb-1"></div>
         <div class="container container-main pt-5 pb-5">
 
             <div class="col-12">
-              <h2 class="d-block text-center">Noticias y Eventos Recientes</h2>
+              <h2 class="d-block text-center">Las Noticias más Recientes</h2>
               <hr class="divider-sm">
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-5">
+                      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner  fondo-img">
+                                  <div class="carousel-item reset-img-size active">
+                                    <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="60px" alt="">
+                                    <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[0]->imagen)}}" alt="First slide">
+                                    <div class="carousel-caption">
+                                      <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[0]->url)}}" target="_blank">{{$noticias[0]->titulo}}</a> </h5>
+                                    </div>
+                                  </div>
+                              
+                                  <div class="carousel-item reset-img-size">
+                                    <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="60px" alt="">
+                                    <img class="d-block w-100 " src="{{asset("web/img/noticias/thumbs/".$noticias[1]->imagen)}}" alt="First slide">
+                                    <div class="carousel-caption">
+                                      <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[1]->url)}}" target="_blank">{{$noticias[1]->titulo}}</a></h5>
+                                    </div>
+                                  </div>
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
+                                  <div class="carousel-item reset-img-size">
+                                    <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="60px" alt="">
+                                    <img class="d-block w-100 " src="{{asset("web/img/noticias/thumbs/".$noticias[2]->imagen)}}" alt="First slide">
+                                    <div class="carousel-caption">
+                                      <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[2]->url)}}" target="_blank">{{$noticias[2]->titulo}}</a></h5>
+                                    </div>
+                                  </div>
 
-                      <div class="carousel-item active ">
-                        <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="90px" alt="">
-                        <img class="d-block w-100 img-fluid" src="{{asset("web/img/noticias/".$noticias[0]->imagen)}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[0]->url)}}" target="_blank">{{$noticias[0]->titulo}}</a> </h5>
+                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Anterior</span>
+                                  </a>
+                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Sigueinte</span>
+                                  </a>
+                              </div>
                         </div>
-                      </div>
-                      <div class="carousel-item">
-                        <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="90px" alt="">
-                        <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[1]->imagen)}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[1]->url)}}" target="_blank">{{$noticias[1]->titulo}}</a></h5>
-                        </div>
-                      </div>
+                    </div>
 
-                      <div class="carousel-item">
-                        <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="90px" alt="">
-                        <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[2]->imagen)}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[2]->url)}}" target="_blank">{{$noticias[2]->titulo}}</a></h5>
-                        </div>
-                      </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
+                      @if ($noticias->count() == 7 )
+                          <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                  <div class="img-res-noticia n-1">
+                                    <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[3]->imagen)}}" alt="">
+                                    <div class="cap-image-p text-center">
+                                      <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[3]->url)}}" target="_blank">{{Str::limit($noticias[3]->titulo,30)}}</a> </h5>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                  <div class="img-res-noticia n-2">
+                                    <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[4]->imagen)}}" alt="">
+                                    <div class="cap-image-p text-center">
+                                      <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[4]->url)}}" target="_blank">{{Str::limit($noticias[4]->titulo,30)}}</a> </h5>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                  <div class="img-res-noticia n-3">
+                                      <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[5]->imagen)}}" alt="">
+                                      <div class="cap-image-p text-center">
+                                        <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[5]->url)}}" target="_blank">{{Str::limit($noticias[5]->titulo,30)}}</a> </h5>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                  <div class="img-res-noticia n-3">
+                                        <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[6]->imagen)}}" alt="">
+                                        <div class="cap-image-p text-center">
+                                          <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[6]->url)}}" target="_blank">{{Str::limit($noticias[6]->titulo,30)}}</a> </h5>
+                                        </div>
+                                  </div>
+                              </div>
+                          </div>
+                        @endif
+                    </div>
 
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Anterior</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Sigueinte</span>
-                    </a>
-                  </div>
                 </div>
+        
             </div>
+
+            {{-- Mapa --}}
             <div class="col-12 mt-5 mb-5">
               <h2 class="d-block text-center">Casas Grandes Pueblo Mágico</h2>
               <hr class="divider-sm">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.131222029475!2d-107.95139488538051!3d30.375631509807057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86dcaca8efbea17b%3A0xdaa7040dd5df6f27!2sPresidencia%20Municipal%20De%20Casas%20Grandes!5e0!3m2!1ses-419!2smx!4v1601338733019!5m2!1ses-419!2smx" 
                           width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
+            {{-- Fin Mapa --}}
         </div>
         
         <!-- Footer-->

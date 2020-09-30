@@ -70,12 +70,12 @@ a.activo-noticia:hover{
 
 
 .activo-l{
-    box-shadow: 0 4px 1px -1px #17479E;
+    box-shadow: 0 4px 1px -1px #FF7F29;
 }
 
 li.custom-nav:hover{
     transition: .3s;
-    box-shadow: 0 4px 1px -1px #17479E !important;
+    box-shadow: 0 4px 1px -1px #FF7F29 !important;
 }
 
 li.custom-nav:hover>a{

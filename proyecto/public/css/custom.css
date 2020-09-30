@@ -77,11 +77,11 @@ footer{
 }
 
 .activo-l{
-  box-shadow: 0 4px 1px -1px #17479E;
+  box-shadow: 0 4px 1px -1px #FF7F29;
   color: black !important;
 }
 
 li.custom-nav:hover{
   transition: .3s;
-  box-shadow: 0 4px 1px -1px #17479E !important;
+  box-shadow: 0 4px 1px -1px #FF7F29 !important;
 }

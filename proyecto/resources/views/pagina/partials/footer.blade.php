@@ -1,6 +1,6 @@
 
-<footer class="bg-light">
-    <div class="sp pt-1 pb-1"></div>
+<footer class="bg-white">
+    <div class="sp-divider pt-1 pb-1"></div>
     <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-md-5 col-sm-12 col-xs-12">

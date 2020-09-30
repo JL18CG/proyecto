@@ -12,7 +12,8 @@ class InicioController extends Controller
     {
 
 
-        $noticias = Noticia::orderby('id','DESC')->select('titulo', 'imagen','url')->take(3)->get();
+        $noticias = Noticia::orderby('id','DESC')->select('titulo', 'imagen','url')->take(7)->get();
+    
 
         return view('pagina.main', compact('noticias'));
     }
