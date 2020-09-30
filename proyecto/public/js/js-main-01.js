@@ -50,5 +50,5 @@
   setTimeout(function(){ 
 
     $( "#preloader-page" ).fadeOut( "slow");
-}, 3000);
+}, 2500);
 $("#div2").fadeOut("slow");

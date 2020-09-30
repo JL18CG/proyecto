@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-7 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-md-8 col-xs-12">
                         <p class="footer-info">
                            <strong>Municipio de Casas Grandes:</strong><br>ayuntamientocasasgrandes@hotmail.com <br>(636)69-2-43-43 <br> <br> 
                            <strong>Redes Sociales:</strong> <br>
@@ -30,7 +30,7 @@
                            <a href="{{ route('login') }}" target="_blank" class="login-link"><i class="fas fa-sign-in-alt"></i></a>
                         </p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4 col-xs-12">
                         <p class="footer-info">
                             <strong>Números de Emergencia:</strong><br>
                             Bomberos <br>

@@ -11,7 +11,7 @@
         <div class="input-group col-12">
           <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="Buscar...">
           <span class="input-group-append">
-          <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
+          <button class="btn btn-info" type="submit"><i class="fa fa-search"></i></button>
           </span>
         </div>
       </form>

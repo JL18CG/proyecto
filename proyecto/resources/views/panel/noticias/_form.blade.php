@@ -7,7 +7,7 @@
 
     <div class="form-group col-12 m-table">
             <label for="autor">Autor de la Noticia*</label>
-            <input class="form-control  @error('autor') is-invalid @enderror" type="text" name="autor" id="autor" value="Comunicacíon">
+            <input class="form-control  @error('autor') is-invalid @enderror" type="text" name="autor" id="autor" value="Comunicacíon Social">
             @error('autor')  <div class="invalid-feedback">Introduce un Autor Válido.</div>  @enderror
     </div>
 

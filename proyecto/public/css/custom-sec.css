@@ -34,19 +34,20 @@ a.categoria{
 }
 
 .activo-noticia{
-    background-color: #FBB017 !important;
+    background-color: #17479E !important;
     border-radius: 5px;
+    color: white !important;
 }
 
 a.categoria:hover{
-    color: #FBB017 !important;
+    color: #17479E !important;
     transition: .3s;
     text-decoration: none;
 }
 
 a.activo-noticia:hover{
-    color: black !important;
-    background-color: #fbaf17bd !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: #17479Ebd !important;
     transition: .3s;
 }
 
@@ -69,12 +70,12 @@ a.activo-noticia:hover{
 
 
 .activo-l{
-    box-shadow: 0 4px 1px -1px #FBB017;
+    box-shadow: 0 4px 1px -1px #17479E;
 }
 
 li.custom-nav:hover{
     transition: .3s;
-    box-shadow: 0 4px 1px -1px #FBB017 !important;
+    box-shadow: 0 4px 1px -1px #17479E !important;
 }
 
 li.custom-nav:hover>a{
@@ -83,7 +84,7 @@ li.custom-nav:hover>a{
 
 hr.divider-sm {
     border-width: 0.3rem;
-    border-color: #FBB017;
+    border-color: #17479E;
 }
 
 .show-n{
@@ -98,7 +99,7 @@ h5.card-header-noticia {
     display: block;
     padding: .40rem;
     margin-bottom: 0;
-    border-bottom: 1px solid rgb(251, 175, 23);
+    border-bottom: 1px solid #17479E;
     font-size: .9rem;
     font-weight: bold;
 }

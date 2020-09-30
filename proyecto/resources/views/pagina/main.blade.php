@@ -1,3 +1,4 @@
+@section('mi_link','activo-l')
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -58,23 +59,25 @@
                     <div class="carousel-inner">
 
                       <div class="carousel-item active ">
-                        <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[0]->imagen)}}" alt="First slide">
+                        <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="90px" alt="">
+                        <img class="d-block w-100 img-fluid" src="{{asset("web/img/noticias/".$noticias[0]->imagen)}}" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio">{{$noticias[0]->titulo}}</h5>
+                          <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[0]->url)}}" target="_blank">{{$noticias[0]->titulo}}</a> </h5>
                         </div>
                       </div>
-
                       <div class="carousel-item">
+                        <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="90px" alt="">
                         <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[1]->imagen)}}" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio">{{$noticias[1]->titulo}}</h5>
+                          <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[1]->url)}}" target="_blank">{{$noticias[1]->titulo}}</a></h5>
                         </div>
                       </div>
 
                       <div class="carousel-item">
+                        <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="90px" alt="">
                         <img class="d-block w-100 img-fluid fondo-img" src="{{asset("web/img/noticias/".$noticias[2]->imagen)}}" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
-                          <h5 class="link-inicio">{{$noticias[2]->titulo}}</h5>
+                          <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[2]->url)}}" target="_blank">{{$noticias[2]->titulo}}</a></h5>
                         </div>
                       </div>
 
