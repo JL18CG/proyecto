@@ -35,6 +35,9 @@
         <link rel="stylesheet" href="{{ asset("css/anim-page.css") }}">
     </head>
     <body id="page-top">
+
+        @yield('fb-comentarios')
+
         <div class="alert-preloader" id="preloader-page">
             <div class="d-flex justify-content-center cargar">
                 <div class="loader loader-g">
@@ -52,6 +55,7 @@
        
         <div class="container container-main">
             @yield('content')
+            @yield('comentarios-area')
         </div>
         
         <!-- Footer-->

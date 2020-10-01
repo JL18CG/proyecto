@@ -10232,7 +10232,7 @@ header.masthead h1 {
 
 hr.divider-sm {
     border-width: 0.3rem;
-    border-color: #17479E;
+    border-color: #0075C4;
 }
 
 
@@ -10337,7 +10337,7 @@ margin-bottom: 15px;
   bottom: 0;
   left: 15px;
   right: 15px;
-  background-color: #F47929;
+  background-color: #0075C4;
 }
 
 .cap-image-p h5{
@@ -10381,4 +10381,10 @@ margin-bottom: 15px;
     font-size: .6rem;
 
   }
+}
+
+
+.color-tags{
+  background-color: #0075C4;
+  color: white !important;
 }

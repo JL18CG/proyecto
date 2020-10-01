@@ -35,7 +35,7 @@
               <p class="card-text">{!!Str::limit($noticia->descripcion, 150)!!}</p>
               <div class="row pl-3 pr-3">
                 @foreach ($noticia->categorias as $item)
-              <a href="{{ route('index.categoria_busqueda', $item->url) }}" class="badge badge-secondary p-2 m-1">{{$item->nombre}}</a>
+              <a href="{{ route('index.categoria_busqueda', $item->url) }}" class="badge color-tags p-2 m-1">{{$item->nombre}}</a>
                 @endforeach 
               </div>
               <p class="card-text"><small class="text-muted ml-2"><i class="fa fa-clock"></i> {{$noticia->created_at->diffForHumans() }}</small></p>

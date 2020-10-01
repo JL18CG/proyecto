@@ -34,20 +34,20 @@ a.categoria{
 }
 
 .activo-noticia{
-    background-color: #17479E !important;
+    background-color: #0075C4 !important;
     border-radius: 5px;
     color: white !important;
 }
 
 a.categoria:hover{
-    color: #17479E !important;
+    color: #0075C4 !important;
     transition: .3s;
     text-decoration: none;
 }
 
 a.activo-noticia:hover{
     color: rgb(255, 255, 255) !important;
-    background-color: #17479Ebd !important;
+    background-color: #0076c4c7 !important;
     transition: .3s;
 }
 
@@ -84,11 +84,11 @@ li.custom-nav:hover>a{
 
 hr.divider-sm {
     border-width: 0.3rem;
-    border-color: #17479E;
+    border-color: #0075C4;
 }
 
 .show-n{
-    border-color: #FBB017;
+    border-color: #FF7F29;
 }
 
 .card-body{
@@ -97,11 +97,13 @@ hr.divider-sm {
 
 h5.card-header-noticia {
     display: block;
-    padding: .40rem;
+    padding: .45rem;
     margin-bottom: 0;
-    border-bottom: 1px solid #17479E;
+    background-color: #0075C4;
+    border-bottom: 1px solid #0075C4;
     font-size: .9rem;
     font-weight: bold;
+    color: white;
 }
 
 .text-noticia-show{
@@ -122,7 +124,7 @@ h5.card-header-noticia {
 }
 
 .card-title-h2 a:hover{
-    color: #FBB017;
+    color: #FF7F29;
     transition: .3s;
     text-decoration: none;
 }
