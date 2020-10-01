@@ -19,15 +19,24 @@
                     </div>
                   </li>
 
-                <li class="nav-item pb-2 pt-2 custom-nav @yield('link_t_a')"><a class="nav-link js-scroll-trigger" href="{{route('transparencia.index')}}">Transparencia</a></li>
-
+                 <li class="nav-item dropdown pb-2 pt-2 custom-nav">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTransparencia" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Transparencia
+                  </a>
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdownTransparencia">
+                      <a class="dropdown-item" href="https://transparenciachihuahua.org/infomex/" target="_blank">Infomex Chihuahua</a>
+                      <a class="dropdown-item" href="https://www.plataformadetransparencia.org.mx/web/guest/inicio" target="_blank">PNT</a>
+                      <a class="dropdown-item" href="https://www.ichitaip.org" target="_blank">ICHITAIP</a>
+                    </div>
+                  </li>
+                 
                 <li class="nav-item dropdown pb-2 pt-2 custom-nav">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMunicipio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Municipio
                   </a>
-                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdownMunicipio">
                       <a class="dropdown-item" href="#">Turismo</a>
-    
+                      <a class="dropdown-item" href="#">Eventos</a>
                       <a class="dropdown-item" href="#">Historia</a>
                     </div>
                   </li>

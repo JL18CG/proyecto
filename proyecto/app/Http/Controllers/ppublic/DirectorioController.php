@@ -13,10 +13,10 @@ class DirectorioController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        $directorios = DB::table('directorios')->select('id','nombre_completo','cargo','prioridad','tel_contacto','ext','correo_contacto','img')
+        $directorios = DB::table('directorios')->select('id','nombre_completo','cargo','prioridad','tel_contacto','ext','img')
         ->orderBy('prioridad','desc')->where('prioridad', null)
         ->get(); 
-        $presidente = DB::table('directorios')->select('nombre_completo','cargo','tel_contacto','ext','correo_contacto','img')
+        $presidente = DB::table('directorios')->select('nombre_completo','cargo','tel_contacto','ext','img')
         ->orderBy('prioridad','desc')->where('prioridad', '=', 1)
         ->get();
 

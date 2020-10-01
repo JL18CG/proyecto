@@ -33,7 +33,7 @@ class NoticiaController extends Controller
         App::setLocale('es');   
         date_default_timezone_set('America/Chihuahua');
 
-
+        setlocale(LC_TIME, "spanish");
         $noticias = Noticia::orderby('created_at', request('created_at','DESC'));
         if($request->has('busqueda')){
             $noticias = $noticias->where('titulo', 'like', '%'.request('busqueda').'%');  
@@ -113,7 +113,7 @@ class NoticiaController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Creó la Noticia "'.$request->titulo.'"'
         ]);
-        return back()->with('status', 'Noticia creada con exito');
+        return back()->with('status', 'Noticia creada correctamente');
     }
 
     /**
@@ -209,7 +209,7 @@ class NoticiaController extends Controller
             'descripcion' => 'Actualizó la Noticia "'.$request->titulo.'"'
         ]);
 
-        return back()->with('status', 'Noticia actualizada con exito');
+        return back()->with('status', 'Noticia actualizada correctamente');
     }
 
     /**
@@ -247,7 +247,7 @@ class NoticiaController extends Controller
         ]);
 
 
-        return back()->with('status', 'Noticia Eliminada Correctamente');
+        return back()->with('status', 'Noticia eliminada correctamente');
     }
 
 
@@ -263,7 +263,7 @@ class NoticiaController extends Controller
             'descripcion' => 'Creó la Categoría de Noticia "'.$request->nombre.'"'
         ]);
 
-        return back()->with('status', 'Categoría creada con exito')->with('active','list');
+        return back()->with('status', 'Categoría creada correctamente')->with('active','list');
     }
 
 
@@ -285,7 +285,7 @@ class NoticiaController extends Controller
             'descripcion' => 'Actualizó la Categoría de Noticia "'.$categoria->nombre.'"'
         ]);
 
-        return back()->with('status', 'Categoría Actualizada con exito')->with('active','list');
+        return back()->with('status', 'Categoría actualizada correctamente')->with('active','list');
     }
 
 
@@ -298,7 +298,7 @@ class NoticiaController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Eliminó la Categoría de Noticia "'.$categoria->nombre.'"'
         ]);
-        return back()->with('status', 'Categoría Eliminada Correctamente')->with('active','list');
+        return back()->with('status', 'Categoría eliminada correctamente')->with('active','list');
     }
 
 }

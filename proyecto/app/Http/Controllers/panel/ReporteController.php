@@ -30,7 +30,7 @@ class ReporteController extends Controller
         date_default_timezone_set('America/Chihuahua'); 
 
         $reportes = DB::table('reportes')->select('id','tipo','titulo','archivo','clas_reporte','created_at')
-        ->orderBy('created_at','ASC')->paginate(12);
+        ->orderBy('created_at','DESC')->paginate(12);
 
 
         $link_reportes= "active";
@@ -96,7 +96,7 @@ class ReporteController extends Controller
 
 
 
-        return back()->with('status', 'Reporte Registrado Correctamente');
+        return back()->with('status', 'Reporte agregado correctamente');
     }
 
     /**
@@ -180,7 +180,7 @@ class ReporteController extends Controller
         ]);
 
 
-        return back()->with('status', 'Reporte Actualizado Correctamente');
+        return back()->with('status', 'Reporte actualizado correctamente');
     }
 
     /**
@@ -203,12 +203,14 @@ class ReporteController extends Controller
         }
 
         $reporte->delete();
-        return back()->with('status', 'Reporte Eliminado Correctamente');
+        return back()->with('status', 'Reporte eliminado correctamente');
         
     }
 
     public function pdfDowload($archivo){
+
         return Storage::download('public/reportes/'.$archivo);
+        
 
     }
 }

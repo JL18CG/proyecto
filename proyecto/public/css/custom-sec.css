@@ -8,11 +8,11 @@ body{
 
 
 a div:hover{
-    color:rgb(251, 176, 23,.9) !important;
+    color:rgba(0, 0, 0, 0.9) !important;
 }
 
 a.nav-items:hover{
-    color:rgb(251, 176, 23,.9) !important;
+    color:rgba(0, 0, 0, 0.9) !important;
 }
 a.nav-items{
     color:black !important;
@@ -180,6 +180,4 @@ h5.card-header-noticia {
 
 .card{
     border: 1px solid #FF7F29;
-
-    border-bottom-left-radius
 }

@@ -12,7 +12,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h3 class="my-4">Tesorería</h3>
+        <h3 class="my-4 text-center">Tesorería</h3>
         <hr class="divider-sm">
     </div>
 
@@ -31,7 +31,7 @@
 
     @yield('contenedor')
     
-    <div class="col-12 mt-1 mb-1 text-center">
+    <div class="col-12 mt-1 mb-1 text-center mt-5">
         <p class="d-block">Busca <i class="fa fa-search text-info"></i> y descarga los archivos en formato PDF <i class="fa fa-file-pdf text-info"></i></p>    
     </div>
 

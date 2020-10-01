@@ -89,10 +89,6 @@ Route::get('/tesoreria/trimestral', 'ppublic\TesoreriaController@trimestral')->n
 Route::get('/tesoreria/anual', 'ppublic\TesoreriaController@anual')->name('anual.index');
 
 
-/*Transparencia*/
-Route::get('/transparencia', function () {
-    return view('pagina.transparencia.index');
-})->name('transparencia.index');
 
 /*Reportes Ciudadanos*/
 /*Route::get('/reportes', function () {

@@ -113,7 +113,7 @@
                         @foreach ($auditorias as $auditoria)
                         <tr>
                                 <td class="pt-3 text-size">{{ $auditoria->user->name}}   </td>
-                                <td class="pt-3 text-size text-justify">{{ $auditoria->descripcion}}   </td>
+                                <td class="pt-3 text-size text-justify">{{ $auditoria->descripcion}} <strong>[ {{ $auditoria->created_at->format('d-m-Y')}} {{$auditoria->created_at->isoFormat('H:mm:ss A') }} ]</strong></td>
                         </tr>
                         @endforeach
             

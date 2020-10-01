@@ -22,8 +22,8 @@
                         <p class="footer-info">
                            <strong>Municipio de Casas Grandes:</strong><br>ayuntamientocasasgrandes@hotmail.com <br>(636)69-2-43-43 <br> <br> 
                            <strong>Redes Sociales:</strong> <br>
-                           <a href="" class="facebook p-1"><i class="fab fa-facebook-square"></i></a>
-                           <a href="" class="youtube p-1"><i class="fab fa-youtube "></i></a>
+                           <a href="https://www.facebook.com/casas.grandes.16" target="_blank" class="facebook p-1"><i class="fab fa-facebook-square"></i></a>
+                           <a href="https://www.youtube.com/channel/UCWattdxH6_ktA-exIMqRj8Q" target="_blank" class="youtube p-1"><i class="fab fa-youtube "></i></a>
                            <br>
                            <br>
                            <strong>Sistema</strong><br>
