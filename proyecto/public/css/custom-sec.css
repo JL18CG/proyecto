@@ -166,3 +166,20 @@ h5.card-header-noticia {
         column-count: 3;
     }
 }
+
+
+.card-header-directorio{
+    background-color: #0075C4 !important;
+    opacity: .85;
+    color: white;
+}
+
+.card-body-directorio{
+    background-color: #ffff;
+}
+
+.card{
+    border: 1px solid #FF7F29;
+
+    border-bottom-left-radius
+}

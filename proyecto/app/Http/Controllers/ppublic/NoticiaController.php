@@ -24,8 +24,7 @@ class NoticiaController extends Controller
             $noticias = $noticias->where('titulo', 'like', '%'.request('busqueda').'%');  
         }           
         $noticias = $noticias->Paginate(10);
-       
-     
+      
         $categorias = DB::table('categorias')->select('id','nombre','url')->orderBy('created_at','asc')->get();
 
         

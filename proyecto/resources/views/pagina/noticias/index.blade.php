@@ -26,23 +26,31 @@
     <!-- Blog Entries Column -->
     <div class="col-md-12 col-lg-9">
       <div class="p-2">
-        <div class="card-columns ">
-      @foreach ($noticias as $noticia)
-          <div class="card text-justify">
-            <img  src="{{asset('web/img/noticias/thumbs/'.$noticia->imagen)}}" class="card-img-top" alt="img">
-            <div class="card-body">
-              <h2 class="card-title card-title-h2"><a href="{{route('show.noticia', $noticia->url)}}">{{$noticia->titulo}}</a></h2>
-              <p class="card-text">{!!Str::limit($noticia->descripcion, 150)!!}</p>
-              <div class="row pl-3 pr-3">
-                @foreach ($noticia->categorias as $item)
-                <a href="{{ route('index.categoria_busqueda', $item->url) }}" class="badge color-tags p-2 m-1">{{$item->nombre}}</a>
-                @endforeach 
-              </div>
-              <p class="card-text"><small class="text-muted ml-2"><i class="fa fa-clock"></i> {{$noticia->created_at->diffForHumans() }}</small></p>
-            </div>
+        @if ($noticias->isEmpty())
+          <div class="alert alert-light" role="alert">
+            <i class="fa fa-ban"> </i> No se encontraron resultados para "{{request('busqueda')}}". 
           </div>
-      @endforeach
-    </div>
+        @else
+          <div class="card-columns ">
+            @foreach ($noticias as $noticia)
+                <div class="card text-justify">
+                  <img  src="{{asset('web/img/noticias/thumbs/'.$noticia->imagen)}}" class="card-img-top" alt="img">
+                  <div class="card-body">
+                    <h2 class="card-title card-title-h2"><a href="{{route('show.noticia', $noticia->url)}}">{{$noticia->titulo}}</a></h2>
+                    <p class="card-text">{!!Str::limit($noticia->descripcion, 150)!!}</p>
+                    <div class="row pl-3 pr-3">
+                      @foreach ($noticia->categorias as $item)
+                      <a href="{{ route('index.categoria_busqueda', $item->url) }}" class="badge color-tags p-2 m-1">{{$item->nombre}}</a>
+                      @endforeach 
+                    </div>
+                    <p class="card-text"><small class="text-muted ml-2"><i class="fa fa-clock"></i> {{$noticia->created_at->diffForHumans() }}</small></p>
+                  </div>
+                </div>
+            @endforeach
+          </div>
+        @endif
+
+
   </div>
       <!-- Pagination -->
       {{ $noticias->appends( ['busqueda'=> request('busqueda')])->links() }}
