@@ -21,11 +21,6 @@
             @error('cargo')  <div class="invalid-feedback">Por favor Introduce un Cargo Válido.</div>  @enderror
             <small  class="ml-3 form-text text-muted">Ejemplo: Secretario del Ayuntamiento</small>
         </div>
-        <div class="form-group col m-table">
-            <label for="correo-a">Email de Contacto*</label>
-            <input type="email" class=" form-control @error('email') is-invalid @enderror" id="correo-a" placeholder="Introduce el Correo Electrónico" name="email" value="{{ old('email',$directorio->correo_contacto) }}">
-            @error('email')  <div class="invalid-feedback">Por favor Introduce un Correo Electróico Válido.</div>  @enderror
-        </div>
         <div class="row m-reset">
             <div class="form-group col-8 m-table">
                 <label for="telefono-a">Teléfono de Contacto*</label>

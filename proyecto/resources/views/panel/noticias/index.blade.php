@@ -166,6 +166,7 @@
                     @csrf  
                     <div class="form-group">
                         <input class="form-control" type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nombre de la Nueva Categoría">
+                        
                     </div>
 
                     <input type="submit" id="btn-cat">
@@ -188,7 +189,7 @@
     <div class="modal-dialog mt-5 "  role="document">
         <div class="modal-content  mt-5" >
             <div class="modal-header" >
-                <h5 class="modal-title " id="modalLabel"><i class="fa fa-exclamation-triangle text-danger mr-2"></i> Advertencia</h5>
+                <h5 class="modal-title " id="modalLabel"><i class="fa fa-exclamation-triangle text-danger mr-2"></i> Advertencia <strong>NO SE RECOMIENDA BORRAR</strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

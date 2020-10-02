@@ -70,9 +70,10 @@ Route::get('/directorio', 'ppublic\DirectorioController@index')->name('index.dir
 
 
 /*Noticia*/
+    /**Muestra todas las noticias */
 Route::get('/noticias', 'ppublic\NoticiaController@index')->name('index.noticia');
-Route::get('/noticias/categorias/{url}', 'ppublic\NoticiaController@categoria_busqueda')->name('index.categoria_busqueda');
-Route::get('/noticias/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
+Route::get('/noticias/{url}', 'ppublic\NoticiaController@categoria_busqueda')->name('index.categoria_busqueda');
+Route::get('/noticia/{url}', 'ppublic\NoticiaController@show')->name('show.noticia');
 
 
 /* Tesorería */
@@ -88,14 +89,11 @@ Route::get('/tesoreria/trimestral', 'ppublic\TesoreriaController@trimestral')->n
 Route::get('/tesoreria/anual', 'ppublic\TesoreriaController@anual')->name('anual.index');
 
 
-/*Transparencia*/
-Route::get('/transparencia', function () {
-    return view('pagina.transparencia.index');
-})->name('transparencia.index');
 
 /*Reportes Ciudadanos*/
 Route::get('/consultas', 'ppublic\ConsultasController@index')->name('consu.index');
 Route::put('/consultas/crear', 'ppublic\ConsultasController@store')->name('consu.store');
+
 
 /*Turismo publico*/
 
@@ -103,3 +101,7 @@ Route::put('/consultas/crear', 'ppublic\ConsultasController@store')->name('consu
 Auth::routes(["register" => false, "reset" => false, ]);
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
+
+
+
+/*Redireccion*/

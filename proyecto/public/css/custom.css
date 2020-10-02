@@ -75,3 +75,13 @@ div.admon hr{
 footer{
   overflow: hidden;
 }
+
+.activo-l{
+  box-shadow: 0 4px 1px -1px #FF7F29;
+  color: black !important;
+}
+
+li.custom-nav:hover{
+  transition: .3s;
+  box-shadow: 0 4px 1px -1px #FF7F29 !important;
+}

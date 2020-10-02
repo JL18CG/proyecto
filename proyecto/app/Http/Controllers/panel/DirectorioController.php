@@ -16,7 +16,7 @@ class DirectorioController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','directorio']);
     }
     
     /**
@@ -28,7 +28,7 @@ class DirectorioController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        $directorios = DB::table('directorios')->select('id','nombre_completo','cargo','prioridad','tel_contacto','ext','correo_contacto','img')
+        $directorios = DB::table('directorios')->select('id','nombre_completo','cargo','prioridad','tel_contacto','ext','img')
                                                 ->orderBy('prioridad','desc')
                                                 ->get(); 
 
@@ -67,7 +67,6 @@ class DirectorioController extends Controller
             'nombre' =>'required|min:8|max:110',
             'cargo' =>'required|min:3|max:50',
             'prioridad' => 'required|unique:directorios',
-            'email' =>'required|email|unique:directorios,correo_contacto',
             'phone'=>'required|numeric|digits_between:7,10',
             'ext'=>'max:3',
             'imagen'=>'required|mimes:jpg,jpeg,png|max:512',
@@ -98,7 +97,6 @@ class DirectorioController extends Controller
             'prioridad' => $estado,
             'tel_contacto' =>  $request->phone,
             'ext'=>$request->ext,
-            'correo_contacto' =>  $request->email,
             'img' => $filename 
         ]);
 
@@ -107,7 +105,7 @@ class DirectorioController extends Controller
             'descripcion' => 'Creó el Directorio "'.$request->cargo.'"'
         ]);
 
-        return back()->with('status', 'Directorio agregado con exito');
+        return back()->with('status', 'Directorio creado correctamente');
     }
 
     /**
@@ -149,7 +147,6 @@ class DirectorioController extends Controller
             'nombre' =>'required|min:8|max:110',
             'cargo' =>'required|min:3|max:50',
             'prioridad' => 'required|unique:directorios,prioridad,'.$directorio->id,
-            'email' =>'required|email|unique:directorios,correo_contacto,'. $directorio->id,
             'phone'=>'required|numeric|digits_between:7,10',
             'ext'=>'max:3',
             'imagen'=>'mimes:jpg,jpeg,png|max:512',
@@ -170,8 +167,7 @@ class DirectorioController extends Controller
                 'cargo' =>  $request->cargo,
                 'prioridad' =>  $estado,
                 'tel_contacto' =>  $request->phone,
-                'ext' =>  $request->ext,
-                'correo_contacto' =>  $request->email
+                'ext' =>  $request->ext
             ]);
         }else{
             $destino = public_path('web/img/directorio');
@@ -191,7 +187,6 @@ class DirectorioController extends Controller
                 'prioridad' =>  $estado,
                 'tel_contacto' =>  $request->phone,
                 'ext' =>  $request->ext,
-                'correo_contacto' =>  $request->email,
                 'img' => $filename
             ]);
             $archivo = public_path('web/img/directorio/'.$original_name);
@@ -205,7 +200,7 @@ class DirectorioController extends Controller
             'descripcion' => 'Actualizó el Directorio "'.$request->cargo.'"'
         ]);
 
-        return back()->with('status', 'Directorio actualizado con exito');
+        return back()->with('status', 'Directorio actualizado correctamente');
     }
 
     /**
@@ -230,6 +225,6 @@ class DirectorioController extends Controller
         $directorio->delete();
 
 
-        return back()->with('status', 'Directorio Eliminado Correctamente');
+        return back()->with('status', 'Directorio eliminado correctamente');
     }
 }

@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     {{-- Personalizados --}}
      <link rel="stylesheet" href="{{ asset("css/estilos.css") }}">
+
      
     @yield('css')
 </head>
 <body>
     <div class="alert-preloader d-none" id="preloader-page">
         <div class="d-flex justify-content-center cargar">
-
             <div class="loader loader-g">
                 <div class="loader-outter"></div>
                 <div class="loader-inner"></div>
@@ -65,8 +65,10 @@
         </div>
     </nav>
 
+    @include('panel.partials.nav')
+   
+    
     <div class="container container-2">
-
         @include('panel.partials._mensajes_estado')
 
         @yield('content')
@@ -76,16 +78,7 @@
 
 
             
-  
-    <footer class="footer navbar-light bg-light shadow-sm">
-        <div class="container pt-5 pb-2">
-            <div class="text-center">
-                   <a class=" " href="#!"><img src="{{ asset("img/logos/nav-001.png") }}" alt=""></a>
-                   <p class="mt-5">Gobierno Municipal de Casas Grandes 2020&copy; Todos los Derechos Reservados</p> 
-            </div>
-        </div>
-    </footer>
-
+    @include('panel.partials.footer')
    
     
 

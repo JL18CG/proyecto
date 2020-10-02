@@ -1,6 +1,6 @@
 
-<footer class="bg-light">
-    <div class="sp pt-1 pb-1"></div>
+<footer class="bg-white">
+    <div class="sp-divider pt-1 pb-1"></div>
     <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -18,19 +18,19 @@
             </div>
             <div class="col-md-7 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-md-8 col-xs-12">
                         <p class="footer-info">
                            <strong>Municipio de Casas Grandes:</strong><br>ayuntamientocasasgrandes@hotmail.com <br>(636)69-2-43-43 <br> <br> 
                            <strong>Redes Sociales:</strong> <br>
-                           <a href="" class="facebook p-1"><i class="fab fa-facebook-square"></i></a>
-                           <a href="" class="youtube p-1"><i class="fab fa-youtube "></i></a>
+                           <a href="https://www.facebook.com/casas.grandes.16" target="_blank" class="facebook p-1"><i class="fab fa-facebook-square"></i></a>
+                           <a href="https://www.youtube.com/channel/UCWattdxH6_ktA-exIMqRj8Q" target="_blank" class="youtube p-1"><i class="fab fa-youtube "></i></a>
                            <br>
                            <br>
                            <strong>Sistema</strong><br>
                            <a href="{{ route('login') }}" target="_blank" class="login-link"><i class="fas fa-sign-in-alt"></i></a>
                         </p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4 col-xs-12">
                         <p class="footer-info">
                             <strong>Números de Emergencia:</strong><br>
                             Bomberos <br>

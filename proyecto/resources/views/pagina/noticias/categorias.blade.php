@@ -1,48 +1,58 @@
 @extends('pagina.main-sec')
 
 @section('link_n','active')
-
+@section('link_n_a','activo-l')
 
 @section('content')
 
 <div class="row">
+    <div class="col-12">
+      <h3 class="my-4 d-block text-center">Noticias</h3>
+      <hr class="divider-sm">
+    </div>
+   <!-- Search Widget -->
+    <div class="col-12 mb-4">
+      <form action="{{ route('index.noticia') }}" class="form-inline">
+        <div class="input-group col-12">
+          <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="¿Quieres Buscar Alguna Noticia en Particular? Solo Escríbelo Aquí">
+          <span class="input-group-append">
+          <button class="btn btn-info text-white" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-12 col-lg-9">
 
-      <h3 class="my-4">Sección de Noticias</h3>
-      <hr class="divider-noticias">
-      @foreach ($noticias as $noticia)
-                <!-- Blog Post -->
-          <div class="card mb-4">
-            <img class="card-img-top" src="{{asset('web/img/noticias/thumbs/'.$noticia->imagen)}}" alt="Card image cap">
-              <div class="card-body">
-                <h2 class="card-title">{{$noticia->titulo}}</h2>
-                <p class="card-text"> {!! Str::limit($noticia->descripcion,150) !!} </p>
-                <a href="{{route('show.noticia', $noticia->url)}}" class="btn btn-primary">Leer Nota Completa <i class="fa fa-arrow-right ml-2"></i></a>
-              </div>
-              <div class="card-footer text-muted">
-                @php                  
-                  $fecha= date("d-m-Y", strtotime($noticia->created_at));$dia = strftime("%A", strtotime($fecha));                            
-                  $dia_numero =strftime("%d", strtotime($fecha));$mes =strftime("%B", strtotime($fecha));$anio=strftime("%Y", strtotime($fecha));$publicacion = (ucfirst(trans($dia)).' '.$dia_numero.' de '.ucfirst(trans($mes)).' de '.$anio);
-                @endphp              
-                  <p><small> Publicado el {{ $publicacion}} </small> 
-                    <br>
-                    <hr>
-                    <div class="row">
-                      <span class="col-12">Categorías</span>
- 
+    @if ($noticias->isEmpty())
+    <div class="alert alert-light" role="alert">
+      <i class="fa fa-ban"> </i> No se encontraron resultados para "{{request('url')}}". Es posible que no existan noticias relacionadas con esta categoría todavía. 
+    </div>
+    @else
 
+      <div class="p-2">
+              <div class="card-columns ">
+                @foreach ($noticias as $noticia)
+                <div class="card text-justify">
+                  <img  src="{{asset('web/img/noticias/thumbs/'.$noticia->imagen)}}" class="card-img-top" alt="img">
+                  <div class="card-body">
+                    <h2 class="card-title card-title-h2"><a href="{{route('show.noticia', $noticia->url)}}">{{$noticia->titulo}}</a></h2>
+                    <p class="card-text">{!!Str::limit($noticia->descripcion, 150)!!}</p>
+                    <div class="row pl-3 pr-3">
                       @foreach ($noticia->categorias as $item)
-                      <a href="{{ route('index.categoria_busqueda', $item->url) }}" class="btn btn-success m-2">{{$item->nombre}}</a>
+                    <a href="{{ route('index.categoria_busqueda', $item->url) }}" class="badge color-tags p-2 m-1">{{$item->nombre}}</a>
                       @endforeach 
-                    
                     </div>
-                    
-                  </p>
+                    <p class="card-text"><small class="text-muted ml-2"><i class="fa fa-clock"></i> {{$noticia->created_at->diffForHumans() }}</small></p>
+                  </div>
+                </div>
+              @endforeach
               </div>
-          </div>
-      @endforeach
+      </div>
+      @endif
+      
 
 
 
@@ -52,53 +62,26 @@
     </div>
 
     <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
+    <div class="col-md-12 col-lg-3"> 
 
-      <!-- Search Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Buscador de Noticias</h5>
-        <div class="card-body">
-          <div class="input-group">
-            <form action="{{ route('index.noticia') }}" class="form-inline">
-              <div class="input-group col-12">
-                <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="Buscar...">
-                <span class="input-group-append">
-                <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
-                </span>
+            <!-- Categories Widget -->
+            <div class="card  mt-1">
+              <h5 class="card-header-noticia text-center">Categorías</h5>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 col ">
+                    <ul class="list-unstyled mb-0 row text-center">
+                      @foreach ($categorias as $categoria)
+                      <li class="mx-auto p-1">
+                        <a href="{{ route('index.categoria_busqueda', $categoria->url) }}" class="categoria p-2 {{ $categoria->url==$url_active ? 'activo-noticia' : '' }}"> {{$categoria->nombre}}</a>
+                      </li>
+                      @endforeach
+                    </ul>
+                  </div>
+                  
+                </div>
               </div>
-            </form>
           </div>
-        </div>
-      </div>
-
-
-    
-
-    <!-- Categories Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Categorías</h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <ul class="list-unstyled mb-0 row text-center">
-              @foreach ($categorias as $categoria)
-              <li class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <a href="{{ route('index.categoria_busqueda', $categoria->url) }}" class="categoria">{{$categoria->nombre}}</a>
-              </li>
-              @endforeach
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-      <!-- Side Widget -->
-      <div class="card my-4">
-        <h5 class="card-header">Side Widget</h5>
-        <div class="card-body">
-          You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-        </div>
-      </div>
 
     </div>
 
