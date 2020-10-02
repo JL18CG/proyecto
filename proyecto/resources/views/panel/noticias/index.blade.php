@@ -63,7 +63,7 @@
 
                     {{ $noticias->appends(
                         [
-                            'created_at'=> request('created_at'),
+                            'created_at'=> request('crea5ted_at'),
                             'busqueda'=> request('busqueda')
                         ]
                         )->links() }}

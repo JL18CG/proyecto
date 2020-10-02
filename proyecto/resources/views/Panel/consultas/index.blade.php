@@ -21,20 +21,22 @@
         <caption>Lista de Consultas Pendientes</caption>
         <thead>
         <tr class="fondo">
-            <th scope="col " style="min-width:550px !important;">Contenido</th>
+            <th scope="col " style="min-width:530px !important;">Contenido</th>
             <th scope="col" class="text-center">Tipo</th>
             <th scope="col" class="text-center">Categoria</th>
             <th scope="col" class="text-center">Fecha</th>
             <th scope="col"><div class="text-center tabla-w"><span>Acciones</span></div></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody> 
+            
             @foreach ($consultaPs as $consulta)
-            <tr>
+            <tr>    
+                    
                     <td class="pt-3 text-size" >{{ $consulta->contenido }}</td>
                     <td class="pt-3 text-size" >{{ $consulta->tipo }}</td> 
                     <td class="pt-3 text-size" >{{ $consulta->categoria }}</td> 
-                    <td class="text-center pt-3 text-size">{{   date('d-m-Y H:i:s', strtotime($consulta->created_at)) }}</td>
+                    <td class="text-center pt-3 text-size">{{   date('d-m-Y', strtotime($consulta->created_at)) }}</td>
                     <td>
                         <a class="btn btn-outline-warning ml-2 mr-2 " href="{{route('consultas.show',$consulta->id)}}"><i class="fa fa-eye"></i></a>
 
@@ -70,11 +72,11 @@
                     <td class="pt-3 text-size" >{{ $consulta->contenido }}</td>
                     <td class="pt-3 text-size" >{{ $consulta->tipo }}</td> 
                     <td class="pt-3 text-size" >{{ $consulta->categoria }}</td> 
-                    <td class="text-center pt-3 text-size">{{   date('d-m-Y H:i:s', strtotime($consulta->created_at)) }}</td>
+                    <td class="text-center pt-3 text-size">{{   date('d-m-Y', strtotime($consulta->created_at)) }}</td>
                    <td>
-                    <a class="btn btn-outline-warning ml-2 mr-2 " href="{{route('consultas.show',$consulta->id)}}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-outline-warning ml-2 mr-2 " href="{{route('consultas.show',$consulta->id)}}" data-id="{{$consulta->id}}"><i class="fa fa-eye"></i></a>
 
-                    <a class="btn btn-outline-danger ml-2 mr-2 " href="{{route('consultas.C',$consulta->id)}}"><i class="fa fa-times"></i></a>
+                    <a class="btn btn-outline-danger ml-2 mr-2 " href="{{route('consultas.C',$consulta->id)}}" data-id="{{$consulta->id}}"><i class="fa fa-times"></i></a>
                    </td>
                     <td class="text-center"> 
                             </td>

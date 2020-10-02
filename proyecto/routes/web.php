@@ -48,9 +48,9 @@ Route::get('/panel/reportes/{archivo}', 'panel\ReporteController@pdfDowload')->n
 
 /*  Consultas  */
 Route::get('/panel/consultas', 'panel\ConsultasController@index')->name('consultas.index');
-Route::get('/panel/consultas/P/', 'panel\ConsultasController@P')->name('consultas.P');
-Route::get('/panel/consultas/C/', 'panel\ConsultasController@C')->name('consultas.C');
-Route::get('/panel/consultas/consulta/', 'panel\ConsultasController@show')->name('consultas.show');
+Route::get('/panel/consultas/P/{id}', 'panel\ConsultasController@P')->name('consultas.P');
+Route::get('/panel/consultas/C/{id}', 'panel\ConsultasController@C')->name('consultas.C');
+Route::get('/panel/consultas/consulta/{id}', 'panel\ConsultasController@show')->name('consultas.show');
 
 
 
@@ -94,10 +94,10 @@ Route::get('/transparencia', function () {
 })->name('transparencia.index');
 
 /*Reportes Ciudadanos*/
-Route::get('/reportes', function () {
-    return view('pagina.reportes-p.index');
-})->name('reporte.index');
+Route::get('/consultas', 'ppublic\ConsultasController@index')->name('consu.index');
+Route::put('/consultas/crear', 'ppublic\ConsultasController@store')->name('consu.store');
 
+/*Turismo publico*/
 
 
 Auth::routes(["register" => false, "reset" => false, ]);

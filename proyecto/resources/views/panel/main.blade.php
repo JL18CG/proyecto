@@ -52,7 +52,7 @@
                     <li class="nav-item">
                         <a href="{{ route("consultas.index") }}" data-toggle="tooltip" title="Consultas" class="nav-link pl-3 pr-3"> <i class="mr-1 fa fa-envelope"></i>Consultas</a>
                     </li>
-
+                    
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" id="log-out" data-toggle="tooltip" title="Cerrar Sesión" class=" nav-link pl-3 pr-3 rounded btn btn-outline-danger">{{  Str::upper(auth()->user()->name)}} <i class="mr-1 fa fa-sign-out-alt"></i>  </a>
                     </li>

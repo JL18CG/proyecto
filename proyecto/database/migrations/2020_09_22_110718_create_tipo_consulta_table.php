@@ -16,6 +16,7 @@ class CreateTipoConsultaTable extends Migration
         Schema::create('tipo_consulta', function (Blueprint $table) {
             $table->id();
             $table->string('tipo');
+            $table->foreignId('id_categoria_consulta');
             $table->timestamps();
         });
     }

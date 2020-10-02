@@ -15,7 +15,7 @@
                       <a class="dropdown-item " href="{{route('index.directorio')}}">Direcotrio</a>
                       <a class="dropdown-item" href="{{route('tesoreria.index')}}">Tesorería</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="{{route('reportes.index')}}">Reportes Ciudadanos</a>
+                      <a class="dropdown-item" href="{{route('consu.index')}}">Reportes Ciudadanos</a>
                     </div>
                   </li>
 

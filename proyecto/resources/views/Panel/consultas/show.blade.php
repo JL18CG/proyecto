@@ -1,4 +1,5 @@
 @extends('panel.main')
+
 @section('titulo') Consulta {{$consu->id}} @endsection
 @section('content')
 <div class="pt-1 pb-5">
