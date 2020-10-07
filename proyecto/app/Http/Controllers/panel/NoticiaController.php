@@ -160,7 +160,7 @@ class NoticiaController extends Controller
         $original_name= $noticia->imagen;
      
         $request->validate([
-            'titulo' =>'required|min:3|max:110',
+            'titulo' =>'required|min:3|max:1000',
             'autor' =>'required|min:3|max:50',
             'contenido' =>'required|min:3|max:30000',
             'categorias'=>'required',
