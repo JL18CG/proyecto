@@ -1,6 +1,6 @@
 @extends('pagina.main-sec')
 
-
+@section('link_n_mu','activo-l')
 @section('fb-comentarios')
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0&appId=834076760667509&autoLogAppEvents=1" nonce="til3jUZC"></script>
