@@ -4,10 +4,7 @@
 @section('content')
 <div class="container">
   <div class="row">  
-    <div class="col-12">
-      <h3 class="my-4 text-center">Eventos</h3>
-      <hr class="divider-sm">
-  </div>
+<h3 style="margin-top:1rem;">Sitios Interesantes para Visitar</h3>
 </div>
 @foreach ($eventos as $evento) 
   
