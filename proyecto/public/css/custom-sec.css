@@ -181,3 +181,9 @@ h5.card-header-noticia {
 .card{
     border: 1px solid #FF7F29;
 }
+
+.link-rep:hover{
+    cursor: pointer;
+
+
+}

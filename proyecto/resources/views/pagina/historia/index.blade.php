@@ -1,47 +1,42 @@
 @extends('pagina.main-sec')
 
-@section('content')
-<div class="container">
-    <div class="row">
-    <h3 class="border-bottom border-primary col-12" style="margin-top:1rem">Historia del Municipio de Casas Grandes</h3> 
-    </div>
-    <br>
-    <div class="row">
-        <h4 class="border-bottom border-primary col-12">Escudo</h4>
-        </div>
-    <div class="row d-flex justify-content-center"> 
-        <img src="{{asset("web/img/historia/escudo.jpg")}}" alt="">
-    </div>
-    <div class="row d-flex justify-content-center">
-    <div class="row">
-        <div class="col-12">
-        <p class="text-justify">Adopta la forma del escudo hispano, rematando en punta a su parte baja. La bordura es de oro y dentro de ella, en su parte superior el nombre Paquimé 1565, año en que estuvieron en esta ciudad precolombina los conquistadores y en su base, Casas Grandes, ambas leyendas en sable. <br><br>
-            El blasón principal es la cruz autóctona conocida como cruz de Paquimé, prehispánica y llamada en heráldica cruz latina, cuyo místico simbolismo recuerda las misiones indígenas, con las cuatro deidades básicas de la vida: tierra, agua, sol y aire, además los cuatro soles, el de primavera, el de verano, el de otoño y el de invierno, la cruz está en color café, sobre el campo plata blanco.<br><br>
-            En los cantones superiores del escudo se dibujan: la cruz de Santiago en Gules del lado izquierdo, distintiva de los caballeros de esa orden y que aparece en el estado de don Francisco de Ibarra, primer Gobernador de Nueva Vizcaya. Una flor de lis en violeta, del lado derecho simboliza la hidalguía y nobleza de los habitantes del municipio.<br><br>
-            En los cantones inferiores se representan las actividades productivas del lugar, pilares de su economía. En el lado izquierdo, la agricultura, la ganadería, y la silvicultura, simbolizados con una espiga de trigo, una cabeza de ganado bovino y un grupo de pinos, todo en su color. En el derecho, una manzana, un durazno y una pera como emblemas de la fruticultura, en sus respectivos colores.<br>
-            </p>
-        </div>
-        </div>
-   
-    </div>
 
-    <div class="row">
-        <h4 class="border-bottom border-primary col-12">Historia</h4>
-        </div>
-    <div class="row d-flex justify-content-center">
-    <div class="row">
-        <div class="col-12">
-        <p class="text-justify">
-            La región constituyó el asiento de los aztecas en su peregrinación al sur durante su tercera morada, en donde quedan como huellas las ruinas inmediatas a la cabecera, donde también habitaron los jovas, jumas y apaches. Desde mediados del siglo XVII constituyó una alcaldía mayor que fue el primer centro de autoridad española en la región. Más tarde quedó supeditada a la autoridad del presidio de San Buenaventura, en 1820 adquirió la categoría de municipio, seis años más tarde formó parte del partido de San Buenaventura, en 1847 del cantón Galeana, en 1887 del distrito Bravos y de 1898 a 1911 del distrito Galeana.<br><br>
-            La cabecera es Casas Grandes, fue fundada en 1661 por el capitán Andrés Gracia por órdenes del Gobernador de la Nueva Vizcaya, don Francisco Gorraez y Beaumont.
-        </p>
-        </div>
-        </div>
-            <div class="row d-flex justify-content-center"> 
-                <img src="{{asset("web/img/historia/CasasGrandes.jpg")}}" alt="">
+@section('fb-comentarios')
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0&appId=834076760667509&autoLogAppEvents=1" nonce="til3jUZC"></script>
+@endsection
+
+@section('content')
+<div class="row">
+    <div class="col-12">
+        <h3 class="my-4 d-block text-center">Municipio de Casas Grandes</h3> 
+        <hr class="divider-sm">
+      </div>
+
+      <div class="col-12 mb-5">
+        <h4 class="text-center">Escudo</h4>
+            <p class="text-justify p-2">Adopta la forma del escudo hispano, rematando en punta a su parte baja. La bordura es de oro y dentro de ella, en su parte superior el nombre Paquimé 1565, año en que estuvieron en esta ciudad precolombina los conquistadores y en su base, Casas Grandes, ambas leyendas en sable. <br><br>
+                El blasón principal es la cruz autóctona conocida como cruz de Paquimé, prehispánica y llamada en heráldica cruz latina, cuyo místico simbolismo recuerda las misiones indígenas, con las cuatro deidades básicas de la vida: tierra, agua, sol y aire, además los cuatro soles, el de primavera, el de verano, el de otoño y el de invierno, la cruz está en color café, sobre el campo plata blanco.<br><br>
+                En los cantones superiores del escudo se dibujan: la cruz de Santiago en Gules del lado izquierdo, distintiva de los caballeros de esa orden y que aparece en el estado de don Francisco de Ibarra, primer Gobernador de Nueva Vizcaya. Una flor de lis en violeta, del lado derecho simboliza la hidalguía y nobleza de los habitantes del municipio.<br><br>
+                En los cantones inferiores se representan las actividades productivas del lugar, pilares de su economía. En el lado izquierdo, la agricultura, la ganadería, y la silvicultura, simbolizados con una espiga de trigo, una cabeza de ganado bovino y un grupo de pinos, todo en su color. En el derecho, una manzana, un durazno y una pera como emblemas de la fruticultura, en sus respectivos colores.<br>
+            </p>
+
+            <div class="row justify-content-center"> 
+                    <img  class="img-fluid" src="{{asset("web/img/historia/escudo.jpg")}}" alt="">
             </div>
-            <div class="row">
-                <div class="col-12">
+      </div>
+
+      <div class="col-12 mt-5">
+        <h4 class="text-center">Historia</h4>
+            <p class="text-justify">
+                La región constituyó el asiento de los aztecas en su peregrinación al sur durante su tercera morada, en donde quedan como huellas las ruinas inmediatas a la cabecera, donde también habitaron los jovas, jumas y apaches. Desde mediados del siglo XVII constituyó una alcaldía mayor que fue el primer centro de autoridad española en la región. Más tarde quedó supeditada a la autoridad del presidio de San Buenaventura, en 1820 adquirió la categoría de municipio, seis años más tarde formó parte del partido de San Buenaventura, en 1847 del cantón Galeana, en 1887 del distrito Bravos y de 1898 a 1911 del distrito Galeana.<br><br>
+                La cabecera es Casas Grandes, fue fundada en 1661 por el capitán Andrés Gracia por órdenes del Gobernador de la Nueva Vizcaya, don Francisco Gorraez y Beaumont.
+            </p>
+            <div class="row d-flex justify-content-center mt-2 mb-2 px-4 mt-4 mb-4"> 
+                <img  class="img-fluid" src="{{asset("web/img/historia/CasasGrandes.jpg")}}" alt="">
+            </div>
+
+            <div class="col-12">
                 <p class="text-justify">
                     Andrés Gracia se presentó a poblar el valle que llamó San Antonio de Casas Grandes, en unión de su familia, algunos parientes y el R.P. Andrés Páez, el primero como Alcalde Mayor de la comarca.<br><br>
 
@@ -68,8 +63,13 @@
                     A las 5 de la tarde se procedió a levantar el campo, los maderistas perdieron ocho carros de provisiones, tuvieron un total de 58 muertos entre los que se contaban Salomón Dozal, Francisco Esteves y José Dolores Palomino, 41 prisioneros, entre ellos el Ingeniero Eduardo F. Hay, una bandera, 207 caballos, 153 mulas, 150 monturas, 101 rifles y herido el jefe de la Revolución. La guarnición tuvo 13 muertos y 23 heridos y la columna auxiliar 24 muertos y 37 heridos, entre éstos el citado coronel García Cuellar.<br><br>
                 </p>
                 </div>
-                </div>
-    </div>
-    
+
+      </div>
+
 </div>
+
+@endsection
+
+@section('comentarios-area')
+    <div class="fb-comments col-12 mt-5" data-href="{{Request::url()}}" data-numposts="5" data-width="100%"></div>
 @endsection

@@ -3,31 +3,48 @@
 
 
 @section('content') 
-<h3 class="h2 d-block pt-2">Reportes Ciudadanos</h3>
-<div class="container">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
+
 <div class="row">
     <div class="col-12">
-    <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle col-12" style="margin-top:28px" type="button" id="tipo" data-toggle="dropdown">
-          Seleccione el tipo de Reporte que desea hacer
-        </button>
-        <div class="dropdown-menu" aria-labelledby="tipo">
-          <a class="dropdown-item" id="f-publico">Funcionario Publico</a>
-          <a class="dropdown-item" id="f-vialidad">Vialidad</a>
-          <a class="dropdown-item" id="f-servicios">Servicios Publicos</a>
-          <a class="dropdown-item" id="f-pagina">Funcionalidad de la pagina</a>
-        </div>
+        <h3 class="my-4 d-block text-center">Reportes Ciudadanos</h3>
+        <hr class="divider-sm">
       </div>
+
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+    <div class="col-12">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle col-12" style="margin-top:28px" type="button" id="tipo" data-toggle="dropdown">
+              Seleccione el tipo de Reporte que desea hacer 
+            </button>
+            <div class="dropdown-menu w-100 mt-1" aria-labelledby="tipo">
+              <a class="dropdown-item link-rep" id="f-publico">Funcionario Publico</a>
+              <a class="dropdown-item link-rep" id="f-vialidad">Vialidad</a>
+              <a class="dropdown-item link-rep" id="f-servicios">Servicios Publicos</a>
+              <a class="dropdown-item link-rep" id="f-pagina">Funcionalidad de la pagina</a>
+            </div>
+          </div>
     </div>
+
+</div>
+
+
+
+
+
+
+<div class="container">
+    
+<div class="row">
+    
 </div>
 <div class="row">
 
