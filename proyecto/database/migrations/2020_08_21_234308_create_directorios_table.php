@@ -20,7 +20,6 @@ class CreateDirectoriosTable extends Migration
             $table->string('prioridad')->nullable();
             $table->string('tel_contacto');
             $table->string('ext');
-            $table->string('correo_contacto');
             $table->string('img');
             $table->timestamps();
         });
