@@ -1,5 +1,5 @@
 @extends('pagina.main-sec')
-
+@section('link_n_mu','activo-l')
 
 @section('content')
 <div class="container">

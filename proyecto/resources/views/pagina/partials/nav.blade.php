@@ -14,7 +14,6 @@
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item " href="{{route('index.directorio')}}">Directorio</a>
                       <a class="dropdown-item" href="{{route('tesoreria.index')}}">Tesorería</a>
-                      <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="{{route('consu.index')}}">Reportes Ciudadanos</a>
                     </div>
                   </li>
@@ -30,14 +29,14 @@
                     </div>
                   </li>
                  
-                <li class="nav-item dropdown pb-2 pt-2 custom-nav">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMunicipio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown pb-2 pt-2 custom-nav @yield('link_n_mu')">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMunicipio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Municipio
                   </a>
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdownMunicipio">
                       <a class="dropdown-item" href="{{Route('turismo.index')}}">Turismo</a>
                       <a class="dropdown-item" href="{{Route('evento.index')}}">Eventos</a>
-                      <a class="dropdown-item" href="{{Route('historia.index')}}">Historia</a>
+                      <a class="dropdown-item " href="{{Route('historia.index')}}">Historia</a>
                     </div>
                   </li>
             </ul>
