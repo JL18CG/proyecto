@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\panel;
 use App\Sitio;
+use App\Auditoria;
 use App\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -71,7 +72,7 @@ class SitioController extends Controller
         $destino = public_path('web/img/sitios');
         $path = $request->imagen->move($destino, $filename);
 
-        $sitio = Sitio::create([
+        Sitio::create([
             'nombre_lugar' =>  $request->nombre_lugar,
             'tipo_lugar' =>  $request->tipo_lugar,
             'ubicacion' =>  $request->ubicacion,
@@ -82,11 +83,11 @@ class SitioController extends Controller
 
 
         $red = Image::make( $destino.'/'.$filename);
-        $destino_d = public_path('web/img/sitios');
+        $destino = public_path('web/img/sitios');
         $red->resize(300,null, function($constraint){
             $constraint->aspectRatio();
         });
-        $red->save($destino_d.'/thumbs/'. $filename);
+        $red->save($destino.'/thumbs/'. $filename);
 
         Auditoria::create([
             'user_id' => auth()->user()->id,

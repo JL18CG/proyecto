@@ -31,6 +31,12 @@ class ConsultasController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
+        $request -> validate([
+            "descripcion" => "required|min:3|max:255",
+            "categoria" => "required",
+            'tiporeporte'=>'required'
+        ]);
+
         $request = Consulta::create([
             'cat_id' =>  $request->categoria,
             'tipo_id' =>  $request->tiporeporte,

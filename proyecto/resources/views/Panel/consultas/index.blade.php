@@ -50,6 +50,7 @@
 
         </tbody>
     </table>
+    {{ $consultaPs->links() }}
 </div>
 </div>
 <div class="tab-pane fade {{ (session('active')) ? 'active show ' : '' }} " id="p-concluidas" role="tabpanel" aria-labelledby="profile-tab">
@@ -79,13 +80,13 @@
                     <a class="btn btn-outline-danger ml-2 mr-2 " href="{{route('consultas.C',$consulta->id)}}" data-id="{{$consulta->id}}"><i class="fa fa-times"></i></a>
                    </td>
                     <td class="text-center"> 
-                            </td>
-            
+                            </td>            
             </tr>
             @endforeach
 
         </tbody>
     </table>
+    {{ $consultaCs->links() }}
 </div>
 </div>
 </div>

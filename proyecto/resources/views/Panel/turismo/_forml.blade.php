@@ -8,10 +8,10 @@
     <div class="form-group col-8">
             <label for="tipo_lugar">Tipo de Lugar*</label>
             <select class="form-control  @error('tipo_lugar') is-invalid @enderror" name="tipo_lugar" id="tipo_lugar" value="{{ old('tipo_lugar',$sitio->tipo_lugar) }}">
-                <option value="v1">Valor 1</option>
-                <option value="v2">Valor 2</option>
-                <option value="v3">Valor 3</option>
-                <option value="v4">Valor 4</option>
+                <option value="Zona Turistica">Zona Turistica</option>
+                <option value="Area Recreativa">Area Recreativa</option>
+                <option value="Area Verde">Area Verde</option>
+                <option value="Otro">Otro</option>
               </select>
             @error('tipo_lugar')  <div class="invalid-feedback">Selecciona un Tipo de Lugar Válido.</div>  @enderror
     </div>

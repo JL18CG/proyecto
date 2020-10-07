@@ -19,12 +19,12 @@ class ConsultasController extends Controller
         join('categoria_consulta','categoria_consulta.id','=','consultas.cat_id')->
         join('tipo_consulta','tipo_consulta.id','=','consultas.tipo_id')->where('estado', '=', 'P')
         ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->get(); 
+        ->paginate(10); 
         $consultaCs = DB::table('consultas')->
         join('categoria_consulta','categoria_consulta.id','=','consultas.cat_id')->
         join('tipo_consulta','tipo_consulta.id','=','consultas.tipo_id')->where('estado', '=', 'C')
         ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->get(); 
+        ->paginate(10); 
        return view('panel.consultas.index' ,compact('consultaPs','consultaCs'));
       
     }
@@ -39,12 +39,12 @@ class ConsultasController extends Controller
         join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
         join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'P')
         ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-         ->get(); 
+        ->paginate(10); 
         $consultaCs = DB::table('consultas')->
         join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
         join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'C')
         ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->get();
+        ->paginate(10);
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Reviso la consulta "'.$request.'"'
@@ -62,12 +62,12 @@ class ConsultasController extends Controller
         join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
         join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'P')
         ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->get(); 
+        ->paginate(10);; 
         $consultaCs = DB::table('consultas')->
         join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
         join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'C')
         ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->get();
+        ->paginate(10);;
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Quito la consulta revisada "'.$request.'"'

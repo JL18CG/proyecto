@@ -5,6 +5,7 @@ namespace App\Http\Controllers\panel;
 use Image;
 use App\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 
