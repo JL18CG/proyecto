@@ -21,10 +21,10 @@
           Seleccione el tipo de Reporte que desea hacer
         </button>
         <div class="dropdown-menu" aria-labelledby="tipo">
-          <a class="dropdown-item" onclick="ShowFun();">Funcionario Publico</a>
-          <a class="dropdown-item" onclick="ShowVia();">Vialidad</a>
-          <a class="dropdown-item" onclick="ShowSer();">Servicios Publicos</a>
-          <a class="dropdown-item" onclick="ShowPag();">Funcionalidad de la pagina</a>
+          <a class="dropdown-item" id="f-publico">Funcionario Publico</a>
+          <a class="dropdown-item" id="f-vialidad">Vialidad</a>
+          <a class="dropdown-item" id="f-servicios">Servicios Publicos</a>
+          <a class="dropdown-item" id="f-pagina">Funcionalidad de la pagina</a>
         </div>
       </div>
     </div>
@@ -38,11 +38,12 @@
     <div class="form-group col-12">
         <h4 class="h2 d-block pt-2">Reportes a funcionarios</h4>
         <label for="tiporeporte">Selecciona el tipo de reporte</label>
-        <input style="display:none" name="categoria" id="categoria" value="1">
+        <input style="display:none" name="categoria" id="categoria" value="Funcionario">
         <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">
-            @foreach ($tipof as $item)
-            <option value="{{$item->id}}">{{$item->tipo}}</option>
-        @endforeach
+            <option value="Puntualidad">Puntualidad</option>
+            <option value="Asistencia">Asistencia</option>
+            <option value="Trato">Trato</option>
+            <option value="Otro">Otro</option>
         </select>
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
@@ -63,11 +64,12 @@
     <div class="form-group col-12">
         <h4 class="h2 d-block pt-2">Reportes de vialidad</h4>
         <label for="tiporeporte">Selecciona el tipo de reporte</label>
-        <input style="display:none" name="categoria" id="categoria" value="2">
+        <input style="display:none" name="categoria" id="categoria" value="Vialidad">
         <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">
-            @foreach ($tipov as $item)
-                <option value="{{$item->id}}">{{$item->tipo}}</option>
-            @endforeach
+            <option value="Alumbrado">Alumbrado</option>
+            <option value="Baches">Baches</option>
+            <option value="Señalización">Señalización</option>
+            <option value="Otro">Otro</option>
         </select>
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
@@ -88,11 +90,11 @@
     <div class="form-group col-12">
         <h4 class="h2 d-block pt-2">Reportes de Servicios Publicos</h4>
         <label for="tiporeporte">Selecciona el tipo de reporte</label>
-        <input style="display:none" name="categoria" id="categoria" value="3">
-        <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">
-            @foreach ($tipos as $item)
-            <option value="{{$item->id}}">{{$item->tipo}}</option>
-            @endforeach
+        <input style="display:none" name="categoria" id="categoria" value="Servicios Publicos">
+        <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">           
+            <option value="Basura">Basura</option>
+            <option value="Limpieza de areas">Limpieza de areas</option>
+            <option value="Otro">Otro</option>         
         </select>
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
@@ -114,12 +116,18 @@
     <div class="form-group col-12">
         <h4 class="h2 d-block pt-2">Reportes de Funcionalidad de la Pagina</h4>
         <label for="tiporeporte">Selecciona el tipo de reporte</label>
-        <input style="display:none" name="categoria" id="categoria" value="4">
+        <input style="display:none" name="categoria" id="categoria" value="Funcionalidad">
         <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">
-            @foreach ($tipop as $item)
-                <option value="{{$item->id}}">{{$item->tipo}}</option>
-            @endforeach
-            
+            <option value="Página Principal">Página Principal</option>
+            <option value="Página Noticias">Página Noticias</option>
+            <option value="Página Directorio">Página Directorio</option>
+            <option value="Página Tesorería">Página Tesorería</option>
+            <option value="Página Reprotes Ciudadanos">Página Reprotes Ciudadanos</option>
+            <option value="Página Transparencia">Página Transparencia</option>
+            <option value="Página Turismo">Página Turismo</option>
+            <option value="Página Historia">Página Historia</option>
+            <option value="Página Eventos">Página Eventos</option>
+            <option value="Otro">Otro</option>        
         </select>
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
@@ -135,30 +143,4 @@
 </form>
   </div>
 
-<script type="text/javascript">
-    function ShowFun(){
-    document.getElementById('formFuncionario').style.display="block";
-    document.getElementById('formVialidad').style.display="none";
-    document.getElementById('formServicios').style.display="none";
-    document.getElementById('formPagina').style.display="none";
-    }
-    function ShowVia(){
-    document.getElementById('formFuncionario').style.display="none";
-    document.getElementById('formVialidad').style.display="block";
-    document.getElementById('formServicios').style.display="none";
-    document.getElementById('formPagina').style.display="none";
-    }
-    function ShowSer(){
-    document.getElementById('formFuncionario').style.display="none";
-    document.getElementById('formVialidad').style.display="none";
-    document.getElementById('formServicios').style.display="block";
-    document.getElementById('formPagina').style.display="none";
-    }
-    function ShowPag(){
-    document.getElementById('formFuncionario').style.display="none";
-    document.getElementById('formVialidad').style.display="none";
-    document.getElementById('formServicios').style.display="none";
-    document.getElementById('formPagina').style.display="block";
-    }
-</script>
 @endsection

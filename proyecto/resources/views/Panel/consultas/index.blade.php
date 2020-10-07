@@ -35,7 +35,7 @@
                     
                     <td class="pt-3 text-size" >{{ $consulta->contenido }}</td>
                     <td class="pt-3 text-size" >{{ $consulta->tipo }}</td> 
-                    <td class="pt-3 text-size" >{{ $consulta->categoria }}</td> 
+                    <td class="pt-3 text-size" >{{ $consulta->cat }}</td> 
                     <td class="text-center pt-3 text-size">{{   date('d-m-Y', strtotime($consulta->created_at)) }}</td>
                     <td>
                         <a class="btn btn-outline-warning ml-2 mr-2 " href="{{route('consultas.show',$consulta->id)}}"><i class="fa fa-eye"></i></a>
@@ -72,7 +72,7 @@
             <tr>
                     <td class="pt-3 text-size" >{{ $consulta->contenido }}</td>
                     <td class="pt-3 text-size" >{{ $consulta->tipo }}</td> 
-                    <td class="pt-3 text-size" >{{ $consulta->categoria }}</td> 
+                    <td class="pt-3 text-size" >{{ $consulta->cat }}</td> 
                     <td class="text-center pt-3 text-size">{{   date('d-m-Y', strtotime($consulta->created_at)) }}</td>
                    <td>
                     <a class="btn btn-outline-warning ml-2 mr-2 " href="{{route('consultas.show',$consulta->id)}}" data-id="{{$consulta->id}}"><i class="fa fa-eye"></i></a>

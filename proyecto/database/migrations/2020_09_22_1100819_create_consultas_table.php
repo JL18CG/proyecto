@@ -15,8 +15,8 @@ class CreateConsultasTable extends Migration
     {
         Schema::create('consultas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cat_id');
-            $table->foreignId('tipo_id');
+            $table->string('cat');
+            $table->string('tipo');
             $table->string('contenido');
             $table->enum('estado', ['P', 'C']);
             $table->timestamps();

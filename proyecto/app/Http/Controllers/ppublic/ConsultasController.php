@@ -13,19 +13,7 @@ class ConsultasController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        $tipof = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','1')
-        ->get(); 
-        $tipov = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','2')
-        ->get(); 
-        $tipos = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','3')
-        ->get(); 
-        $tipop = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','4')
-        ->get();
-        return view('pagina.reportes-p.index',compact('tipof', 'tipov','tipos','tipop'));
+        return view('pagina.reportes-p.index');
     }
     public function store(Request $request)
     {
@@ -36,27 +24,14 @@ class ConsultasController extends Controller
             "categoria" => "required",
             'tiporeporte'=>'required'
         ]);
-
+          
         $request = Consulta::create([
-            'cat_id' =>  $request->categoria,
-            'tipo_id' =>  $request->tiporeporte,
+            'cat' =>  $request->categoria,
+            'tipo' =>  $request->tiporeporte,
             'contenido' =>  $request->descripcion,
-            'prioridad' => $request->descripcion,
             'estado'=> 'P'
         ]);
-        
-        $tipof = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','1')
-        ->get(); 
-        $tipov = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','2')
-        ->get(); 
-        $tipos = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','3')
-        ->get(); 
-        $tipop = DB::table('tipo_consulta')->select('id','tipo')
-        ->where('id_categoria_consulta','4')
-        ->get();
-        return view('pagina.reportes-p.index',compact('tipof', 'tipov','tipos','tipop'));
+
+        return view('pagina.reportes-p.index');
     }
 }

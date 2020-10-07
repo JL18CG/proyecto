@@ -12,7 +12,7 @@
   
     <div class="form-group">
         <label for="title">Categoria</label>    
-        <input readonly class="form-control" type="text" name="title" id="title" value="{{$consu->categoria}}">
+        <input readonly class="form-control" type="text" name="title" id="title" value="{{$consu->cat}}">
     </div>
     <div class="form-group">
         <label for="title">Tipo</label>    

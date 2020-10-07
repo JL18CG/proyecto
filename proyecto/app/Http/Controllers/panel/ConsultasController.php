@@ -15,16 +15,8 @@ class ConsultasController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        $consultaPs = DB::table('consultas')->
-        join('categoria_consulta','categoria_consulta.id','=','consultas.cat_id')->
-        join('tipo_consulta','tipo_consulta.id','=','consultas.tipo_id')->where('estado', '=', 'P')
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->paginate(10); 
-        $consultaCs = DB::table('consultas')->
-        join('categoria_consulta','categoria_consulta.id','=','consultas.cat_id')->
-        join('tipo_consulta','tipo_consulta.id','=','consultas.tipo_id')->where('estado', '=', 'C')
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->paginate(10); 
+        $consultaPs = DB::table('consultas')->where('estado', '=', 'P')->paginate(10); 
+        $consultaCs = DB::table('consultas')->where('estado', '=', 'C')->paginate(10);
        return view('panel.consultas.index' ,compact('consultaPs','consultaCs'));
       
     }
@@ -35,16 +27,8 @@ class ConsultasController extends Controller
         date_default_timezone_set('America/Chihuahua');
         $request = DB::table('consultas')->where('id','=',$id)
         ->update(['estado' => 'C']);
-        $consultaPs = DB::table('consultas')->
-        join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
-        join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'P')
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->paginate(10); 
-        $consultaCs = DB::table('consultas')->
-        join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
-        join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'C')
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->paginate(10);
+        $consultaPs = DB::table('consultas')->where('estado', '=', 'P')->paginate(10); 
+        $consultaCs = DB::table('consultas')->where('estado', '=', 'C')->paginate(10);
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Reviso la consulta "'.$request.'"'
@@ -58,16 +42,8 @@ class ConsultasController extends Controller
         date_default_timezone_set('America/Chihuahua');
         $request = DB::table('consultas')->where('id','=',$id)
               ->update(['estado' => 'P']);
-        $consultaPs = DB::table('consultas')->
-        join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
-        join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'P')
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->paginate(10);; 
-        $consultaCs = DB::table('consultas')->
-        join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
-        join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('estado', '=', 'C')
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')
-        ->paginate(10);;
+              $consultaPs = DB::table('consultas')->where('estado', '=', 'P')->paginate(10); 
+              $consultaCs = DB::table('consultas')->where('estado', '=', 'C')->paginate(10);
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Quito la consulta revisada "'.$request.'"'
@@ -78,10 +54,7 @@ class ConsultasController extends Controller
     {
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
-        $consu = DB::table('consultas')->
-        join('categoria_consulta','consultas.cat_id','categoria_consulta.id')->
-        join('tipo_consulta','consultas.tipo_id','tipo_consulta.id')->where('consultas.id', '=', $id)
-        ->select('consultas.id','consultas.contenido','consultas.created_at','tipo_consulta.tipo','categoria_consulta.categoria')->first();
+        $consu = Consulta::first();
         return view('panel.consultas.show', ["consu" => $consu]);
     }
 }
