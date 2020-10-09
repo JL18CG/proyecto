@@ -100,7 +100,7 @@ Route::get('/turismo', 'ppublic\TurismoController@index')->name('turismo.index')
 /*Evento publico*/
 Route::get('/eventos', 'ppublic\EventoController@index')->name('evento.index');
 
-Auth::routes(["register" => false, "reset" => false, ]);
+
 
 
 /* Historia */
@@ -108,8 +108,11 @@ Route::get('/historia', function () {
     return view('pagina.historia.index');
 })->name('historia.index');
 
+
+
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 
 
 
-/*Redireccion*/
+Auth::routes();
+

@@ -60,9 +60,9 @@ class SitioController extends Controller
         date_default_timezone_set('America/Chihuahua');
 
         $request -> validate([
-            'nombre_lugar' => "required|min:3|max:110",
+            'nombre_lugar' => "required|unique:sitios|min:3|max:110",
             'tipo_lugar' => "required",
-            'ubicacion' => "required|min:3|max:110",
+            'ubicacion' => "required|min:3|max:250",
             'direccion' => "required|min:3|max:110",
             'descripcion' => "required|min:3|max:110", 
             'imagen'=>'required|mimes:jpg,jpeg,png|max:1024'        
@@ -84,7 +84,7 @@ class SitioController extends Controller
 
         $red = Image::make( $destino.'/'.$filename);
         $destino = public_path('web/img/sitios');
-        $red->resize(300,null, function($constraint){
+        $red->resize(700,null, function($constraint){
             $constraint->aspectRatio();
         });
         $red->save($destino.'/thumbs/'. $filename);
@@ -134,12 +134,12 @@ class SitioController extends Controller
         date_default_timezone_set('America/Chihuahua');
         $original_name= $sitio->img;
         $request -> validate([
-            'nombre_lugar' => "required|min:3|max:110",
+            'nombre_lugar' => "required|min:3|max:110|unique:sitios,nombre_lugar,".$sitio->id,
             'tipo_lugar' => "required",
-            'ubicacion' => "required|min:3|max:110",
+            'ubicacion' => "required|min:3|max:250",
             'direccion' => "required|min:3|max:110",
             'descripcion' => "required|min:3|max:110", 
-            'imagen'=>'mimes:jpg,jpeg,png|max:1024'        
+            'imagen'=>'mimes:jpg,jpeg,png|max:1024'
         ]);
 
 
@@ -159,7 +159,7 @@ class SitioController extends Controller
             $destino_thumbs = public_path('web/img/sitios');
             $request->imagen->move($destino, $filename);
             $red = Image::make( $destino_thumbs.'/'.$filename);
-            $red->resize(300,null, function($constraint){$constraint->aspectRatio();});
+            $red->resize(700,null, function($constraint){$constraint->aspectRatio();});
             $red->save($destino.'/thumbs/'. $filename);
 
             $sitio->update([
@@ -187,7 +187,7 @@ class SitioController extends Controller
             'descripcion' => 'Actualizó el Sitio Turistico "'.$request->nombre_lugar.'"'
         ]);
 
-        return back()-> with('status', 'Evento editado');
+        return back()-> with('status', 'Sitio editado correctamente');
     }
 
     /**

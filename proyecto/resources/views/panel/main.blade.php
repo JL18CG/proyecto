@@ -54,10 +54,10 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a href="{{ route('logout') }}" id="log-out" data-toggle="tooltip" title="Cerrar Sesión" class=" nav-link pl-3 pr-3 rounded btn btn-outline-danger">{{  Str::upper(auth()->user()->name)}} <i class="mr-1 fa fa-sign-out-alt"></i>  </a>
+                        <a href="{{ route('logout') }}"   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  id="log-out" data-toggle="tooltip" title="Cerrar Sesión" class=" nav-link pl-3 pr-3 rounded btn btn-outline-danger">{{  Str::upper(auth()->user()->name)}} <i class="mr-1 fa fa-sign-out-alt"></i>  </a>
                     </li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
                     </form>
                     
                 </ul>

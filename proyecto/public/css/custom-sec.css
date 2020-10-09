@@ -187,3 +187,9 @@ h5.card-header-noticia {
 
 
 }
+
+.list-group-item-sitio{
+    padding: 0 !important;
+    font-size: .8rem;
+}
+

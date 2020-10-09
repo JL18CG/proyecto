@@ -2,16 +2,6 @@
 @section('titulo') Noticias @endsection
 @section('content')
 <div class="mb-5">
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
     <a href="{{ route("noticias.index") }}" type="button" class="btn btn-danger mt-5"><i class="fa fa-arrow-left"></i> Regresar  </a>
             
     <form  class="mt-3 pb-5" action="{{ route("noticias.update",$noticia->id) }}" method="POST" enctype='multipart/form-data'>

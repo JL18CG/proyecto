@@ -42,7 +42,7 @@ class NoticiaController extends Controller
         $noticias = $noticias->paginate(12);
 
 
-        $categorias = Categoria::pluck('id','nombre'); 
+        $categorias = Categoria::orderby('created_at', 'desc')->pluck('id','nombre'); 
 
         $link_noticia ="active";
         return view('panel.noticias.index', compact('noticias','categorias','link_noticia'));
@@ -77,9 +77,9 @@ class NoticiaController extends Controller
         date_default_timezone_set('America/Chihuahua');
         
         $request->validate([
-            'titulo' =>'required|min:3|max:1000|unique:noticias,titulo',
+            'titulo' =>'required|min:3|max:250|unique:noticias,titulo',
             'autor' =>'required|min:3|max:50',
-            'contenido' =>'required|min:3|max:30000',
+            'contenido' =>'required|min:3|max:20000',
             'categorias'=>'required',
             'imagen'=>'required|mimes:jpg,jpeg,png|max:1024',
         ]);
@@ -158,15 +158,13 @@ class NoticiaController extends Controller
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
         $original_name= $noticia->imagen;
-     
         $request->validate([
-            'titulo' =>'required|min:3|max:1000',
+            'titulo' =>'required|min:3|max:250|unique:noticias,titulo,'.$noticia->id,
             'autor' =>'required|min:3|max:50',
-            'contenido' =>'required|min:3|max:30000',
+            'contenido' =>'required|min:3|max:20000',
             'categorias'=>'required',
             'imagen'=>'mimes:jpg,jpeg,png|max:1024',
         ]);
-
         
         $res = $request->imagen;
         if($res == null){
@@ -291,13 +289,19 @@ class NoticiaController extends Controller
 
     public function categoria_delete($id)
     {
-        $categoria = Categoria::findOrFail($id)->delete();
+        $categoria = Categoria::findOrFail($id);
+
+        
+
         DB::table('categoria_noticia')->where('categoria_id', '=', $id)->delete();
 
         Auditoria::create([
             'user_id' => auth()->user()->id,
             'descripcion' => 'Eliminó la Categoría de Noticia "'.$categoria->nombre.'"'
         ]);
+
+        $categoria->delete();
+
         return back()->with('status', 'Categoría eliminada correctamente')->with('active','list');
     }
 

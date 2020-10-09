@@ -1,21 +1,21 @@
 <div class="row">
     <div class="form-group col-12">
             <label for="titulo">Título*</label>
-            <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" id="titulo" value="{{ old('titulo',$evento->titulo) }}">
+            <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" id="titulo" maxlength="109" value="{{ old('titulo',$evento->titulo) }}">
             @error('titulo')  <div class="invalid-feedback">Introduce un Título Válido.</div>  @enderror
     </div>
 
     <div class="form-group col-12">
             <label for="lugar">Lugar*</label>
-            <input class="form-control  @error('lugar') is-invalid @enderror" type="text" name="lugar" id="lugar" value="{{ old('lugar',$evento->lugar) }}">
+            <input class="form-control  @error('lugar') is-invalid @enderror" type="text" name="lugar" id="lugar" maxlength="109"  value="{{ old('lugar',$evento->lugar) }}">
             @error('lugar')  <div class="invalid-feedback">Introduce un Lugar Válido.</div>  @enderror
     </div>
     <hr>
     <div class="form-group col-12">
-        <label for="desc">Descripcion*</label>
+        <label for="desc">Breve Descripcion*</label>
         <input type="text"  class="form-control is-invalid" hidden>
-        <textarea class="form-control  @error('desc') form-invalid @enderror" type="text" name="desc" id="desc"> {{ old('desc', $evento->desc) }} </textarea>
-        @error('desc')  <div class="invalid-feedback mt-2">Introduce un Contenido Válido.</div>  @enderror
+        <textarea class="form-control  @error('desc') form-invalid @enderror" type="text" name="desc" maxlength="109" id="desc"> {{ old('desc', $evento->desc) }} </textarea>
+        @error('desc')  <div class="invalid-feedback mt-2">Introduce un descripción válida no mayor a 109 carácteres.</div>  @enderror
     </div>
     <hr>
 <div class="form-group col-4">

@@ -56,7 +56,7 @@ class UserController extends Controller
             
         }
                           
-        $auditorias = $auditorias->paginate(5);
+        $auditorias = $auditorias->paginate(18);
        
 
   

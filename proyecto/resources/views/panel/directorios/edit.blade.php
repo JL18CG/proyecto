@@ -5,12 +5,12 @@
 <div>
     <a href="{{ route("directorios.index") }}" type="button" class="btn btn-danger mt-5"><i class="fa fa-arrow-left"></i> Regresar  </a>
     
-    <form  class="mt-3 pb-5" action="{{ route("directorios.update",$directorio->id) }}" method="POST" enctype='multipart/form-data'>
+    <form  class="mt-3 pb-5 mb-5"  action="{{ route("directorios.update",$directorio->id) }}" method="POST" enctype='multipart/form-data'>
         @csrf
         @method('PUT')
         @include('panel.directorios._form')
     
-        <input type="submit" value="Guardar Datos" class="btn btn-success mt-3 float-right">
+        <input type="submit" value="Actualizar Datos" class="btn btn-success mt-3 float-right">
     </form>
     
 </div>

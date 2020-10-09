@@ -1,8 +1,8 @@
 <div class="row">
     <div class="form-group col-4">
             <label for="nombre_lugar">Nombre*</label>
-            <input class="form-control pl-3 pr-3 mr-5  @error('nombre_lugar') is-invalid @enderror" type="text" name="nombre_lugar" id="nombre_lugar" value="{{ old('nombre_lugar',$sitio->nombre_lugar) }}">
-            @error('nombre_lugar')  <div class="invalid-feedback">Introduce un Nombre Válido.</div>  @enderror
+            <input class="form-control pl-3 pr-3 mr-5  @error('nombre_lugar') is-invalid @enderror" type="text" maxlength="109"  name="nombre_lugar" id="nombre_lugar" value="{{ old('nombre_lugar',$sitio->nombre_lugar) }}">
+            @error('nombre_lugar')  <div class="invalid-feedback">Introduce un nombre válido no mayor a 109 carácteres, es posible que el nombre de lugar ya se encuentre registrado.</div>  @enderror
     </div>
 
     <div class="form-group col-8">
@@ -17,22 +17,22 @@
     </div>
     <hr>
     <div class="form-group col-8">
-        <label for="ubicacion">Ubicacion</label>
+        <label for="ubicacion">Google Maps*</label>
         <input type="text"  class="form-control is-invalid" hidden>
-        <input class="form-control  @error('ubicacion') form-invalid @enderror" type="text" name="ubicacion" id="ubicacion" value="{{ old('ubicacion', $sitio->ubicacion) }} "> 
-        @error('ubicacion')  <div class="invalid-feedback mt-2">Introduce una Ubicación Válida.</div>  @enderror
+        <input class="form-control  @error('ubicacion') form-invalid @enderror" type="text" name="ubicacion" id="ubicacion" maxlength="249"  value="{{ old('ubicacion', $sitio->ubicacion) }} "> 
+        @error('ubicacion')  <div class="invalid-feedback mt-2">Introduce una ubicación de google maps válida no mayor a 249 carácteres.</div>  @enderror
     </div>
     <hr>
 <div class="form-group col-4">
-<label for="fecha">Direccion*</label>
-<input class="form-control  @error('direccion') is-invalid @enderror" type="text" name="direccion" id="direccion" value="{{ old('direccion',$sitio->direccion) }}">
-@error('direccion')  <div class="invalid-feedback">Introduce un Lugar Válido.</div>  @enderror
+<label for="fecha">Ubicación*</label>
+<input class="form-control  @error('direccion') is-invalid @enderror" type="text" name="direccion" id="direccion" maxlength="109" value="{{ old('direccion',$sitio->direccion) }}">
+@error('direccion')  <div class="invalid-feedback">Introduce una dirección válida no mayor a 109 caracteres.</div>  @enderror
 </div>
 
 <div class="form-group col-12">
-<label for="descripcion">Descripcion*</label>
-<textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion"> {{ old('descripcion',$sitio->descripcion) }} </textarea>
-@error('descripcion')  <div class="invalid-feedback">Introduce un Descipción Válida.</div>  @enderror
+<label for="descripcion">Breve Descripcion*</label>
+<textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" maxlength="109"  id="descripcion"> {{ old('descripcion',$sitio->descripcion) }} </textarea>
+@error('descripcion')  <div class="invalid-feedback">Introduce un descripción válida no mayor a 109 carácteres.</div>  @enderror
 </div>
 </div>
 

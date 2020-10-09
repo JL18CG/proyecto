@@ -34,6 +34,7 @@ class NoticiaController extends Controller
 
     public function categoria_busqueda($url)
     {  
+      
         $comprovar = DB::table('categorias')->select('url')->get();
         if(!$comprovar->contains('url',$url)){
             return view('404');
@@ -54,7 +55,10 @@ class NoticiaController extends Controller
 
     public function show($url)
     {
-
+        $comprovar = DB::table('noticias')->select('url')->get();
+        if(!$comprovar->contains('url',$url)){
+            return view('404');
+        }
         setlocale(LC_TIME, "spanish");
 
         $noticia = DB::table('noticias')->select('id','titulo','autor','url','descripcion','imagen','created_at')

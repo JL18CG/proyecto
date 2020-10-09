@@ -165,8 +165,7 @@
                 <form id="formAgregar" method="POST" action="{{ route('categoria.post') }}">
                     @csrf  
                     <div class="form-group">
-                        <input class="form-control" type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nombre de la Nueva Categoría">
-                        
+                        <input class="form-control" type="text" name="nombre" id="cont-categoria" value="{{ old('nombre') }}" maxlength="100" placeholder="Nombre de la Nueva Categoría">
                     </div>
 
                     <input type="submit" id="btn-cat">
@@ -231,7 +230,7 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <input class="form-control"  type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nuevo Nombre de la Categoría">
+                        <input class="form-control" id="update-categoria" type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nuevo Nombre de la Categoría">
                     </div>
 
                     <input type="submit" id="btn-update">
@@ -272,8 +271,16 @@ window.onload = function (){
 
         $('#btn-cat').hide();
 
-        $('#categoria').click(function() {
-            $('#btn-cat').click();
+        $("#cont-categoria").change(function() {
+            var value=$.trim($("#cont-categoria").val());
+            if(value.length>0){$("#cont-categoria").removeClass('is-invalid');$("#cont-categoria").addClass('is-valid');
+            }else{$("#cont-categoria").removeClass('is-valid');$("#cont-categoria").addClass('is-invalid');}
+        });
+   
+        $('#categoria').click(function() {            
+            var value=$.trim($("#cont-categoria").val());
+                if(value.length>0){
+                $('#btn-cat').click();}else{$("#cont-categoria").addClass('is-invalid');}
         });
 
 
@@ -304,11 +311,23 @@ window.onload = function (){
 
         $('#btn-update').hide();
 
-        $('#up-categoria').click(function() {
-            $('#btn-update').click();
+        
+
+
+        $("#update-categoria").change(function() {
+            var value=$.trim($("#update-categoria").val());
+            if(value.length>0){$("#update-categoria").removeClass('is-invalid');$("#update-categoria").addClass('is-valid');
+            }else{$("#update-categoria").removeClass('is-valid');$("#update-categoria").addClass('is-invalid');}
         });
-
-
+   
+        $('#up-categoria').click(function() {           
+            var value=$.trim($("#update-categoria").val());
+                if(value.length>0){
+                    $('#btn-update').click();
+                }else
+                    {$("#update-categoria").addClass('is-invalid');
+                }
+        });
 
         
     }

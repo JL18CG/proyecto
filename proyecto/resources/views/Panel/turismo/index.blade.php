@@ -69,8 +69,8 @@
                             <caption>Lista de Categorías Registradas</caption>
                             <thead>
                             <tr class="fondo">
-                                <th scope="col style="min-width:550px !important;"">Nombre del Lugar</th>
-                                <th scope="col">Tipo del lugar</th>
+                                <th scope="col" style="min-width:550px !important;"">Nombre del Lugar</th>
+                                <th scope="col"  class="text-center">Tipo del lugar</th>
                                 <th scope="col"><div class="text-center tabla-w"><span>Acciones</span></div></th>
                             </tr>
                             </thead>
@@ -78,8 +78,8 @@
                                 @foreach ($sitios as $sitio)
                                 <tr>
                                         <td class="pt-3 text-size">{{ $sitio->nombre_lugar }}   </td>
-                                        <td class="pt-3 text-size text-center ">{{ $sitio->tipo_lugar }}   </td>
-                                        <td class="pt-3 text-size">
+                                        <td class="pt-3 text-size text-center">{{ $sitio->tipo_lugar }}   </td>
+                                        <td class="pt-3 text-size text-center">
                                             <a class="btn btn-outline-warning ml-2 mr-2 edit-item" href="{{route('sitios.edit',$sitio->id)}}"><i class="fa fa-pen"></i></a>
                                             <button class="btn btn-outline-danger target-modal ml-2 mr-2" data-toggle="modal" data-target="#deleteModalLugar" data-nombre="{{ $sitio->nombre_lugar }}" data-id="{{ $sitio->id }}"><i class="fa fa-trash"></i></button>
                                         </td>

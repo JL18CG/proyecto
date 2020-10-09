@@ -1,14 +1,14 @@
 <div class="row m-reset">
     <div class="form-group col-12 m-table">
             <label for="titulo">Título de la Noticia*</label>
-            <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" id="titulo" value="{{ old('titulo',$noticia->titulo) }}">
-            @error('titulo')  <div class="invalid-feedback">Introduce un Título Válido. (Es posible que ese Título ya se encuentre registrado)</div>  @enderror
+            <input class="form-control pl-3 pr-3 mr-5  @error('titulo') is-invalid @enderror" type="text" name="titulo" maxlength="250" id="titulo" value="{{ old('titulo',$noticia->titulo) }}">
+            @error('titulo')  <div class="invalid-feedback">Introduce un título válido no mayor a 270 carácteres. (Es posible que ese título ya se encuentre registrado)</div>  @enderror
     </div>
 
     <div class="form-group col-12 m-table">
             <label for="autor">Autor de la Noticia*</label>
-            <input class="form-control  @error('autor') is-invalid @enderror" type="text" name="autor" id="autor" value="Comunicacíon Social">
-            @error('autor')  <div class="invalid-feedback">Introduce un Autor Válido.</div>  @enderror
+            <input class="form-control  @error('autor') is-invalid @enderror" type="text" name="autor" id="autor" maxlength="49" value="Comunicacíon Social">
+            @error('autor')  <div class="invalid-feedback">Introduce un autor válido no mayor a 50 carácteres.</div>  @enderror
     </div>
 
 </div>
@@ -16,8 +16,8 @@
 <div class="form-group">
     <label for="contenido">Contenido*</label>
     <input type="text"  class="form-control is-invalid" hidden>
-    @error('contenido')  <div class="invalid-feedback mt-2">Introduce un Contenido Válido.</div>  @enderror
-    <textarea class="form-control  @error('contenido') form-invalid @enderror" type="text" name="contenido" id="contenido"> {{ old('contenido', $noticia->descripcion) }} </textarea>
+    @error('contenido')  <div class="invalid-feedback mt-2">Introduce un contenido válido, es posible que el contenido que intentas guardar excede el máximo de carácteres aceptados (20000).</div>  @enderror
+    <textarea class="form-control @error('contenido') form-invalid @enderror" type="text" name="contenido" id="contenido"> {{ old('contenido', $noticia->descripcion) }} </textarea>
 </div>
 <hr>
 <div class="form-group col-12 m-table">
@@ -40,7 +40,7 @@
             <option {{ in_array($id, old('categorias') ?: $noticia->categorias->pluck("id")->toArray() ) ? "selected": "" }} class="mt-1 d-flex p-3 align-middle" value="{{$id}}">{{$nombre}}</option>
         @endforeach
     </select>
-    @error('categorias')  <div class="invalid-feedback">Seleccione una(s) Categoría(s) Válida(s) si no Agrege una Categoría en el Panel de Categorías.</div>  @enderror
+    @error('categorias')  <div class="invalid-feedback">Seleccione una(s) categoría(s) válida(s), puede agregar una categoría en el panel de categorías.</div>  @enderror
 </div>
 
 
