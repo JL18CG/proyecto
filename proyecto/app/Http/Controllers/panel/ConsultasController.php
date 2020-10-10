@@ -31,7 +31,7 @@ class ConsultasController extends Controller
         $consultaCs = DB::table('consultas')->where('estado', '=', 'C')->paginate(10);
         Auditoria::create([
             'user_id' => auth()->user()->id,
-            'descripcion' => 'Reviso la consulta "'.$request.'"'
+            'descripcion' => 'Revisó la consulta "'.$request.'"'
         ]);
         return view('panel.consultas.index',compact('consultaPs','consultaCs'));
     }
@@ -46,7 +46,7 @@ class ConsultasController extends Controller
               $consultaCs = DB::table('consultas')->where('estado', '=', 'C')->paginate(10);
         Auditoria::create([
             'user_id' => auth()->user()->id,
-            'descripcion' => 'Quito la consulta revisada "'.$request.'"'
+            'descripcion' => 'Quitó la consulta revisada "'.$request.'"'
         ]);
         return view('panel.consultas.index',compact('consultaPs','consultaCs'));
     }

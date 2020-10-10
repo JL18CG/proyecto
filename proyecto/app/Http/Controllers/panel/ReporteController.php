@@ -29,8 +29,29 @@ class ReporteController extends Controller
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua'); 
 
-        $reportes = DB::table('reportes')->select('id','tipo','titulo','archivo','clas_reporte','created_at')
-        ->orderBy('created_at','DESC')->paginate(12);
+        $reportes = DB::table('reportes')->select('id','tipo','titulo','archivo','clas_reporte','created_at')->orderby('created_at', request('created_at','DESC'));
+        if($request->has('busqueda')){
+
+                $reportes = $reportes->where('titulo', 'like', '%'.request('busqueda').'%');  
+        }
+        
+        $reportes= $reportes->paginate(12);
+
+
+        
+        $auditorias = Auditoria::orderby('created_at', request('created_at','DESC'));
+        if($request->has('auditoria_usuario')){
+            if($request->auditoria_usuario == 'all'){
+                
+            }else{
+                $auditorias = $auditorias->where('user_id', '=', request('auditoria_usuario'));  
+            }
+            
+        }
+                          
+        $auditorias = $auditorias->paginate(18);
+       
+
 
 
         $link_reportes= "active";
@@ -66,7 +87,7 @@ class ReporteController extends Controller
             'reporte' =>'required',
             'clasificacion' =>'required',
             'nombre' =>'required|min:3|max:70',
-            'pdf'=>'required',
+            'pdf'=>'required|mimes:pdf|max:5120',
         ]);
 
   
@@ -142,6 +163,7 @@ class ReporteController extends Controller
             'reporte' =>'required',
             'clasificacion' =>'required',
             'nombre' =>'required|min:3|max:70',
+            'pdf'=>'mimes:pdf|max:5120',
         ]);
 
 

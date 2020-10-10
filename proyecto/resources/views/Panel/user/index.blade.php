@@ -23,15 +23,6 @@
             <div class="mt-3">
                 <h3>Registro de Usuarios</h3>
                 <a href="{{ route("usuarios.create") }}" type="button" class="btn btn-success mt-2 mb-2 col-12-xs">Agregar <i class="fa fa-plus"></i> </a>
-                <form action="{{ route('usuarios.index') }}" class="form-inline float-right mt-2">
-                    <select name="created_at" class="form-control mr-3">
-                            <option value="DESC">Descenente</option>
-                            <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
-                    </select>
-                    <input type="text" value="{{request('busqueda')}}" name="busqueda" placeholder="Buscar" class="form-control mr-3">
-
-                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-                </form>
                     <div class=" table-responsive ">
                         <table class="table table-hover">
                             <caption>Lista de Usuarios Registrados</caption>
@@ -73,32 +64,38 @@
                 
                             </tbody>
                         </table>
-                        {{ $usuarios->appends(
-                            [
-                                'orden'=> request('created_at'),
-                                'busqueda'=> request('busqueda')
-                            ]
-                            )->links() }}
                     </div>
             </div>
             <hr>
             <div class="mt-5">
                 <h3>Registro de Auditorías</h3>
-                <form action="{{ route('usuarios.index') }}" class="form-inline float-right mt-2 mb-2">
-                    <select name="created_at" class="form-control mr-3">
-                            <option value="DESC">Descenente</option>
-                            <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
-                    </select>
-                    <select name="auditoria_usuario" class="form-control mr-3">
-                        <option value="all">-- Seleccionar Usuario --</option>
-                        @foreach ($users as $item)
-                            <option value="{{$item->id}}" id=""  {{request('auditoria_usuario') == $item->id ? "selected": "" }} >{{$item->name}}</option>
-                        @endforeach
-                    </select>
-
-                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                
+                
+                <form action="{{ route('usuarios.index') }}" class="">
+            
+                    <div class="row col-12 mb-3">
+                        <div class="col-md-3 col-xs-12 mt-2">
+                            <select name="created_at" class="form-control mr-3">
+                                <option value="DESC">Descenente</option>
+                                <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
+                        </select>
+                        </div>
+        
+                        <div class="input-group col-md-9 col-xs-12 mt-2">
+                            <select name="auditoria_usuario" class="form-control">
+                                <option value="all">-- Seleccionar Usuario --</option>
+                                @foreach ($users as $item)
+                                    <option value="{{$item->id}}" id=""  {{request('auditoria_usuario') == $item->id ? "selected": "" }} >{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                            <span class="input-group-append">
+                            <button class="btn btn-success text-white" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+            
+                    </div>                    
                 </form>
-
+                
                 <div class=" table-responsive ">
                     <table class="table table-hover">
                         <caption>Lista de Auditorías</caption>
@@ -215,7 +212,7 @@
                 <form id="formAgregarRol" method="POST" action="{{ route('role.post') }}">
                     @csrf  
                     <div class="form-group">
-                        <input class="form-control" type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nombre del Nuevo Rol">
+                        <input class="form-control" type="text" name="nombre" id="nombre-rol" value="{{ old('nombre') }}" placeholder="Nombre del Nuevo Rol">
                         <label for="desc-rol" class="mt-3">Agrega la Descripción del Nuevo Rol</label>
                         <textarea class="form-control mt-1" name="descripcion" id="desc-rol"></textarea>
                     </div>
@@ -248,9 +245,9 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <input class="form-control" type="text" name="nombre"  value="" placeholder="Nombre del Rol">
+                        <input class="form-control" type="text" name="nombre" id="update-rol" required value="" placeholder="Nombre del Rol">
                         <label for="desc-rol" class="mt-3">Actualizar Descripción del Rol</label>
-                        <textarea class="form-control mt-1" name="descripcion" id="desc-rol"></textarea>
+                        <textarea class="form-control mt-1" required name="descripcion" id="desc-rol-up"></textarea>
                     </div>
 
                     <input type="submit" id="btn-update-rol">
@@ -309,14 +306,59 @@ window.onload = function (){
         $('#btn-rol').hide();
 
         $('#rol-enviar').click(function() {
-            $('#btn-rol').click();
+            var value1=$.trim($('#nombre-rol').val());
+            var value2=$.trim($('#desc-rol').val());
+
+            if( value1!="" && value2!=""){
+                $('#btn-rol').click();  
+            }else{
+                if( value1==""){
+                    $("#nombre-rol").addClass('is-invalid');
+                }else{
+                    $("#nombre-rol").removeClass('is-invalid');
+                    $("#nombre-rol").addClass('is-valid');
+                }
+
+                if(value2==""){
+                    $("#desc-rol").addClass('is-invalid');
+                }else{
+                    $("#desc-rol").removeClass('is-invalid');
+                    $("#desc-rol").addClass('is-valid');
+                }
+            }
+            
+            
         });
         
 
         $('#btn-update-rol').hide();
 
         $('#up-rol').click(function() {
-            $('#btn-update-rol').click();
+
+
+            var value1=$.trim($('#update-rol').val());
+            var value2=$.trim($('#desc-rol-up').val());
+
+            if( value1!="" && value2!=""){
+                $('#btn-update-rol').click(); 
+            }else{
+                if( value1==""){
+                    $("#update-rol").addClass('is-invalid');
+                }else{
+                    $("#update-rol").removeClass('is-invalid');
+                    $("#update-rol").addClass('is-valid');
+                }
+
+                if(value2==""){
+                    $("#desc-rol-up").addClass('is-invalid');
+                }else{
+                    $("#desc-rol-up").removeClass('is-invalid');
+                    $("#desc-rol-up").addClass('is-valid');
+                }
+            }
+
+
+            
         });
 
 

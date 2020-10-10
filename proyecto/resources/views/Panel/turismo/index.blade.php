@@ -5,19 +5,19 @@
 <div class="pt-1 pb-5">
     <h3 class="h2 d-block pt-2">Panel de Turismo</h3>
     <hr>    
-    <p>Agrega Proximos Eventos o Los Lugares Atractivos Para Visitar</p>
+    <p>Agrega Los Lugares Atractivos Para Visitar</p>
 
     <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
-        <li class="nav-item ">
+        {{-- <li class="nav-item ">
         <a class="nav-link {{ (session('active')) ? '' : 'active' }}" id="home-tab" data-toggle="tab" href="#p-noticia" role="tab" aria-controls="p-noticia" aria-selected="true">Registro de Eventos</a>
-        </li>
+        </li> --}}
         <li class="nav-item ">
-        <a class="nav-link {{ (session('active')) ? 'active' : '' }}" id="profile-tab" data-toggle="tab" href="#p-lugares" role="tab" aria-controls="p-lugares" aria-selected="false">Registro de Lugares</a>
+        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#p-lugares" role="tab" aria-controls="p-lugares" aria-selected="false">Registro de Lugares</a>
         </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade {{ (session('active')) ? '' : 'active show ' }} " id="p-noticia" role="tabpanel" aria-labelledby="home-tab">
+        {{-- <div class="tab-pane fade {{ (session('active')) ? '' : 'active show ' }} " id="p-noticia" role="tabpanel" aria-labelledby="home-tab">
 
             <div class="mt-3">
                 <a href="{{route('eventos.create')}}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
@@ -57,9 +57,9 @@
             </div>
             
 
-        </div>
+        </div> --}}
 
-        <div class="tab-pane fade {{ (session('active')) ? 'active show ' : '' }} " id="p-lugares" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade active show " id="p-lugares" role="tabpanel" aria-labelledby="profile-tab">
 
             <div class="mt-3">
                 <a href="{{route('sitios.create')}}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>

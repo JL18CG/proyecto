@@ -65,11 +65,11 @@ class DirectorioController extends Controller
         
         $request->validate([
             'nombre' =>'required|min:8|max:110',
-            'cargo' =>'required|min:3|max:50',
+            'cargo' =>'required|min:3|max:110',
             'prioridad' => 'required|unique:directorios',
             'phone'=>'required|numeric|digits_between:7,10',
             'ext'=>'max:3',
-            'imagen'=>'required|mimes:jpg,jpeg,png|max:512',
+            'imagen'=>'required|mimes:jpg,jpeg,png|max:1024',
         ]);
              
         if($request->prioridad == "1"){
@@ -145,11 +145,11 @@ class DirectorioController extends Controller
         $original_name= $directorio->img;
         $request->validate([
             'nombre' =>'required|min:8|max:110',
-            'cargo' =>'required|min:3|max:50',
+            'cargo' =>'required|min:3|max:110',
             'prioridad' => 'required|unique:directorios,prioridad,'.$directorio->id,
             'phone'=>'required|numeric|digits_between:7,10',
             'ext'=>'max:3',
-            'imagen'=>'mimes:jpg,jpeg,png|max:512',
+            'imagen'=>'mimes:jpg,jpeg,png|max:1024',
         ]);
 
         if($request->prioridad == "1"){

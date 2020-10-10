@@ -56,7 +56,7 @@
     </div> 
     <div class="form-group col-12">
         <label for="descripcion">Describe el problema, nombre del funcionario y demas informacion que desees agregar</label>
-        <textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
+        <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
 
@@ -82,7 +82,7 @@
     </div> 
     <div class="form-group col-12">
         <label for="descripcion">Describe el problema, direccion, contacto y/o demas informacion que desees agregar</label>
-        <textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
+        <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
 
@@ -107,7 +107,7 @@
     </div> 
     <div class="form-group col-12">
         <label for="descripcion">Describe el problema, direccion, contacto y/o demas informacion que desees agregar</label>
-        <textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
+        <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
 
@@ -140,7 +140,7 @@
     </div> 
     <div class="form-group col-12">
         <label for="descripcion">Describe el problema o error, El procedimiento que hiciste para que pasara el error y/o demas informacion que desees agregar</label>
-        <textarea class="form-control  @error('descripcion') is-invalid @enderror" type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
+        <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
 

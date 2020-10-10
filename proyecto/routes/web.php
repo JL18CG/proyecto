@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/panel', function () {
-    return view('panel.main');
-})->middleware('auth');
+    return view('panel.home.index');
+})->middleware('auth')->name('panel.index');
 
 /*Usuarios*/
 Route::resource('/panel/usuarios', 'panel\UserController')->except(['show']);
@@ -97,8 +97,8 @@ Route::put('/consultas/crear', 'ppublic\ConsultasController@store')->name('consu
 
 /*Turismo publico*/
 Route::get('/turismo', 'ppublic\TurismoController@index')->name('turismo.index');
-/*Evento publico*/
-Route::get('/eventos', 'ppublic\EventoController@index')->name('evento.index');
+/*Evento publico
+Route::get('/eventos', 'ppublic\EventoController@index')->name('evento.index');*/
 
 
 
@@ -114,5 +114,6 @@ Route::get('/historia', function () {
 
 
 
-Auth::routes();
+Auth::routes(["register" => false, "reset" => false, ]);
 
+Route::get('logout','Auth\LoginController@logout')->name('logout');

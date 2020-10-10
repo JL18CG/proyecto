@@ -11,21 +11,21 @@
         </div>
         <div class="form-group col m-table ">
             <label for="nombre-a">Formación y Nombre Completo*</label>
-        <input type="text"  class=" form-control @error('nombre') is-invalid @enderror" id="nombre-a"placeholder="Introduce el Nombre Completo" name="nombre" value="{{ old('nombre',$directorio->nombre_completo) }}">
-            @error('nombre')  <div class="invalid-feedback">Por favor Introduce un Nombre Válido.</div>  @enderror
+        <input type="text"  class=" form-control @error('nombre') is-invalid @enderror" id="nombre-a"placeholder="Introduce el Nombre Completo" name="nombre" maxlength="109" value="{{ old('nombre',$directorio->nombre_completo) }}">
+            @error('nombre')  <div class="invalid-feedback">Por favor introduce un nombre válido.</div>  @enderror
             <small class="ml-3 form-text text-muted">Ejemplo: Ing. José Luis Villalobos Ramírez</small>
         </div>
         <div class="form-group col m-table">
             <label for="cargo-a">Cargo que Desempeña*</label>
-            <input type="text" class=" form-control @error('cargo') is-invalid @enderror" id="cargo-a" placeholder="Introduce Cargo que Desempeña" name="cargo" value="{{ old('cargo',$directorio->cargo) }}">
-            @error('cargo')  <div class="invalid-feedback">Por favor Introduce un Cargo Válido.</div>  @enderror
+            <input type="text" class=" form-control @error('cargo') is-invalid @enderror" id="cargo-a" placeholder="Introduce Cargo que Desempeña" name="cargo" maxlength="109" value="{{ old('cargo',$directorio->cargo) }}">
+            @error('cargo')  <div class="invalid-feedback">Por favor introduce un cargo Válido.</div>  @enderror
             <small  class="ml-3 form-text text-muted">Ejemplo: Secretario del Ayuntamiento</small>
         </div>
         <div class="row m-reset">
             <div class="form-group col-8 m-table">
                 <label for="telefono-a">Teléfono de Contacto*</label>
                 <input type="number" class=" form-control @error('phone') is-invalid @enderror" id="telefono-a" placeholder="Introduce el Número de Teléfono" name="phone" value="{{ old('phone',$directorio->tel_contacto) }}">
-                @error('phone')  <div class="invalid-feedback">Por favor Introduce un Número Telefónico Válido.</div>  @enderror
+                @error('phone')  <div class="invalid-feedback">Por favor introduce un número telefónico válido.</div>  @enderror
               
                 <small  class="ml-3 form-text text-muted">Ejemplo: 6920000</small>
             </div>

@@ -184,7 +184,7 @@ class NoticiaController extends Controller
             $red->save($destino.'/thumbs/'. $filename);
 
             $noticia->update([
-                'titulo' =>  $request->título,
+                'titulo' =>  $request->titulo,
                 'url' => $url_limpia,
                 'autor' =>  $request->autor,
                 'descripcion' =>  $request->contenido,

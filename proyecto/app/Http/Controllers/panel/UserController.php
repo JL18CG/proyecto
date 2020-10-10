@@ -33,13 +33,9 @@ class UserController extends Controller
         App::setLocale('es');
         date_default_timezone_set('America/Chihuahua');
 
-        $usuarios = User::orderby('created_at', request('created_at','DESC'));
-
-        if($request->has('busqueda')){
-            $usuarios = $usuarios->where('name', 'like', '%'.request('busqueda').'%');  
-        }
+        $usuarios = User::orderby('created_at', 'asc')->get();
                           
-        $usuarios = $usuarios->paginate(5);
+  
 
 
         $users = DB::table('users')->select('id', 'name')->get();
@@ -145,8 +141,8 @@ class UserController extends Controller
         
 
         $request->validate([
-            'name' => 'required|min:3|max:40', 
-            'apellidos' => 'required|min:3|max:50',
+            'name' => 'required|min:3|max:200', 
+            'apellidos' => 'required|min:3|max:250',
             'email' =>'required|email|unique:users,email,'.$usuario->id,
             'telefono'=>'required|numeric|digits_between:7,10',
             'roles'=>'required',

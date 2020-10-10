@@ -24,8 +24,8 @@ class StoreUserPost extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:40', 
-            'apellidos' => 'required|min:3|max:50',
+            'name' => 'required|min:3|max:200', 
+            'apellidos' => 'required|min:3|max:250',
             'password' => 'required|min:8|max:30',
             'email' =>'required|email|unique:users',
             'telefono'=>'required|numeric|digits_between:7,10',

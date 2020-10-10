@@ -8,15 +8,26 @@
     <p>Agrega los reportes para que se publiquen en la página principal.</p>
     <div class="mt-3">
         <a href="{{ route("reportes.create") }}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
-        <form action="{{ route('reportes.index') }}" class="form-inline float-right mt-2">
-   
-                <select name="created_at" class="form-control mr-3">
-                    <option value="DESC">Descenente</option>
-                    <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
-            </select>
-            <input type="text" value="{{request('busqueda')}}" name="busqueda" placeholder="Buscar" class="form-control mr-3">
+        <form action="{{ route('reportes.index') }}" class="">
+            
+            <div class="row col-12 mb-3">
+                <div class="col-md-3 col-xs-12 mt-2">
+                    <select name="created_at" class="form-control mr-1">
+                        <option value="DESC">Descenente</option>
+                        <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
+                    </select>
+                </div>
 
-            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                <div class="input-group col-md-9 col-xs-12 mt-2">
+                    <input type="text" value="{{request('busqueda')}}" style="min-width: 250px" name="busqueda" placeholder="Buscar" class="form-control">
+                    <span class="input-group-append">
+                    <button class="btn btn-success text-white" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+    
+            </div>
+            
+
      
             
         </form>
@@ -25,7 +36,7 @@
                 <caption>Lista de Noticias Publicadas</caption>
                 <thead>
                 <tr class="fondo">
-                    <th scope="col " style="min-width:550px !important;">Nombre del Archivo</th>
+                    <th scope="col " style="min-width:400px !important;">Nombre del Archivo</th>
                     <th scope="col" class="text-center">Tipo</th>
                     <th scope="col" class="text-center">Clasificación</th>
                     <th scope="col" class="text-center">Publicación</th>
@@ -37,8 +48,8 @@
                 @foreach ($reportes as $reporte)
                 <tr>
                         <td class="pt-3 text-size" >{{ $reporte->titulo }}</td>
-                        <td class="pt-3 text-size" >{{ $reporte->tipo }}</td>
-                        <td class="pt-3 text-size" >{{ $reporte->clas_reporte }}</td>
+                        <td class="pt-3 text-size text-center" >{{ $reporte->tipo }}</td>
+                        <td class="pt-3 text-size text-center" >{{ $reporte->clas_reporte }}</td>
                         <td class="text-center pt-3 text-size">{{   date('d-m-Y H:i:s', strtotime($reporte->created_at)) }}</td>
                         <td class="text-center"> 
                             

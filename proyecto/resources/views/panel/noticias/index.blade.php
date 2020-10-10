@@ -21,18 +21,28 @@
 
             <div class="mt-3">
                 <a href="{{ route("noticias.create") }}" type="button" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </a>
-                <form action="{{ route('noticias.index') }}" class="form-inline float-right mt-2">
-           
-                        <select name="created_at" class="form-control mr-3">
-                            <option value="DESC">Descenente</option>
-                            <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
-                    </select>
-                    <input type="text" value="{{request('busqueda')}}" name="busqueda" placeholder="Buscar" class="form-control mr-3" style="min-width: 500px">
 
-                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-             
-                    
+                <form action="{{ route('noticias.index') }}" class="">
+            
+                    <div class="row col-12 mb-3">
+                        <div class="col-md-3 col-xs-12 mt-2">
+                            <select name="created_at" class="form-control mr-1">
+                                <option value="DESC">Descenente</option>
+                                <option  {{ request('created_at') == "ASC" ? "selected": "" }} value="ASC">Ascendente</option>
+                            </select>
+                        </div>
+        
+                        <div class="input-group col-md-9 col-xs-12 mt-2">
+                            <input type="text" value="{{request('busqueda')}}" style="min-width: 250px" name="busqueda" placeholder="Buscar" class="form-control">
+                            <span class="input-group-append">
+                            <button class="btn btn-success text-white" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+            
+                    </div>                   
                 </form>
+
+
                 <div class=" table-responsive ">
                     <table class="table table-hover">
                         <caption>Lista de Noticias Publicadas</caption>
@@ -63,7 +73,7 @@
 
                     {{ $noticias->appends(
                         [
-                            'created_at'=> request('crea5ted_at'),
+                            'created_at'=> request('created_at'),
                             'busqueda'=> request('busqueda')
                         ]
                         )->links() }}
@@ -165,7 +175,7 @@
                 <form id="formAgregar" method="POST" action="{{ route('categoria.post') }}">
                     @csrf  
                     <div class="form-group">
-                        <input class="form-control" type="text" name="nombre" id="cont-categoria" value="{{ old('nombre') }}" maxlength="100" placeholder="Nombre de la Nueva Categoría">
+                        <input class="form-control" type="text" name="nombre" id="cont-categoria" value="{{ old('nombre') }}" maxlength="50" placeholder="Nombre de la Nueva Categoría">
                     </div>
 
                     <input type="submit" id="btn-cat">
@@ -230,7 +240,7 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <input class="form-control" id="update-categoria" type="text" name="nombre"  value="{{ old('nombre') }}" placeholder="Nuevo Nombre de la Categoría">
+                        <input class="form-control" id="update-categoria" type="text" name="nombre" maxlength="50"  value="{{ old('nombre') }}" placeholder="Nuevo Nombre de la Categoría">
                     </div>
 
                     <input type="submit" id="btn-update">

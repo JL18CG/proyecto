@@ -16,7 +16,7 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.2",
+        "laravel/ui": "2.4",
         "laraveles/spanish": "^1.5"
     },
     "require-dev": {

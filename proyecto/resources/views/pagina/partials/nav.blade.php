@@ -33,10 +33,10 @@
                     <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMunicipio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Municipio
                   </a>
-                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdownMunicipio">
-                      <a class="dropdown-item" href="{{Route('turismo.index')}}">Turismo</a>
-                      <a class="dropdown-item" href="{{Route('evento.index')}}">Eventos</a>
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdownMunicipio">        
                       <a class="dropdown-item " href="{{Route('historia.index')}}">Historia</a>
+                      <a class="dropdown-item" href="{{Route('turismo.index')}}">Turismo</a>
+                      {{-- <a class="dropdown-item" href="{{Route('evento.index')}}">Eventos</a> --}}
                     </div>
                   </li>
             </ul>
