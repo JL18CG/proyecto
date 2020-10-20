@@ -274,7 +274,7 @@ class NoticiaController extends Controller
 
         $request->validate(
             [
-                'nombre' =>'required|unique:categorias,nombre,'.$id
+                'nombre' =>'min:3|max:110|required|unique:categorias,nombre,'.$id
             ]);
         $categoria->update(['nombre' =>  $request->nombre, 'url'=>Str::slug($request->nombre)]);
  
