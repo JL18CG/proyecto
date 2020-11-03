@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow-sm">
+<nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{route('panel.index')}}"><img src="{{ asset("img/logos/nav.png") }}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

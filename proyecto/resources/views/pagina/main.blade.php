@@ -52,15 +52,15 @@
         <div class="container container-main pt-5 pb-5">
 
             <div class="col-12">
-              <h2 class="d-block text-center">Las Noticias más Recientes</h2>
+              <h2 class="d-block text-center">Últimas Noticias</h2>
               <hr class="divider-sm">
                   <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-5">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-1">
                       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner  fondo-img">
                                   <div class="carousel-item reset-img-size active">
                                     <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="60px" alt="">
-                                    <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[0]->imagen)}}" alt="First slide">
+                                    <img class="d-block w-100 image" src="{{asset("web/img/noticias/thumbs/".$noticias[0]->imagen)}}"  alt="First slide">
                                     <div class="carousel-caption">
                                       <h5 class="link-inicio"> <a href="{{route('show.noticia', $noticias[0]->url)}}" target="_blank">{{$noticias[0]->titulo}}</a> </h5>
                                     </div>
@@ -68,7 +68,7 @@
                               
                                   <div class="carousel-item reset-img-size">
                                     <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="60px" alt="">
-                                    <img class="d-block w-100 " src="{{asset("web/img/noticias/thumbs/".$noticias[1]->imagen)}}" alt="First slide">
+                                    <img class="d-block w-100 image " src="{{asset("web/img/noticias/thumbs/".$noticias[1]->imagen)}}" alt="First slide">
                                     <div class="carousel-caption">
                                       <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[1]->url)}}" target="_blank">{{$noticias[1]->titulo}}</a></h5>
                                     </div>
@@ -76,7 +76,7 @@
 
                                   <div class="carousel-item reset-img-size">
                                     <img class="img-noticia" src="{{ asset("img/publics/d-ipp/d-imp-log/logo-admon.png") }}" height="60px" alt="">
-                                    <img class="d-block w-100 " src="{{asset("web/img/noticias/thumbs/".$noticias[2]->imagen)}}" alt="First slide">
+                                    <img class="d-block w-100 image" src="{{asset("web/img/noticias/thumbs/".$noticias[2]->imagen)}}" alt="First slide">
                                     <div class="carousel-caption">
                                       <h5 class="link-inicio"><a href="{{route('show.noticia', $noticias[2]->url)}}" target="_blank">{{$noticias[2]->titulo}}</a></h5>
                                     </div>
@@ -97,7 +97,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
                       @if ($noticias->count() == 7 )
                           <div class="row">
-                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 disp-img">
                                   <div class="img-res-noticia n-1">
                                     <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[3]->imagen)}}" alt="">
                                     <div class="cap-image-p text-center">
@@ -105,7 +105,7 @@
                                     </div>
                                   </div>
                               </div>
-                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 disp-img">
                                   <div class="img-res-noticia n-2">
                                     <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[4]->imagen)}}" alt="">
                                     <div class="cap-image-p text-center">
@@ -113,7 +113,7 @@
                                     </div>
                                   </div>
                               </div>
-                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 disp-img">
                                   <div class="img-res-noticia n-3">
                                       <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[5]->imagen)}}" alt="">
                                       <div class="cap-image-p text-center">
@@ -121,7 +121,7 @@
                                       </div>
                                   </div>
                               </div>
-                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 disp-img">
                                   <div class="img-res-noticia n-3">
                                         <img class="d-block w-100" src="{{asset("web/img/noticias/thumbs/".$noticias[6]->imagen)}}" alt="">
                                         <div class="cap-image-p text-center">

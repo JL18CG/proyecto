@@ -14,7 +14,7 @@
     <div class="col-12 mb-4">
       <form action="{{ route('index.noticia') }}" class="form-inline">
         <div class="input-group col-12">
-          <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="¿Quieres Buscar Alguna Noticia en Particular? Solo Escríbelo Aquí">
+          <input type="text" name="busqueda" class="form-control " value="{{request('busqueda')}}" placeholder="Buscar...">
           <span class="input-group-append">
           <button class="btn btn-info text-white" type="submit"><i class="fa fa-search"></i></button>
           </span>

@@ -16,10 +16,10 @@
               Seleccione el tipo de Reporte que desea hacer 
             </button>
             <div class="dropdown-menu w-100 mt-1" aria-labelledby="tipo">
-              <a class="dropdown-item link-rep" id="f-publico">Funcionario Publico</a>
+              <a class="dropdown-item link-rep" id="f-publico">Funcionario Público</a>
               <a class="dropdown-item link-rep" id="f-vialidad">Vialidad</a>
-              <a class="dropdown-item link-rep" id="f-servicios">Servicios Publicos</a>
-              <a class="dropdown-item link-rep" id="f-pagina">Funcionalidad de la pagina</a>
+              <a class="dropdown-item link-rep" id="f-servicios">Servicios Públicos</a>
+              <a class="dropdown-item link-rep" id="f-pagina">Funcionalidad de la página</a>
             </div>
           </div>
     </div>
@@ -55,7 +55,7 @@
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
     <div class="form-group col-12">
-        <label for="descripcion">Describe el problema, nombre del funcionario y demas informacion que desees agregar</label>
+        <label for="descripcion">Describe el problema, nombre del funcionario y demas información que desees agregar</label>
         <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
@@ -81,7 +81,7 @@
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
     <div class="form-group col-12">
-        <label for="descripcion">Describe el problema, direccion, contacto y/o demas informacion que desees agregar</label>
+        <label for="descripcion">Describe el problema, dirección, contacto y/o demas información que desees agregar</label>
         <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
@@ -95,7 +95,7 @@
    @method('PUT')
     
     <div class="form-group col-12">
-        <h4 class="h2 d-block pt-2">Reportes de Servicios Publicos</h4>
+        <h4 class="h2 d-block pt-2">Reportes de Servicios Públicos</h4>
         <label for="tiporeporte">Selecciona el tipo de reporte</label>
         <input style="display:none" name="categoria" id="categoria" value="Servicios Publicos">
         <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">           
@@ -106,7 +106,7 @@
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
     <div class="form-group col-12">
-        <label for="descripcion">Describe el problema, direccion, contacto y/o demas informacion que desees agregar</label>
+        <label for="descripcion">Describe el problema, dirección, contacto y/o demas información que desees agregar</label>
         <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>
@@ -121,7 +121,7 @@
     @method('PUT')
     
     <div class="form-group col-12">
-        <h4 class="h2 d-block pt-2">Reportes de Funcionalidad de la Pagina</h4>
+        <h4 class="h2 d-block pt-2">Reportes de Funcionalidad de la Página</h4>
         <label for="tiporeporte">Selecciona el tipo de reporte</label>
         <input style="display:none" name="categoria" id="categoria" value="Funcionalidad">
         <select class="form-control  @error('tiporeporte') is-invalid @enderror" name="tiporeporte" id="tiporeporte">
@@ -139,7 +139,7 @@
         @error('tiporeporte')  <div class="invalid-feedback">Selecciona un tipo</div>  @enderror
     </div> 
     <div class="form-group col-12">
-        <label for="descripcion">Describe el problema o error, El procedimiento que hiciste para que pasara el error y/o demas informacion que desees agregar</label>
+        <label for="descripcion">Describe el problema o error, El procedimiento que hiciste para que pasara el error y/o demas información que desees agregar</label>
         <textarea class="form-control  @error('descripcion') is-invalid @enderror" required type="text" name="descripcion" id="descripcion" maxlength="250" style="height: 150px;"></textarea>
         @error('descripcion')  <div class="invalid-feedback">Introduce un Descipción</div>  @enderror
         </div>

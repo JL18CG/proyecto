@@ -309,10 +309,10 @@ window.onload = function (){
             var value1=$.trim($('#nombre-rol').val());
             var value2=$.trim($('#desc-rol').val());
 
-            if( value1!="" && value2!=""){
+            if( value1!="" && value1.length>2   && value2!=""){
                 $('#btn-rol').click();  
             }else{
-                if( value1==""){
+                if( value1=="" || value1.length<2 ){
                     $("#nombre-rol").addClass('is-invalid');
                 }else{
                     $("#nombre-rol").removeClass('is-invalid');

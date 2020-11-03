@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-8 col-xs-12">
                         <p class="footer-info">
-                           <strong>Municipio de Casas Grandes:</strong><br>ayuntamientocasasgrandes@hotmail.com <br>(636)69-2-43-43 <br> <br> 
+                           <strong>Municipio de Casas Grandes:</strong><br>ayuntamientocasasgrandes@hotmail.com <br>(636) 69 2 43 43 <br> <br> 
                            <strong>Redes Sociales:</strong> <br>
                            <a href="https://www.facebook.com/casas.grandes.16" target="_blank" class="facebook p-1"><i class="fab fa-facebook-square"></i></a>
                            <a href="https://www.youtube.com/channel/UCWattdxH6_ktA-exIMqRj8Q" target="_blank" class="youtube p-1"><i class="fab fa-youtube "></i></a>
@@ -32,13 +32,14 @@
                     </div>
                     <div class="col-md-4 col-xs-12">
                         <p class="footer-info">
-                            <strong>Números de Emergencia:</strong><br>
-                            Bomberos <br>
-                            <i class="fas fa-phone ml-2 mr-1"></i>22 2 22 22 <br>
+                            <strong>Números Telefónicos:</strong><br>
+                            Seguridad Pública <br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>636 692 4060<br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>911<br>
                             Protección Civil <br>
-                            <i class="fas fa-phone ml-2 mr-1"></i>22 2 22 22 <br>
-                            Vialidad y Tránsito <br>
-                            <i class="fas fa-phone ml-2 mr-1"></i>22 2 22 22 <br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>636 692 4055<br>
+                            DIF<br>
+                            <i class="fas fa-phone ml-2 mr-1"></i>636 692 4050<br>
                          </p>
                     </div>
                 </div>
