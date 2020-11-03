@@ -113,7 +113,7 @@ class NoticiaController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Creó la Noticia "'.$request->titulo.'"'
         ]);
-        return back()->with('status', 'Noticia creada correctamente');
+        return back()->with('status', 'Noticia Creada Correctamente');
     }
 
     /**
@@ -207,7 +207,7 @@ class NoticiaController extends Controller
             'descripcion' => 'Actualizó la Noticia "'.$request->titulo.'"'
         ]);
 
-        return back()->with('status', 'Noticia actualizada correctamente');
+        return back()->with('status', 'Noticia Actualizada Correctamente');
     }
 
     /**
@@ -245,7 +245,7 @@ class NoticiaController extends Controller
         ]);
 
 
-        return back()->with('status', 'Noticia eliminada correctamente');
+        return back()->with('status', 'Noticia Eliminada Correctamente');
     }
 
 
@@ -261,7 +261,7 @@ class NoticiaController extends Controller
             'descripcion' => 'Creó la Categoría de Noticia "'.$request->nombre.'"'
         ]);
 
-        return back()->with('status', 'Categoría creada correctamente')->with('active','list');
+        return back()->with('status', 'Categoría Creada Correctamente')->with('active','list');
     }
 
 
@@ -283,7 +283,7 @@ class NoticiaController extends Controller
             'descripcion' => 'Actualizó la Categoría de Noticia "'.$categoria->nombre.'"'
         ]);
 
-        return back()->with('status', 'Categoría actualizada correctamente')->with('active','list');
+        return back()->with('status', 'Categoría Actualizada Correctamente')->with('active','list');
     }
 
 
@@ -302,7 +302,7 @@ class NoticiaController extends Controller
 
         $categoria->delete();
 
-        return back()->with('status', 'Categoría eliminada correctamente')->with('active','list');
+        return back()->with('status', 'Categoría Eliminada Correctamente')->with('active','list');
     }
 
 }

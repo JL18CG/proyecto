@@ -102,7 +102,7 @@
                         <thead>
                             <tr class="fondo">
                                 <th scope="col" style="width: 280px">Usuario</th>
-                                <th scope="col" class="text-justify">Descripcion de Actividad</th>
+                                <th scope="col" class="text-justify">Descripción de Actividad</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -136,7 +136,7 @@
                             <thead>
                                 <tr class="fondo">
                                     <th scope="col" style="width: 250px">Módulo</th>
-                                    <th scope="col">Descripcion del Rol</th>
+                                    <th scope="col">Descripción del Rol</th>
                                     <th scope="col" style="width: 100px"><div class="text-center tabla-w"><span>Acciones</span></div></th>
                                 </tr>
                             </thead>
@@ -312,7 +312,7 @@ window.onload = function (){
             if( value1!="" && value1.length>2   && value2!=""){
                 $('#btn-rol').click();  
             }else{
-                if( value1=="" || value1.length<2 ){
+                if( value1=="" || value1.length<3 ){
                     $("#nombre-rol").addClass('is-invalid');
                 }else{
                     $("#nombre-rol").removeClass('is-invalid');

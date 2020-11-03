@@ -88,7 +88,7 @@
             <div class="mt-3 mb-3">
                 <button type="button" data-toggle="modal" data-target="#agregarModalCategoria" class="btn btn-success mt-2 mb-2">Agregar <i class="fa fa-plus"></i> </button>
                 
-                <div class="col-xs-12 col-md-6 col-lg-6 m-table">
+                <div class="col-xs-12 col-md-8 col-lg-8 m-table">
                     <div class="table-responsive">
                         <table class="table table-hover ">
                             <caption>Lista de Categorías Registradas</caption>
@@ -289,7 +289,7 @@ window.onload = function (){
    
         $('#categoria').click(function() {            
             var value=$.trim($("#cont-categoria").val());
-                if(value.length>0){
+                if(value.length>2){
                 $('#btn-cat').click();}else{$("#cont-categoria").addClass('is-invalid');}
         });
 
@@ -332,7 +332,7 @@ window.onload = function (){
    
         $('#up-categoria').click(function() {           
             var value=$.trim($("#update-categoria").val());
-                if(value.length>0){
+                if(value.length>2){
                     $('#btn-update').click();
                 }else
                     {$("#update-categoria").addClass('is-invalid');

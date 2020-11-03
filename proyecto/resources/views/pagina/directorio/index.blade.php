@@ -17,7 +17,7 @@
                 <div class="card-header card-header-directorio text-center card-pres">{{$presidente[0]->cargo}}</div>
                 <div class="card-body">
                   <h5 class="card-title text-center dir-nombre">{{$presidente[0]->nombre_completo}}</h5>
-                  {{-- <p class="card-text text-center">{{$presidente[0]->tel_contacto}} @if ($presidente[0]->ext != null) ext {{$presidente[0]->ext}} @endif </p> --}}
+                  <p class="card-text text-center"> <small>{{$presidente[0]->tel_contacto}}</small> @if ($presidente[0]->ext != null)  <small>ext {{$presidente[0]->ext}}</small> @endif</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="card-header card-header-directorio text-center card-pres ">{{$directorio->cargo}}</div>
         <div class="card-body card-body-directorio">
           <h5 class="card-title text-center dir-nombre">{{$directorio->nombre_completo}}</h5>
-          {{-- <p class="card-text text-center">{{$directorio->tel_contacto}} @if ($directorio->ext != null) ext {{$directorio->ext}}  @endif</p> --}}
+          <p class="card-text text-center"> <small>{{$directorio->tel_contacto}}</small> @if ($directorio->ext != null)  <small>ext {{$directorio->ext}}</small> @endif</p>
         </div>
     </div>
     @endforeach

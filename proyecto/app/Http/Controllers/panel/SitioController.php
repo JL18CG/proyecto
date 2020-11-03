@@ -94,7 +94,7 @@ class SitioController extends Controller
             'descripcion' => 'Creó el Sitio Turistico "'.$request->nombre_lugar.'"'
         ]);
 
-        return back()-> with('status', 'Sitio Creado');
+        return back()-> with('status', 'Sitio Creado Correctamente');
     }
 
     /**
@@ -187,7 +187,7 @@ class SitioController extends Controller
             'descripcion' => 'Actualizó el Sitio Turistico "'.$request->nombre_lugar.'"'
         ]);
 
-        return back()-> with('status', 'Sitio editado correctamente');
+        return back()-> with('status', 'Sitio Actualizado Correctamente');
     }
 
     /**

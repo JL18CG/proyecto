@@ -100,7 +100,7 @@ class UserController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Creó el Usuario "'.$request->name.' '.$request->apellidos.'"'
         ]);
-        return back()-> with('status', 'Usuario Creado');
+        return back()-> with('status', 'Usuario Creado Correctamente');
     }
 
     /**
@@ -179,7 +179,7 @@ class UserController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Actualizó el Usuario "'.$request->name.' '.$request->apellidos.'"'
         ]);
-       return back()-> with('status', 'Usuario Actualizado');
+       return back()-> with('status', 'Usuario Actualizado Correctamente');
     }
 
     /**
@@ -201,7 +201,7 @@ class UserController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Eliminó el Usuario "'.$usuario->name.' '.$usuario->apellidos.'"'
         ]);
-        return back()-> with('status', 'Usuario Eliminado');
+        return back()-> with('status', 'Usuario Eliminado Correctamente');
     }
 
 
@@ -232,7 +232,7 @@ class UserController extends Controller
             'user_id' => auth()->user()->id,
             'descripcion' => 'Actualizó el Rol de Usuario "'.$categoria->nombre.'"'
         ]);
-        return back()->with('status', 'Rol Actualizado')->with('active-rol','list');
+        return back()->with('status', 'Rol Actualizado Correctamente')->with('active-rol','list');
     }
 
 
@@ -251,7 +251,7 @@ class UserController extends Controller
             'descripcion' => 'Eliminó el Rol de Usuario "'.$rol->token.'"'
         ]);
 
-        return back()->with('status', 'Rol Eliminado')->with('active-rol','list');
+        return back()->with('status', 'Rol Eliminado Correctamente')->with('active-rol','list');
     }
 
 

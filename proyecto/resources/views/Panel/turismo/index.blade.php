@@ -5,7 +5,7 @@
 <div class="pt-1 pb-5">
     <h3 class="h2 d-block pt-2">Panel de Turismo</h3>
     <hr>    
-    <p>Agrega Los Lugares Atractivos Para Visitar</p>
+    <p>Agrega los lugares atractivos para visitar.</p>
 
     <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
         {{-- <li class="nav-item ">

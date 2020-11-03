@@ -22,7 +22,7 @@
                 <p class="error">404!</p>
                 <hr class="divider-sm">
                 <p>
-                <strong>Error 404:</strong> <br> Estás intentando acceder a reursos que no existen en este sitio.</p>
+                <strong>Error 404:</strong> <br>Los reursos ya no existen en este sitio.</p>
                 <a class="btn btn-success" href="{{route('index.inicio')}}">Página de Inicio</a>            
             </div>
             <img class="img-logo-404" " src="{{ asset('img/publics/d-ipp/d-imp-log/logo-original.png')}}" height="90px" alt="">

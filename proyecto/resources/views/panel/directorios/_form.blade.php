@@ -39,13 +39,15 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-table">
         <div class="form-group m-table">
-            <label class="ml-3" for="telefono-a">Cargar Imagen*</label>
-            
+            <label class="ml-3" for="telefono-a">Cargar Imagen*</label> <br>
+           
             <input class="form-control   @error('imagen') is-invalid @enderror d-none" type="file" accept="image/*" name="imagen" id="dir-img">
             
             <div class="col-12 text-center">
+               
                 <button type="button" class="d-block btn btn-info w-100" id="btn-directorio"><i class="fa fa-upload mr-1"></i> Seleccionar Archivo</button>
                 <img class="img-fluid mt-2 mb-3" id="prev-img"  src="{{($directorio->img) ?? '' ? asset('web/img/directorio/'.$directorio->img) : '' }}" alt="" style="max-width:280px;">
+                <a href="https://compressjpeg.com/es/"  target=”_blank” class="btn btn-info col-12"><i class="fa fa-compress mr-1"></i>Comprimir Imágen</a>
             </div>
             @error('imagen')  <div class="invalid-feedback ml-5">La Imagen debe ser formato JPG, JGEP o PNG y pesar menos de 1MB.</div>  @enderror
         </div> 

@@ -26,7 +26,7 @@
                            <a href="https://www.youtube.com/channel/UCWattdxH6_ktA-exIMqRj8Q" target="_blank" class="youtube p-1"><i class="fab fa-youtube "></i></a>
                            <br>
                            <br>
-                           <strong>Sistema</strong><br>
+                           <strong>Sistema:</strong><br>
                            <a href="{{ route('login') }}" target="_blank" class="login-link"><i class="fas fa-sign-in-alt"></i></a>
                         </p>
                     </div>

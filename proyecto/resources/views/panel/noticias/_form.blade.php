@@ -21,8 +21,9 @@
 </div>
 <hr>
 <div class="form-group col-12 m-table">
-    <label for="img">Cargar Imagen*</label>
-    <button type="button" class="ml-3 btn btn-info " id="btn-img"><i class="fa fa-upload mr-1"></i> Seleccionar Archivo</button>
+    <label for="img">Cargar Imagen*</label> <br>
+    <button type="button" class="ml-3 mr-3 btn btn-info" id="btn-img"><i class="fa fa-upload mr-1"></i> Seleccionar Archivo</button>
+    <a href="https://compressjpeg.com/es/"  target=”_blank” class="ml-3 mr-3 btn btn-info"><i class="fa fa-compress mr-1"></i>Comprimir Imágen</a>
     <input class="form-control  @error('imagen') is-invalid @enderror d-none" type="file" accept="image/*" name="imagen" id="img">
     @error('imagen')  <div class="invalid-feedback">La Imagen debe ser formato JPG, JPEG o PNG y pesar menos de 1MB.</div>  @enderror
     <div  class="col-12 mt-2">
